@@ -103,7 +103,7 @@
 |ancestry|string|null: false|
 
 ### Association
-- has_many: items_postages
+- has_ancestry: items_postages
 
 
 ## buyersテーブル
@@ -136,7 +136,7 @@
 
 ### Association
 - has_many: items, through: :items_categories
-- has_many: items_categories
+- has_ancestry: items_categories
 
 
 ## sizesテーブル
