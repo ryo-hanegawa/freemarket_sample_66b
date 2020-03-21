@@ -87,7 +87,7 @@
 
 ### Association
 - belongs_to: item
-- has_many: postage
+- belongs_to: postage
 
 
 ## postagesテーブル
