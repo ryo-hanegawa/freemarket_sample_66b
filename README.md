@@ -19,12 +19,10 @@
 |phone_number|integer|null: false|
 
 ### Association
-- belongs_to: shipping_info
-- belongs_to: credit_card
-- has_many: seller
-- has_many: buyer
-- has_many: items, through:  seller
-- has_many: items, through: :buyer
+- belongs_to: creditcard
+- has_many: items
+- has_many: buyers
+- has_many: items, through: :buyers
 
 
 ## creditcardsテーブル
@@ -41,62 +39,56 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|name|string|null: false|
+|description|text|null: false|
+|price|string|null: false|
+|user|references|null: false, foreign_key: true|
 
 ### Association
-- has_many: pictures
-- has_many: sellers
-- has_many: users, through: sellers
+- has_many: images
 - has_many: buyers
 - has_many: users, through: :buyers
 - has_many: items_categories
 - has_many: categories, through: :items_categories
 - has_many: items_postages
 - has_many: postages, through: :items_postages
+- belongs_to: user
 - belongs_to: size
-- belongs_to: bland
-- belongs_to: items_status
+- belongs_to: brand
+- belongs_to: condition
 - belongs_to: shipping_area
 - belongs_to: delibery_date
 
 
-### items_postagesテーブル
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|text|null: false|
+|item|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to: item
+
+
+## items_postagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |item|references|null: false, foreign_key: true|
 |postage|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to: items
+- belongs_to: item
 - has_many: postage
+
 
 ## postagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postage|string|null: false, foreign_key: true|
-|ancestry|string|null: false, foreign_key: true|
+|postage|string|null: false|
+|ancestry|string|null: false|
 
 ### Association
 - has_many: items_postages
-
-
-## picturesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|picture|string|null: false|
-
-### Association
-- belongs_to: item
-
-
-## sellersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user|reference|null: false, foreign_key: true|
-|item|reference|null: false, foreign_key: true|
-
-### Association
-- belongs_to: user
-- belongs_to: item
 
 
 ## buyersテーブル
@@ -113,6 +105,7 @@
 ## items_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|item|reference|null: false, foreign_key: true|
 |category|reference|null: false, foreign_key: true|
 
 ### Association
@@ -123,10 +116,12 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category|string|null: false|
+|name|string|null: false|
+|ancestry|string|null: false|
 
 ### Association
 - has_many: items, through: :items_categories
+- has_many: items_categories
 
 
 ## sizesテーブル
@@ -138,16 +133,16 @@
 - has_many: items
 
 
-## blandsテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|bland|string||
+|name|string||
 
 ### Association
-- has_many: items
+- has_many: items_brands
 
 
-## items_statusesテーブル
+## conditionsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |status|string|null: false|
