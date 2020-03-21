@@ -19,7 +19,7 @@
 |phone_number|integer|null: false|
 
 ### Association
-- belongs_to: creditcard
+- has_many: creditcards
 - has_many: items
 - has_many: buyers
 - has_many: items, through: :buyers
