@@ -19,9 +19,9 @@
 |phone_number|integer|null: false|
 
 ### Association
-- has_many: creditcards
-- has_many: items
-- has_many: buyers
+- has_many: creditcards, dependent: :destroy
+- has_many: items, dependent: :destroy
+- has_many: buyers, dependent: :destroy
 - has_many: items, through: :buyers
 
 
