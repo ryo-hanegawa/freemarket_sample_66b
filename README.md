@@ -4,18 +4,13 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, unique: true, index: true|
-|last_name_kanji|string|null: false|
-|first_name_kanji|string|null: false|
+|last_name|string|null: false|
+|first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
-|postalcode|integer|null: false|
-|prefectures|string|null: false|
-|municipalities|string|null: false|
-|address|string|null: false|
-|building_name|string||
 |phone_number|integer|null: false|
 
 ### Association
@@ -23,6 +18,20 @@
 - has_many: items, dependent: :destroy
 - has_many: buyers, dependent: :destroy
 - has_many: items, through: :buyers
+- has_many: address, dependent: : destroy
+
+
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|postalcode|integer|null: false|
+|prefectures|string|null: false|
+|municipalities|string|null: false|
+|address|string|null: false|
+|building_name|string||
+
+### Association
+- belongs_to: user
 
 
 ## creditcardsテーブル
