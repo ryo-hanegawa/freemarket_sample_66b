@@ -45,12 +45,12 @@
 |user|references|null: false, foreign_key: true|
 
 ### Association
-- has_many: images
-- has_many: buyers
+- has_many: images, dependent: :destroy
+- has_many: buyers, dependent: :destroy
 - has_many: users, through: :buyers
-- has_many: items_categories
+- has_many: items_categories, dependent: :destroy
 - has_many: categories, through: :items_categories
-- has_many: items_postages
+- has_many: items_postages, dependent: :destroy
 - has_many: postages, through: :items_postages
 - belongs_to: user
 - belongs_to: size
