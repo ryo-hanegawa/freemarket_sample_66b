@@ -25,13 +25,14 @@
 |Column|Type|Options|
 |------|----|-------|
 |postalcode|integer|null: false|
-|prefectures|string|null: false|
+|prefecture|integer|null: false, foreign_key: true|
 |municipalities|string|null: false|
 |address|string|null: false|
 |building_name|string||
 
 ### Association
 - belongs_to: user
+- belongs_to: prefecture
 
 
 ## creditcardsテーブル
@@ -39,7 +40,7 @@
 |------|----|-------|
 |customer_id|string|null: false|
 |card_id|string|null: false|
-|user|references|null: false, foreign_key:true|
+|user|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to: user
@@ -52,6 +53,7 @@
 |description|text|null: false|
 |price|string|null: false|
 |user|references|null: false, foreign_key: true|
+|prefecture|references|null: false, foreign_key: true|
 
 ### Association
 - has_many: images, dependent: :destroy
@@ -65,7 +67,7 @@
 - belongs_to: size
 - belongs_to: brand
 - belongs_to: condition
-- belongs_to: shipping_area
+- belongs_to: prefecture
 - belongs_to: delibery_date
 
 
@@ -160,13 +162,14 @@
 - has_many: items
 
 
-## shipping_areasテーブル
+## prefecturesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |prefecture|string|null: false|
 
 ### Association
 - has_many: items
+- has_many: address
 
 
 ## delibery_datesテーブル
