@@ -54,6 +54,9 @@
 |price|string|null: false|
 |user|references|null: false, foreign_key: true|
 |prefecture|references|null: false, foreign_key: true|
+|size|references|null: false, foreign_key: true|
+|condition|references|null: false, foreign_key: true|
+|deliberydate|references|null: false, foreign_key: true|
 
 ### Association
 - has_many: images, dependent: :destroy
