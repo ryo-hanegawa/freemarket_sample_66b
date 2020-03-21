@@ -18,21 +18,22 @@
 - has_many: items, dependent: :destroy
 - has_many: buyers, dependent: :destroy
 - has_many: items, through: :buyers
-- has_many: address, dependent: : destroy
+- has_many: addresses, dependent: : destroy
 
 
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |postalcode|integer|null: false|
-|prefecture|references|null: false, foreign_key: true|
+|prefecture|string|null: false|
 |municipalities|string|null: false|
 |address|string|null: false|
 |building_name|string||
+|user|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to: user
-- belongs_to: prefecture
+- belongs_to_active_hash :prefecture
 
 
 ## creditcardsテーブル
@@ -53,9 +54,10 @@
 |description|text|null: false|
 |price|string|null: false|
 |user|references|null: false, foreign_key: true|
-|prefecture|references|null: false, foreign_key: true|
 |size|references|null: false, foreign_key: true|
+|brand|references|null: false, foreign_key: true|
 |condition|references|null: false, foreign_key: true|
+|prefecture|string|null: false|
 |deliberydate|references|null: false, foreign_key: true|
 
 ### Association
@@ -70,7 +72,6 @@
 - belongs_to: size
 - belongs_to: brand
 - belongs_to: condition
-- belongs_to: prefecture
 - belongs_to: delibery_date
 
 
@@ -163,16 +164,6 @@
 
 ### Association
 - has_many: items
-
-
-## prefecturesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|prefecture|string|null: false|
-
-### Association
-- has_many: items
-- has_many: address
 
 
 ## delibery_datesテーブル
