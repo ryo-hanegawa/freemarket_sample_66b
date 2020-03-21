@@ -25,7 +25,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |postalcode|integer|null: false|
-|prefecture|integer|null: false, foreign_key: true|
+|prefecture|references|null: false, foreign_key: true|
 |municipalities|string|null: false|
 |address|string|null: false|
 |building_name|string||
