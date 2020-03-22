@@ -6,8 +6,8 @@
 |nickname|string|null: false, unique: true, index: true|
 |last_name|string|null: false|
 |first_name|string|null: false|
-|last_name_kana|string|null: false|
-|first_name_kana|string|null: false|
+|last_name_reading|string|null: false|
+|first_name_reading|string|null: false|
 |birth_year|integer|null: false, default: 0|
 |birth_month|integer|null: false, default: 0|
 |birth_day|integer|null: false, default: 0|
