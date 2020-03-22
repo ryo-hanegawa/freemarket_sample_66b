@@ -59,6 +59,7 @@
 |condition|integer|null: false, default: 0|
 |prefecture|integer|null: false, default: 0|
 |deliberydate|integer|null: false, default: 0|
+|postage|integer|null: false, default: 0|
 
 ### Association
 - has_many: images, dependent: :destroy
@@ -66,8 +67,6 @@
 - has_many: users, through: :buyers
 - has_many: items_categories, dependent: :destroy
 - has_many: categories, through: :items_categories
-- has_many: items_postages, dependent: :destroy
-- has_many: postages, through: :items_postages
 - belongs_to: user
 - belongs_to: brand
 
@@ -80,29 +79,6 @@
 
 ### Association
 - belongs_to: item
-
-
-## items_postagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item|references|null: false, foreign_key: true|
-|postage|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to: item
-- belongs_to: postage
-
-
-## postagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|postage|string|null: false|
-|ancestry|string|null: false|
-
-### Association
-- has_many: items, through: :items_postages
-- has_many: items_postages
-- has_ancestry: items_postages
 
 
 ## buyersテーブル
