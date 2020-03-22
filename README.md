@@ -16,8 +16,6 @@
 ### Association
 - has_many: creditcards, dependent: :destroy
 - has_many: items, dependent: :destroy
-- has_many: buyers, dependent: :destroy
-- has_many: items, through: :buyers
 - has_many: addresses, dependent: : destroy
 
 
@@ -60,13 +58,11 @@
 |prefecture|integer|null: false, default: 0|
 |deliberydate|integer|null: false, default: 0|
 |postage|integer|null: false, default: 0|
+|buyer|references|null: false, foreign_key: true|
 
 ### Association
 - has_many: images, dependent: :destroy
-- has_many: buyers, dependent: :destroy
-- has_many: users, through: :buyers
-- has_many: items_categories, dependent: :destroy
-- has_many: categories, through: :items_categories
+- has_many: categories
 - belongs_to: user
 - belongs_to: brand
 
@@ -78,17 +74,6 @@
 |item|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to: item
-
-
-## buyersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user|reference|null: false, foreign_key: true|
-|item|reference|null: false, foreign_key: true|
-
-### Association
-- belongs_to: user
 - belongs_to: item
 
 
@@ -110,8 +95,7 @@
 |ancestry|string|null: false|
 
 ### Association
-- has_many: items, through: :items_categories
-- has_many: items_categories
+- has_many: items
 - has_ancestry
 
 
