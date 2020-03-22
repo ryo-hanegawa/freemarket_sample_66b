@@ -94,4 +94,4 @@
 |name|string||
 
 ### Association
-- has_many: items_brands
+- has_many: items
