@@ -53,6 +53,7 @@
 |price|string|null: false|
 |user|references|null: false, foreign_key: true|
 |size|integer|null: false, default: 0|
+|category|references|null: false, foreign_key: true|
 |brand|references|null: false, foreign_key: true|
 |condition|integer|null: false, default: 0|
 |prefecture|integer|null: false, default: 0|
