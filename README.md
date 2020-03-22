@@ -58,7 +58,7 @@
 |prefecture|integer|null: false, default: 0|
 |deliberydate|integer|null: false, default: 0|
 |postage|integer|null: false, default: 0|
-|buyer|references|null: false, foreign_key: true|
+|buyer|references|foreign_key: true|
 
 ### Association
 - has_many: images, dependent: :destroy
