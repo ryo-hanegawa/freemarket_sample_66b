@@ -8,9 +8,9 @@
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
+|birth_year|integer|null: false, default: 0|
+|birth_month|integer|null: false, default: 0|
+|birth_day|integer|null: false, default: 0|
 |phone_number|integer|null: false|
 
 ### Association
@@ -25,7 +25,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |postalcode|integer|null: false|
-|prefecture|string|null: false|
+|prefecture|integer|null: false, default: 0|
 |municipalities|string|null: false|
 |address|string|null: false|
 |building_name|string||
@@ -54,11 +54,11 @@
 |description|text|null: false|
 |price|string|null: false|
 |user|references|null: false, foreign_key: true|
-|size|references|null: false, foreign_key: true|
+|size|integer|null: false, default: 0|
 |brand|references|null: false, foreign_key: true|
-|condition|references|null: false, foreign_key: true|
-|prefecture|string|null: false|
-|deliberydate|references|null: false, foreign_key: true|
+|condition|integer|null: false, default: 0|
+|prefecture|integer|null: false, default: 0|
+|deliberydate|integer|null: false, default: 0|
 
 ### Association
 - has_many: images, dependent: :destroy
@@ -69,10 +69,7 @@
 - has_many: items_postages, dependent: :destroy
 - has_many: postages, through: :items_postages
 - belongs_to: user
-- belongs_to: size
 - belongs_to: brand
-- belongs_to: condition
-- belongs_to: delibery_date
 
 
 ## imagesテーブル
@@ -103,6 +100,8 @@
 |ancestry|string|null: false|
 
 ### Association
+- has_many: items, through: :items_postages
+- has_many: items_postages
 - has_ancestry: items_postages
 
 
@@ -136,16 +135,8 @@
 
 ### Association
 - has_many: items, through: :items_categories
-- has_ancestry: items_categories
-
-
-## sizesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|size|string|null: false|
-
-### Association
-- has_many: items
+- has_many: items_categories
+- has_ancestry
 
 
 ## brandsテーブル
@@ -155,21 +146,3 @@
 
 ### Association
 - has_many: items_brands
-
-
-## conditionsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|status|string|null: false|
-
-### Association
-- has_many: items
-
-
-## delibery_datesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|delibery_date|string|null: false|
-
-### Association
-- has_many: items
