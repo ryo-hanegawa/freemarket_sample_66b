@@ -62,7 +62,7 @@
 
 ### Association
 - has_many: images, dependent: :destroy
-- has_many: categories
+- belongs_to: category
 - belongs_to: user
 - belongs_to: brand
 
@@ -75,17 +75,6 @@
 
 ### Association
 - belongs_to: item
-
-
-## items_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item|reference|null: false, foreign_key: true|
-|category|reference|null: false, foreign_key: true|
-
-### Association
-- belongs_to: item
-- belongs_to: category
 
 
 ## categoriesテーブル
