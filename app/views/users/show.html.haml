@@ -1,4 +1,39 @@
 .header
+  ヘッダー
+
 .main
-  hello!
-.fooder
+  .main__contents
+    .left-contents
+      %ul.left-contents__mypage-nav
+        %li.left-contents__mypage-nav__list#list-top
+          = link_to root_path do
+            ユーザーマイページ
+        %li.left-contents__mypage-nav__list
+          出品した商品ー出品中
+        %li.left-contents__mypage-nav__list
+          出品した商品ー売却済
+        %li.left-contents__mypage-nav__list
+          購入した商品ー過去の取引
+        %li.left-contents__mypage-nav__list
+          お問い合わせ
+      %ul.left-contents__setting
+        %li.left-contents__setting__list#list-top
+          プロフィール
+        %li.left-contents__setting__list
+          発送元・お届け先住所変更
+        %li.left-contents__setting__list
+          支払い方法
+        %li.left-contents__setting__list
+          メールパスワード
+        %li.left-contents__setting__list
+          ログアウト
+
+    .right-contents
+      .right-contents__user
+        .right-contents__user__icon
+          .right-contents__user__icon__figure
+          .right-contents__user__icon__user-name
+            明石家 さんま
+
+.footer
+  フッター
