@@ -54,9 +54,11 @@
             .right-contents__add-info__expire__wrapper
               = f.select :expire_month, Creditcard.expire_months.keys.map { |k| [k, k] }, prompt: ""
               %span.expire-text 月
+              =icon("fas", "fa-ad", class: "font")
             .right-contents__add-info__expire__wrapper
               = f.select :expire_year, Creditcard.expire_years.keys.map { |k| [k, k] }, prompt: ""
               %span.expire-text 年
+              =icon("fas", "fa-ad", class: "font")
           .right-contents__add-info__security-code
             = f.label :セキュリティコード, class: "label"
             %span.form-require 必須
@@ -68,3 +70,4 @@
             = f.submit :追加する, type: 'button', class: 'button'
 
 .footer
+  

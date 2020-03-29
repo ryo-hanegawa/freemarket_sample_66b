@@ -139,6 +139,10 @@ $color-3CCACE: #3CCACE;
             margin-top: 8px;
             border: solid 1px #ccc;
             border-radius: 5px;
+            outline: none;
+          }
+          .input:focus {
+            border-color: #0099e8;
           }
         }
         &__expire {
@@ -163,6 +167,7 @@ $color-3CCACE: #3CCACE;
             height: 50px;
             margin-top: 8px;
             display: inline-block;
+            position: relative;
             select {
               width: 128px;
               height: 50px;
@@ -173,10 +178,28 @@ $color-3CCACE: #3CCACE;
               border-radius: 5px;
               border: solid 1px #ccc;
               padding: 0 16px 0 16px;
+              cursor: pointer;
+              outline: none;
+            }
+            select:focus {
+              border-color: #0099e8;
             }
             .expire-text {
               margin-left: 10px;
               font-size: 14px;
+            }
+            .font:before {
+              position: absolute;
+              top: 15px;
+              left: 100px;
+              display:block;
+              content:"\f107";
+              width:20px;
+              height:20px;
+              font-weight:900;
+              color: #888;
+              font-size: 1.5em;
+              cursor: pointer;
             }
           }
         }
@@ -204,6 +227,10 @@ $color-3CCACE: #3CCACE;
             margin-top: 8px;
             border: solid 1px #ccc;
             border-radius: 5px;
+            outline: none;
+          }
+          .input:focus {
+            border-color: #0099e8;
           }
         }
         &__question {
