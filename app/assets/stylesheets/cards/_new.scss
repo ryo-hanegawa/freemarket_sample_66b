@@ -24,7 +24,6 @@ $color-3CCACE: #3CCACE;
   &__contents {
     width: 1020px;
     height: 100%;
-    // background-color: #d2d;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -32,7 +31,6 @@ $color-3CCACE: #3CCACE;
       width: 280px;
       height: 540px;
       margin: 40px 40px 40px 0;
-      // background-color: #454545;
       &__mypage-nav {
         width: 100%;
         height: 250px;
@@ -100,7 +98,7 @@ $color-3CCACE: #3CCACE;
     }
     .right-contents {
       width: calc(100% - 280px);
-      height: 256px;
+      height: 550px;
       margin: 40px 0;
       &__card-info {
         width: 100%;
@@ -115,8 +113,136 @@ $color-3CCACE: #3CCACE;
       }
       &__add-info {
         width: 100%;
-        height: 300px;
-        margin: 0 auto;
+        height: 500px;
+        padding: 40px;
+        &__number {
+          width: 340px;
+          height: 82px;
+          margin: 0 auto;
+          .label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+          .form-require {
+            color: #fff;
+            font-size: 12px;
+            background-color: red;
+            padding: 3px 6px 4px 6px;
+            margin-left: 8px;
+            border-radius: 2px;
+            vertical-align: center;
+          }
+          .input {
+            width: 100%;
+            height: 50px;
+            padding-left: 16px;
+            margin-top: 8px;
+            border: solid 1px #ccc;
+            border-radius: 5px;
+          }
+        }
+        &__expire {
+          width: 340px;
+          height: 82px;
+          margin: 32px auto 0 auto;
+          .label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+          .form-require {
+            color: #fff;
+            font-size: 12px;
+            background-color: red;
+            padding: 3px 6px 4px 6px;
+            margin-left: 8px;
+            border-radius: 2px;
+            vertical-align: center;
+          }
+          &__wrapper {
+            width: 166px;
+            height: 50px;
+            margin-top: 8px;
+            display: inline-block;
+            select {
+              width: 128px;
+              height: 50px;
+              background-color: #fff;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              border-radius: 5px;
+              border: solid 1px #ccc;
+              padding: 0 16px 0 16px;
+            }
+            .expire-text {
+              margin-left: 10px;
+              font-size: 14px;
+            }
+          }
+        }
+        &__security-code {
+          width: 340px;
+          height: 82px;
+          margin: 32px auto 0 auto;
+          .label {
+            font-size: 14px;
+            font-weight: bold;
+          }
+          .form-require {
+            color: #fff;
+            font-size: 12px;
+            background-color: red;
+            padding: 3px 6px 4px 6px;
+            margin-left: 8px;
+            border-radius: 2px;
+            vertical-align: center;
+          }
+          .input {
+            width: 100%;
+            height: 50px;
+            padding-left: 16px;
+            margin-top: 8px;
+            border: solid 1px #ccc;
+            border-radius: 5px;
+          }
+        }
+        &__question {
+          width: 340px;
+          height: 14px;
+          margin: 8px auto 0 auto;
+          display: flex;
+          justify-content: flex-end;
+          .question-mark {
+            width: 14px;
+            height: 14px;
+            background-color: #0099e8;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 12px;
+            text-align: center;
+            line-height: 14px;
+          }
+          .letter {
+            font-size: 14px;
+            line-height: 14px;
+            color: #0099e8;
+          }
+        }
+        &__submit {
+          width: 340px;
+          height: 82px;
+          margin: 32px auto 0 auto;
+          display: flex;
+          .button {
+            width: 100%;
+            height: 50px;
+            background-color:$color-3CCACE;
+            border: solid 1px $color-3CCACE;
+            font-size: 14px;
+            color: #fff;
+            cursor: pointer;
+          }
+        }
       }
     }
   }
