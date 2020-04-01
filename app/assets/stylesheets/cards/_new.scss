@@ -171,7 +171,8 @@ $color-3CCACE: #3CCACE;
             select {
               width: 128px;
               height: 50px;
-              background-color: #fff;
+              // background-color: #fff;
+              background-color: transparent;
               -webkit-appearance: none;
               -moz-appearance: none;
               appearance: none;
@@ -180,6 +181,8 @@ $color-3CCACE: #3CCACE;
               padding: 0 16px 0 16px;
               cursor: pointer;
               outline: none;
+              position: relative;
+              z-index: 1;
             }
             select:focus {
               border-color: #0099e8;
