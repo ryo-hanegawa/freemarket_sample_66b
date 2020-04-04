@@ -4,13 +4,13 @@
 }
 
 @mixin list-top {
-  @include background-size(100%, 50px);
+  @include background-size(50px, 100%);
   background-color: $color-3CCACE;
   font-weight: bold;
 }
 
 @mixin list-content {
-  @include background-size(100%, 48px);
+  @include background-size(48px, 100%);
   margin-right: 16px;
   background-color: $color-fff;
   font-size: $font-size_16;
@@ -21,6 +21,7 @@
 @mixin list-position {
   display: block;
   padding-left: 16px;
+  color: $color-000;
 }
 
 @mixin list-action {

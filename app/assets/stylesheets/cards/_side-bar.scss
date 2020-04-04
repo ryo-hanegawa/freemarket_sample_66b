@@ -1,8 +1,8 @@
 .left-contents {
-  @include background-size(280px, 540px);
+  @include background-size(540px, 280px);
   margin: 40px 40px 40px 0px;
   &__mypage-nav {
-    @include background-size(100%, 250px);
+    @include background-size(250px, 100%);
     #list-top {
       @include list-top;
     }
@@ -17,7 +17,7 @@
     }
   }
   &__setting {
-    @include background-size(100%, 250px);
+    @include background-size(250px, 100%);
     margin-top: 40px;
     #list-top {
       @include list-top;
