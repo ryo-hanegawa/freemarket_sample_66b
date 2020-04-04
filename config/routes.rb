@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :users, only: :show do
     resources :creditcards, only: [:index, :new, :create, :destroy]
   end
+  resources :logouts, only: :index
 end

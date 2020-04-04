@@ -1,0 +1,14 @@
+.header
+  ヘッダー
+
+.main
+  .main__contents
+    .left-contents
+      = render 'shared/side-bar'
+
+    .right-contents
+      .right-contents__logout
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+
+.footer
+  フッター
