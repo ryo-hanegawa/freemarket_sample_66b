@@ -1,0 +1,42 @@
+.header
+  ヘッダー
+
+.main
+  .main__contents
+    .left-contents
+      = render "side-bar"
+  
+    .right-contents
+      .right-contents__card-info
+        クレジットカード情報入力
+      .right-contents__add-info
+        -# コントローラ作成前なので仮のパス
+        = form_with url: user_creditcards_path do |f|
+          .right-contents__add-info__number
+            = f.label :カード番号, class: "label"
+            %spa.form-require 必須
+            = f.text_field :customer_id, type: 'text', class: 'input', placeholder: '半角英数のみ', maxlength: '16'
+          .right-contents__add-info__expire
+            = f.label :有効期限, class: 'label'
+            %span.form-require 必須
+            %br
+            .right-contents__add-info__expire__wrapper
+              = f.select :expire_month, Creditcard.expire_months.keys.map { |k| [k, k] }, prompt: ""
+              %span.expire-text 月
+              =icon("fas", "fa-ad", class: "font")
+            .right-contents__add-info__expire__wrapper
+              = f.select :expire_year, Creditcard.expire_years.keys.map { |k| [k, k] }, prompt: ""
+              %span.expire-text 年
+              =icon("fas", "fa-ad", class: "font")
+          .right-contents__add-info__security-code
+            = f.label :セキュリティコード, class: "label"
+            %span.form-require 必須
+            = f.text_field :card_id, type: 'text', class: 'input', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: '4'
+          .right-contents__add-info__question
+            .question-mark ?
+            .letter カード裏面の番号とは？
+          .right-contents__add-info__submit
+            = f.submit :追加する, type: 'button', class: 'button'
+
+.footer
+  
