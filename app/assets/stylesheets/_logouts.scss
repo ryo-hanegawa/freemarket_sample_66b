@@ -39,8 +39,9 @@ $font-size_16: 16px;
     justify-content: center;
     @import "cards/side-bar";
 
-    .right-contents {
+    .right {
       @include background-size(200px, calc(100% - 280px));
+      background-color: $color-fff;
       margin: 40px 0;
       display: flex;
       justify-content: center;

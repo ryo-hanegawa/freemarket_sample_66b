@@ -14,7 +14,7 @@
         = form_with url: user_creditcards_path do |f|
           .right-contents__add-info__number
             = f.label :カード番号, class: "label"
-            %spa.form-require 必須
+            %span.form-require 必須
             = f.text_field :customer_id, type: 'text', class: 'input', placeholder: '半角英数のみ', maxlength: '16'
           .right-contents__add-info__expire
             = f.label :有効期限, class: 'label'
