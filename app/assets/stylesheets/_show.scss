@@ -1,0 +1,174 @@
+.confirm____container{
+  background-color: #f5f5f5;
+  height: 100%;
+  width: 100%;
+}
+.confirm__simple__header{
+  height: 128px;
+  text-align: center;
+  background-color: #f5f5f5;
+  &__logo{
+    a{
+    width: 185px;
+    line-height: 49px;
+      img{
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        text-align: center;
+        width: 180px;
+        height: 50px;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
+.buy-main {
+  &__box {
+    width: 700px;
+    background-color: #fff;
+    margin: 0 auto;
+    .buy-content {
+      display: block;
+      &__header {
+        padding: 16px;
+        font-size: 22px;
+        text-align: center;
+        font-weight: bold;
+      }
+      &__completed-message__box {
+        width: 100%;
+        height: 110px;
+        background: #fff6de;
+        text-align: center;
+        vertical-align: center;
+      }
+      &__completed-message_1 {
+      background: #fff6de;
+      height: 55px;
+      color: red;
+      padding: 30px 0;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      vertical-align: bottom;
+      }
+      &__completed-message_2 {
+        background: #fff6de;
+        height: 55px;
+        font-size: 14px;
+        text-align: center;
+        }
+          &__product {
+            padding: 24px 12.5% 0;
+            border-top: 1px solid #f5f5f5;
+            text-align: center;
+            &__inner {
+              max-width: 320px;
+              margin: 0 auto;
+              .buy-product-main {
+                display: flex;
+                .buy-product-name {
+                  margin-left: 14px;
+                  text-align: left;
+                  font-weight: 600;
+                }
+              }
+          .buy-form {
+            width: 100%;
+            .buy-price {
+              margin: 8px 0 0;
+              font-size: 22px;
+              font-weight: 600;
+              span {
+                font-size: 14px;
+                font-weight: 400;
+                margin: 0 0 0 8px;
+              }
+            }
+            .buy-button{
+              background-color: #ccc;
+              margin: 16px 0 0;
+              color: #333;
+              padding: 14px;
+              border: 1px solid #ccc;
+              font-size: 14px;
+            }
+            .buy-price-table {
+              display: flex;
+              width: 100%;
+              font-weight: bold;
+              &__left {
+                padding: 24px 0 0;
+                font-size: 18px;
+                width: 50%;
+                text-align: left;
+              }
+              &__right {
+                padding: 16px 0;
+                font-size: 28px;
+                width: 50%;
+                text-align: right;
+                font-weight: 600;
+              }
+            }
+            .btn-default {
+              margin: 8px 0 0;
+              background-color: gray;
+              color: #fff;
+              border: 1px solid gray;
+              width: 100%;
+              font-size: 15px;
+              line-height: 48px;
+              cursor: pointer;
+              box-sizing: border-box;
+              display: inline-block;
+              text-decoration: none;
+              text-align: center;
+            }
+          }
+        }
+      }
+      &__user-info {
+        margin: 40px 0 0;
+        padding: 24px 12.5% 0;
+        border-top: 1px solid #f5f5f5;
+        
+        &__inner {
+          max-width: 320px;
+          margin: 0 auto;
+          h3 {
+            font-size: 14px;
+          }
+          .user-info-text {
+            margin: 8px 0 0;
+            font-size: 13px;
+            line-height: 1.4;
+          }
+          .user-info-fix {
+            text-align: right;
+            a {
+              color: #0099e8;
+              font-size: 14px;
+              text-decoration: none;
+              i {
+                font-size: 10px;
+                margin-left: 8px;
+                color: #0099e8;
+              }
+            }
+            a:hover {
+              text-decoration: underline;
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+      &__user-info:last-of-type {
+        padding: 24px 12.5% 40px;
+      }
+    }
+  }
+}
