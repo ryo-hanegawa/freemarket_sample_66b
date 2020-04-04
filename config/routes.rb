@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'items#index'
   resources :items, except: :index
-  get 'purchases/show'
+  resources :purchases,only: [:show]
   root "purchases#show"
 end
