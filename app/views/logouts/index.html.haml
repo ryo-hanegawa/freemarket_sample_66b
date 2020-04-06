@@ -1,5 +1,4 @@
-.header
-  ヘッダー
+= render 'shared/header'
 
 .main
   .main__contents
@@ -10,5 +9,4 @@
       .right__logout
         = link_to "ログアウト", destroy_user_session_path, method: :delete
 
-.footer
-  フッター
+= render 'shared/footer'
