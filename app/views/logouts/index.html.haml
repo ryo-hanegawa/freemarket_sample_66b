@@ -1,12 +1,13 @@
-= render 'shared/header'
+.wrapper
+  = render 'shared/header'
 
-.main
-  .main__contents
-    .left-contents
-      = render 'shared/side-bar'
+  .user-main
+    .user-main__contents
+      .left-contents
+        = render 'shared/side-bar'
 
-    .right
-      .right__logout
-        = link_to "ログアウト", destroy_user_session_path, method: :delete
+      .right
+        .right__logout
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
 
-= render 'shared/footer'
+  = render 'shared/footer'

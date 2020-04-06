@@ -22,13 +22,13 @@ $font-size_14: 14px;
 $font-size_16: 16px;
 
 
-.header {
-  @include  background-size(100px, 100%);
-  background-color: $color-999;
-  text-align: center;
-}
+// .header {
+//   @include  background-size(100px, 100%);
+//   background-color: $color-999;
+//   text-align: center;
+// }
 
-.main {
+.user-main {
   @include background-size(636px, 100%);
   background-color: $color-f5f5f5;
   &__contents {
@@ -65,8 +65,8 @@ $font-size_16: 16px;
   }
 }
 
-.footer {
-  @include background-size(100px, 100%);
-  background-color: $color-999;
-  text-align: center;
-}
+// .footer {
+//   @include background-size(100px, 100%);
+//   background-color: $color-999;
+//   text-align: center;
+// }
