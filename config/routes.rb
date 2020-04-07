@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root 'items#index'
-  resources :items, except: :index
+  # root 'users#index'
+  root 'users#signup'
 end

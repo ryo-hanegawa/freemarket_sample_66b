@@ -1,0 +1,27 @@
+.header
+  .header__logo
+    = link_to image_tag("logo.png", height: "40", width: "140", alt: "main-logo"), root_path
+.main
+  .main__top
+    .main__top__items
+      .main__top__items__text
+        アカウントをお持ちでない方はこちら
+      .main__top__items__btn
+        = form_with(model: @user, local: true) do |f|
+          = f.submit "新規会員登録", class: "main__top__items__btn__submit"
+
+  .main__bottom
+    .main__bottom__items
+      .main__bottom__items__input__text1
+        = form_with(model: @user, local: true) do |f|
+          = f.text_field :name, placeholder: "メールアドレス", class: "main__bottom__items__input__text1__form"
+      .main__bottom__items__input__text2
+        = form_with(model: @user, local: true) do |f|
+          = f.text_field :name, placeholder: "パスワード", class: "main__bottom__items__input__text2__form__2"
+      .main__bottom__items__submit__btn
+        = form_with(model: @user, local: true) do |f|
+          = f.submit "ログイン", class: "main__bottom__items__submit__btn__submit"
+
+.footer
+  .footer__logo
+    = link_to image_tag("logo-white.png", height: "40", width: "140", alt: "main-logo"), root_path
