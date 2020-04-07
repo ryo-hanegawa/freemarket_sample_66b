@@ -75,3 +75,5 @@ gem 'pry-rails'
 gem 'devise'
 
 gem 'haml-rails'
+
+gem 'gretel'
