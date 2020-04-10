@@ -23,7 +23,7 @@ $color-000: #000;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    @import "cards/side-bar";
+    @import "modules/side-bar";
 
     .right-contents {
       @include background-size(540px, calc(100% - 280px));
