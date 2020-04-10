@@ -1,13 +1,23 @@
 crumb :root do
-  link 'ホーム', root_path
+  link "フリマ", root_path
 end
 
-crumb :user_show do
-  link "#{current_user.name}"
+crumb :mypage do
+  link "マイページ", mypages_path
   parent :root
 end
 
-crumb :user_chat_rooms_index do
-  link "メッセージ一覧",user_chat_rooms_path(user_id:current_user.id)
-  parent :user_show
+crumb :logout do
+  link "ログアウト", logout_index_path
+  parent :mypage
+end
+
+crumb :profile do
+  link "プロフィール", mypage_profile_path
+  parent :mypage
+end
+
+crumb :card_create do
+  link "支払い方法", mypage_card_new_path
+  parent :mypage
 end

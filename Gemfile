@@ -77,3 +77,5 @@ gem 'devise'
 gem 'haml-rails'
 
 gem 'gretel'
+
+gem 'font-awesome-rails'

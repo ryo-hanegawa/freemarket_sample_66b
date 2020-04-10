@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   root "purchases#show"
   resources :purchases, only: [:show]
 
+  root "items#show"
+  resources :items, only: [:show]
 
 end
