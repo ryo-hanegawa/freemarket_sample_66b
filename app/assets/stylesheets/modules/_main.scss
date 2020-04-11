@@ -1,0 +1,12 @@
+.main {
+  background: #f8f8f8;
+  z-index: 0;
+  a:hover {
+    opacity: 0.5;
+  }
+  @import "main_title";
+  @import "main_reason";
+  @import "main_appdl";
+  @import "main_features";
+  @import "main_pikup";
+}
