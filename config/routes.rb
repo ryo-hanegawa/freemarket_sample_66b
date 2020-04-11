@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
-  root 'items#index'
-  resources :items, only: :index
-
-  root "products#show"
-  resources :products, only: [:show]
-
-  root "purchases#show"
-  resources :purchases, only: [:show]
-
-  root "items#show"
-  resources :items, only: [:show]
-
+  devise_for :users
+  root 'top#index'
+  resources :items, except: :index
+  resources :users, only: :show do
+    resources :creditcards, only: [:index, :new, :create, :destroy]
+  end
+  resources :logouts, only: :index
+  resources :exhibitions, only: [:index, :create]
+  resources :purchases,only: [:show]
 end

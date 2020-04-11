@@ -79,3 +79,6 @@ gem 'haml-rails'
 gem 'gretel'
 
 gem 'font-awesome-rails'
+gem "font-awesome-sass"
+
+gem 'active_hash'
