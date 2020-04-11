@@ -12,14 +12,12 @@
 
   .main__bottom
     .main__bottom__items
-      .main__bottom__items__input__text1
-        = form_with(model: @user, local: true) do |f|
+      = form_with(model: @user, local: true) do |f|
+        .main__bottom__items__input__text1
           = f.text_field :name, placeholder: "メールアドレス", class: "main__bottom__items__input__text1__form"
-      .main__bottom__items__input__text2
-        = form_with(model: @user, local: true) do |f|
+        .main__bottom__items__input__text2
           = f.text_field :name, placeholder: "パスワード", class: "main__bottom__items__input__text2__form__2"
-      .main__bottom__items__submit__btn
-        = form_with(model: @user, local: true) do |f|
+        .main__bottom__items__submit__btn
           = f.submit "ログイン", class: "main__bottom__items__submit__btn__submit"
 
 .footer
