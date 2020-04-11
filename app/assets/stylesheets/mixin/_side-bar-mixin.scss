@@ -1,0 +1,31 @@
+@mixin background-size($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin list-top {
+  @include background-size(50px, 100%);
+  background-color: $color-3CCACE;
+  font-weight: bold;
+}
+
+@mixin list-content {
+  @include background-size(48px, 100%);
+  margin-right: 16px;
+  background-color: $color-fff;
+  font-size: 16px;
+  line-height: 48px;
+  border: solid 1px $color-f5f5f5;
+}
+
+@mixin list-position {
+  display: block;
+  padding-left: 16px;
+  color: $color-000;
+}
+
+@mixin list-action {
+  background-color: $color-f5f5f5;
+  transition: background-color .3s;
+  opacity: 0.7;
+}
