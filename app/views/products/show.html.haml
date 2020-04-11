@@ -1,0 +1,123 @@
+.container
+  = render "/shared/header"
+  .product-show-main-background
+    %section.product-show-product-box-container
+      %h1
+        .product-name
+          -# =@ product.name
+      .product-main-content
+        .product-photo
+          //メイン画像
+          .image
+            = image_tag 'https://ca.slack-edge.com/T1MLERC4C-UQKTCNSGG-9a3b05893ded-512', alt: '', height: '300', width: '300', class: 'image-main'
+          //サムネイル画像
+          .owl-dot
+            = image_tag 'https://ca.slack-edge.com/T1MLERC4C-UQKTCNSGG-9a3b05893ded-512', alt: '', height: '200', width: '200', class: 'image-sub'
+            .owl-dot
+              = image_tag 'https://ca.slack-edge.com/T1MLERC4C-UQKTCNSGG-9a3b05893ded-512', alt: '', height: '200', width: '200', class: 'image-sub'
+              .owl-dot
+                = image_tag 'https://ca.slack-edge.com/T1MLERC4C-UQKTCNSGG-9a3b05893ded-512', alt: '', height: '200', width: '200', class: 'image-sub'
+        %table.product-detail-table
+          %tbody
+            %tr
+              %th 出品者
+              %td
+                hoge
+                .product-user-ratings
+                  .product-user-rating
+                    = image_tag("")
+                    = fa_icon "smile-o"
+                    %span 0
+                  .product-user-rating
+                    = image_tag("")
+                    = fa_icon "meh-o"
+                    %span 0
+                  .product-user-rating
+                    = image_tag("")
+                    = fa_icon "frown-o"
+                    %span 0
+            %tr
+              %th カテゴリー
+              %td
+                .product-detail-table-sub
+                .product-detail-table-sub
+                .product-detail-table-sub__sub
+                .product-detail-table-sub__sub__sub
+            %tr
+              %th ブランド
+              %td
+                = link_to "//www.mercari.com/jp/brand/4136/" do
+                  .brand-name
+                    o-year
+            %tr
+              %th 商品の状態
+              %td
+                .product-detail
+                  良好
+                  
+            %tr
+              %th 配送料の負担
+              %td
+                .product-detail
+                  全国一律１００円
+            %tr
+              %th 配送の方法
+              %td
+                .product-detail らくらくフリマ便
+            %tr
+              %th 発送元地域
+              %td
+                .product-detail.prefecture-name
+                  愛知県
+            %tr
+              %th 配送日の目安
+              %td
+                .product-detail
+                  ３日
+      .product-price-box
+        %span.product-price 
+          30000円
+        %span.product-tax (税込)
+        %span.product-fee_payer
+
+      .product-buy-btn
+        購入画面に進む
+
+      .product-description
+        %p.product-description__inner
+        hogehogehogehogehogehogehogehogehogehogehogehogehoge
+      .product-button-container.clearfix
+        .product-button-left
+          .product-button-like
+            %button{type: "button", name: "like!", class: "product-button"}
+              = fa_icon "heart"
+              %span.fade-in-down いいね!
+              %span.fade-in-down 0
+        .product-button__report
+          = link_to "", class: "product-button__report" do
+            = fa_icon "flag"
+            %span.fade-in-down 不適切な商品の報告            
+        .product-button-right
+          = link_to 'https://www.mercari.com/jp/safe/description/', target: "_blank", class: "safe-description" do
+            = fa_icon "lock"
+            あんしん・あんぜんへの取り組み
+      .nav-product-link
+        .previous-product.items-link_to
+          =fa_icon "chevron-left"
+          = link_to "前の商品へ", "#"
+        .next-product.items-link_to
+          = fa_icon "chevron-right"
+          = link_to "次の商品へ", "#"
+          .product-social-media-box
+            .text-center
+            %ul.social-media-box
+              %li
+                = link_to "#", target: "_blank", class: "share-btn" do
+                  = fa_icon "facebook-square"
+              %li
+                = link_to "#", target: "_blank", class: "share-btn" do
+                  = fa_icon "twitter-square"
+              %li
+                = link_to "#", target: "_blank", class: "share-btn" do
+                  = fa_icon "pinterest-square"
+  = render "/shared/footer"

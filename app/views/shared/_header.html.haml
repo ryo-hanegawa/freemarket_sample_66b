@@ -1,0 +1,21 @@
+%header.header
+  .items
+    .items__top
+      .items__top__icon
+        = link_to image_tag("logo/logo.png", height: "40", width: "140", alt: "main-logo"), root_path
+      .items__top__input-box
+        = form_with url: root_path, method: :get, local: true do |f|  #Path決定後に、urlオプションを編集する
+          = f.text_field :name, class:"items__top__input-box__field", placeholder: 'キーワードから探す'
+          %button(type="submit")
+            = image_tag 'icon/icon-search 1.png', height: "20", width: "20", alt: 's-img'
+    .items__under
+      %ul.items__under__left
+        %li
+          = link_to "カテゴリー", root_path, class: "items__under__left__c-btn"
+        %li
+          = link_to "ブランド", root_path, class: "items__under__left__b-btn"
+      %ul.items__under__right
+        %li
+          = link_to "ログイン", root_path, class: "items__under__right__r-btn"
+        %li
+          = link_to "新規会員登録", root_path, class: "items__under__right__n-btn"
