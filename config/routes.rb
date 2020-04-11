@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :logouts, only: :index
   resources :exhibitions, only: [:index, :create]
   resources :purchases,only: [:show]
+  resources :products,only: [:show]
 end
