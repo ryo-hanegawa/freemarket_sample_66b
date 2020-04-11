@@ -1,0 +1,32 @@
+.banner {
+  padding: 100px 40px;
+  background-image: url(pict/bg-appBanner-pict.jpg);
+  background-size: cover;
+  background-position: center;
+  a:hover {
+    opacity: 0.5;
+  }
+  &__box {
+    color: #fff;
+    text-align: center;
+    &__title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &__icon {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      &__app-btn {
+        margin-right: 10px;
+      }
+    }
+  }
+}
