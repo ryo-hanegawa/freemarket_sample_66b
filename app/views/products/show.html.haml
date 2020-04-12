@@ -80,7 +80,18 @@
           30000円
         %span.product-tax (税込)
         %span.product-fee_payer
-
+      -if user_signed_in?
+        -if @product.user_id == current_user.id
+          =link_to edit_product_path(@product), data: {turbolinks: false} do
+            .product-edit-btn
+            商品の編集
+            .product-btn-or 
+            or
+            .product-stop-btn
+            出品を停止する
+          =link_to product_path(@product), method: :delete, data: {turbolinks: false} do
+            .product-delete-btn
+            この商品を削除する
       .product-buy-btn
         購入画面に進む
 
