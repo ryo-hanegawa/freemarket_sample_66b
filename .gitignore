@@ -12,7 +12,6 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-DS_Store
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
@@ -24,3 +23,4 @@ DS_Store
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+.DS_Store
