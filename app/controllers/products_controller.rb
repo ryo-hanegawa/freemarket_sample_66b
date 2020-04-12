@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  def show
+  def index
   end
 
   def edit
@@ -9,8 +9,9 @@ class ProductsController < ApplicationController
   def update
     post = Post.find(params[:id])
     post.update(post_params)
+    redirect_to post_path(post.id)
   end
 
-  def delete
+  def destroy
   end
 end
