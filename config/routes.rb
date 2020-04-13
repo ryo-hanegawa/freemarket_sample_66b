@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root 'exhibition#index'
   devise_for :users
   root 'top#index'
   resources :items, except: :index
