@@ -1,6 +1,7 @@
-.container
-  = render "/shared/header"
-  = render "shared/breadcrumb"
+.wrapper
+  = render 'shared/header'
+  - breadcrumb :mypage
+  = render 'shared/breadcrumbs'
   .product-show-main-background
     %section.product-show-product-box-container
       %h1
@@ -132,4 +133,4 @@
               %li
                 = link_to "#", target: "_blank", class: "share-btn" do
                   = fa_icon "pinterest-square"
-  = render "/shared/footer"
+  = render "shared/footer"
