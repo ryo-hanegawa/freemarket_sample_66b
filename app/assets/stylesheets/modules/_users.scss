@@ -2,15 +2,6 @@
   box-sizing: border-box;
 }
 
-.header {
-  height: 128px;
-  margin: 0 auto;
-  &__logo {
-    text-align: center;
-    padding-top: 45px;
-  }
-}
-
 .main {
   width: 1047px;
   height: 500px;
@@ -97,13 +88,5 @@
         }
       }
     }
-  }
-}
-
-.footer {
-  display: block;
-  &__logo {
-  text-align: center;
-  padding: 70px 0;
   }
 }
