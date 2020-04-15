@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'top#index'
+  resource :top, except: :index
   resources :items, except: :index
   resources :users, only: :show do
     resources :creditcards, only: [:index, :new, :create, :destroy]
