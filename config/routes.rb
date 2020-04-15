@@ -3,11 +3,10 @@ Rails.application.routes.draw do
   root 'top#index'
   resources :top, except: :index
   resources :items, except: :index
-  resources :users, only: :show do
-    resources :creditcards, only: [:index, :new, :create, :destroy]
-  end
+  resources :users, only: [:index, :show]
+  resources :creditcards, only: [:index, :new, :create, :destroy]
   resources :logouts, only: :index
   resources :exhibitions, only: [:index, :create]
   resources :purchases,only: [:show]
-  resources :products,only: [:show]
+  resources :products,only: [:index, :show, :edit, :destroy]
 end

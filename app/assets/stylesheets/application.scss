@@ -1,8 +1,5 @@
 @import "reset";
 
-
-
-
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "users";
@@ -13,6 +10,7 @@
 @import "modules/top";
 @import "products/show";
 @import "exhibitions";
+@import "shared/breadcrumbs";
 
 @import "modules/users";
 @import "modules/signup";
