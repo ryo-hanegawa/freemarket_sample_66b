@@ -9,6 +9,9 @@ class ItemsController < ApplicationController
     @item.images.new
   end
 
+  def show
+  end
+  
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -64,5 +67,4 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(images_attributes: [:image])
   end
-
 end

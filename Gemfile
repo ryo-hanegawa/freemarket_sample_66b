@@ -77,6 +77,11 @@ gem 'devise'
 
 gem 'haml-rails'
 
+gem 'gretel'
+
+gem "font-awesome-sass"
+
 gem 'active_hash'
 
 gem 'jquery-rails'
+
