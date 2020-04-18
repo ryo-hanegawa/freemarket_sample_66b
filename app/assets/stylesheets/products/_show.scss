@@ -116,13 +116,22 @@
           padding: 0px 11px 0px 2px;
         }
         .fa-smile-o {
-          color: #ef5185;
+          &::before {
+            color: #ef5185;
+            content: "\f118";
+          }
         }
         .fa-meh-o {
-          color: #fba933;
+          &::before {
+            color: #fba933;
+            content: "\f11a";
+          }
         }
         .fa-frown-o {
-          color: #6ab5d8;
+          &::before {
+            color: #6ab5d8;
+            content: "\f119";
+          }
         }
       }
     }
@@ -188,9 +197,10 @@
           font-size: 14px;
           padding: 4px 16px;
           .fa_icon-heart {
-            color: #fff;
-            border: 1px solid;
-            border-color: #aaa;
+            &::before {
+              color: #ccc;
+              content: "\f004";
+            }
           }
           .fade-in-down {
             background-color: transparent;
@@ -216,6 +226,9 @@
     color: #333;
     font-size: 14px;
     margin-right: 7px;
+    &::before {
+      content: "\f024";
+    }
   }
 }
 
@@ -227,6 +240,11 @@
   float: right;
   .safe-description {
     color: #0099e8;
+    .fa-lock {
+      &::before {
+        content: "\f023";
+      }
+    }
   }
 }
 
@@ -237,16 +255,22 @@
   display: inline-block;
   color: #0099e8;
   padding: 32px 0 24px;
-  &-prev a{
+  a{
     .fa-chevron-left {
       text-decoration: none;
       font-weight: 900;
+      &::before {
+        content: "\f053";
+      }
     }
   }
-  &-next a{
+  a{
     .fa-chevron-right {
       text-decoration: none;
       font-weight: 900;
+      &::before {
+        content: "\f054";
+      }
     }
   }
 }
@@ -296,16 +320,25 @@
       font-size: 26px;
       height: 44px;
       width: 44px;
+      &::before {
+        content: "\f082";
+      }
     }
-    .fa.fa-twitter-square {
+    .fa-twitter-square {
       color: #fff;
       background: #5d9dc9;
       font-size: 24px;
+      &::before {
+        content: "\f081";
+      }
     }
-    .fa.fa-pinterest-square {
+    .fa-pinterest-square {
       color: #fff;
       background: #aa262a;
       font-size: 20px;
+      &::before {
+        content: "\f0d3";
+      }
     }
   }
 }

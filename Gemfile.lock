@@ -104,8 +104,6 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.12.2)
-    font-awesome-rails (4.7.0.5)
-      railties (>= 3.2, < 6.1)
     font-awesome-sass (5.12.0)
       sassc (>= 1.11)
     globalid (0.4.2)
@@ -278,7 +276,6 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  font-awesome-rails
   font-awesome-sass
   gretel
   haml-rails
