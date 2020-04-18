@@ -1,4 +1,4 @@
-// Place all the styles related to the exhibitions controller here.
+// Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 html,body {
@@ -29,8 +29,8 @@ html,body {
     color: red;
     margin-bottom: 10px;
   }
-
-
+  
+  
 
 
 
@@ -59,24 +59,48 @@ html,body {
         font-size: small;
       }
       
-      #dropArea {
+
+
+
+      .clearfix {
+        width: 100%;
         overflow: hidden;
-        padding: 40px 10px;
         background: #ddd;
         border: 3px #666 dashed;
         color: #999;
-        font-size: 20px;
+        font-size: large;
         font-weight: bold;
         text-align: center;
+        #previews {
+          .image-preview {
+            .input {
+              .upload-label
+                .upload-label__text {
+                  .input-area {
+                    .hidden-image_upload {
+          
+                    }
+                  }
+                }
+
+            }
+          }
+        }
+            
+              
       }
-      
-      #dropArea.dragover,
-      #dropArea:active {
+
+      .clearfix.dragover,
+      .clearfix.active {
         background: #cfc;
         border-color: #9c9;
         color: #9c9;
       }
     }
+    
+    
+      
+  
     
     
     .item-info {
