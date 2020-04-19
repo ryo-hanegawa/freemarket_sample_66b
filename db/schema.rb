@@ -19,6 +19,10 @@ ActiveRecord::Schema.define(version: 2020_04_10_060804) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image", null: false
@@ -40,13 +44,6 @@ ActiveRecord::Schema.define(version: 2020_04_10_060804) do
     t.integer "deliberydate", default: 0, null: false
     t.integer "price", null: false
     t.integer "buyer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_foreign_key "images", "items"
-
-  create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -73,4 +70,5 @@ ActiveRecord::Schema.define(version: 2020_04_10_060804) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "images", "items"
 end
