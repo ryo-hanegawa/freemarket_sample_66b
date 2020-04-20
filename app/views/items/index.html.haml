@@ -28,6 +28,7 @@
                       .input-area
                         = image.file_field :image, value: img.name, class: "hidden-image_upload", style: "display:none;"
                         = image.hidden_field :id, value: img.id, name:"item[image][#{i}]"
+                  //画像を表示する部分↓
                   .image-preview__wapper
                     = image_tag img.name.to_s, class:"preview"
                   .image-preview_btn
