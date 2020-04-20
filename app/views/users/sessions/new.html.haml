@@ -1,0 +1,56 @@
+%h2 Log in
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password
+    %br/
+    = f.password_field :password, autocomplete: "current-password"
+  - if devise_mapping.rememberable?
+    .field
+      = f.check_box :remember_me
+      = f.label :remember_me
+  .actions
+    = f.submit "Log in"
+= render "devise/shared/links"
+.signin__container
+  = render 'signup/login_simple_header'
+  .signin-main
+    .signin-main__section
+      .signin-main__section__top
+        アカウントをお持ちでない方はこちら
+      %ul.signin-main__conect__lists
+        %li.signin-main__conect__lists__mail
+          = link_to users_signup_registration_path do
+            .signin-main__conect__lists__mail__btn
+              新規会員登録
+    .signin-main__conect
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        %ul.signin-main__conect__lists
+          %li.signin-main__conect__lists__facebook
+            = link_to user_facebook_omniauth_authorize_path do
+              .signin-main__conect__lists__facebook__btn
+                Facebookでログイン
+                %i.fbicon
+                  = fa_icon "facebook-square"
+          %li.signin-main__conect__lists__google2
+            = link_to user_google_oauth2_omniauth_authorize_path do
+              .signin-main__conect__lists__google2__btn
+                Googleでログイン
+              .signin-main__conect__lists__google2__icon
+          %li.signin-main__conect__lists__input
+            = f.email_field :email, autocomplete: "email", class:'input_box1',placeholder:'メールアドレス'
+          %li.signin-main__conect__lists__input
+            = f.password_field :password, autocomplete: "new-password", class:'input_box2',placeholder:'パスワード'
+          %li.signin-main__conect__lists
+            .signin-main__conect__lists__reCAPTCHA
+              -# = image_tag("https://i.gyazo.com/ce5541bb0a64b4d3a55f24edb0f9b140.png")
+              = recaptcha_tags
+          .actions
+            .actions__btn
+              = f.submit 'ログイン', class: "submit_btn"
+            .actions__link
+              = link_to "パスワードお忘れの方",'signup_page',class:'next_link'
+  = render 'signup/login_footer'

@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  devise_scope :user do
+    get 'users/registrations/step1', to: 'users/registrations#step1'
+    get 'users/registrations/step2', to: 'users/registrations#step2'
+  end
   root 'top#index'
   resources :top, except: :index
+  resources :signup
   resources :items, except: :index
   resources :users, only: [:index, :show] do
   resources :creditcards, only: [:index, :new, :create, :destroy]
   end
   
-  resources :logouts, only: :index
+  resources :logouts, only: [:index]
   resources :exhibitions, only: [:index, :create]
   resources :purchases,only: [:show]
   resources :products,only: [:index, :show, :edit, :destroy]
