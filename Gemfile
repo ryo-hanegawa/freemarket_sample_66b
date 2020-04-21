@@ -82,4 +82,6 @@ gem "font-awesome-sass"
 
 gem 'active_hash'
 
-gem 'omniauth'
+gem 'dotenv-rails'
+
+gem 'gon'

@@ -1,14 +1,24 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'
+  devise_for :users, 
+  controllers: {
+    sessions: 'users/sessions',
+    registrations: "users/registrations",
   }
-  devise_scope :user do
-    get 'users/registrations/step1', to: 'users/registrations#step1'
-    get 'users/registrations/step2', to: 'users/registrations#step2'
+
+  resources :signup do
+    collection do
+      get 'index' #新規会員登録ページTOPへ移動
+      get 'step3' #【新規会員登録】住所入力ページへ移動
+      get 'step4' #【新規会員登録】支払い方法登録ページへ移動
+      get 'done' #【新規会員登録】完了ページへ移動
+    end
   end
-  root 'top#index'
-  resources :top, except: :index
-  resources :signup
+
+  devise_scope :user do
+    get    'users/signup/registration',   to: 'users/registrations#step1'
+    get    'users/signup/sms_confirmation',      to: 'users/registrations#step2'
+  end
+
   resources :items, except: :index
   resources :users, only: [:index, :show] do
   resources :creditcards, only: [:index, :new, :create, :destroy]

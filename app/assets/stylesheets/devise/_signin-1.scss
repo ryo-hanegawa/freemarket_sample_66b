@@ -185,14 +185,6 @@
       padding: 32px;
       line-height: 33px;
       text-align: center;
-      &__form {
-        padding: 24px 16px 40px;
-        border-top: 1px solid rgb(245, 245, 245);
-        .l-single-content {
-          max-width: 343px;
-          margin: 0px auto; 
-          &__nickname {
-            margin: 0;
             label {
               font-weight: 600;
               font-size: 13px;
@@ -448,9 +440,6 @@
           }
         }
       }
-    }
-  }
-}
 //必須ボックス（赤色）
 .l-single-content__require {
   background: #ea352d;
