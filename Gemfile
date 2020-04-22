@@ -85,3 +85,5 @@ gem 'active_hash'
 gem 'dotenv-rails'
 
 gem 'gon'
+
+gem 'omniauth'

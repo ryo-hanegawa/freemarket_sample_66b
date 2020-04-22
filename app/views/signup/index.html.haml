@@ -10,12 +10,12 @@
           %i.far.fa-envelope 
           
       .signup-index-facebook-box
-        = link_to "#" do
+        = link_to user_facebook_omniauth_authorize_path do
           Facebookで登録する
           %i.fab.fa-facebook-square
 
       .signup-index-google-box
-        = link_to "#" do
+        = link_to user_google_oauth2_omniauth_authorize_path do
           .main__conect__lists__google__btn
             Googleで登録する
           .main__conect__lists__google__icon

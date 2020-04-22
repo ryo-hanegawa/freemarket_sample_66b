@@ -1,11 +1,11 @@
 .signup-wrapper
-  = render 'users/progress_header' 
+  = render 'signup/progress_header' 
   %main.single-main
     %section.l-single-container
       %h2.l-single-head__registration 会員情報入力
       .l-single-head__registration__form
         .l-single-content
-          = form_for(@user, url: users_registrations_step1_path (@user), html: {method: "get"}) do |f|
+          = form_for(@user, url:  users_signup_sms_confirmation_path(@user), html: {method: "get"}) do |f|
             = render 'devise/shared/error_messages', model: f.object
             .l-single-content__nickname
               = f.label :nickname, 'ニックネーム'
@@ -62,4 +62,4 @@
               = f.submit "次へ進む", class: 'next-btn'
             .l-single-content-text__right
               本人情報の登録について
-  = render 'users/login_footer'
+  = render 'signup/login_footer'
