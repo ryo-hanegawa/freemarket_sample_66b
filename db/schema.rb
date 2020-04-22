@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2020_04_22_101132) do
 
-  create_table "addresses", id: :integer, unsigned: true, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "first_name", limit: 15, default: "", null: false
-    t.string "last_name", limit: 15, default: "", null: false
-    t.string "first_name_reading", limit: 15, default: "", null: false
-    t.string "last_name_reading", limit: 15, default: "", null: false
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "postal_code"
+    t.integer "prefecture"
+    t.string "city"
+    t.string "street"
+    t.string "building"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,5 +79,6 @@ ActiveRecord::Schema.define(version: 2020_04_22_101132) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "sns_credentials", "users"
 end

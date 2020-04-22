@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   end
 
   resources :items, except: :index
+  resources :addresses,only:[:create]
+    get '/addresses/new', to: 'addresses#step3'
   resources :users, only: [:index, :show] do
   resources :creditcards, only: [:index, :new, :create, :destroy]
   end
