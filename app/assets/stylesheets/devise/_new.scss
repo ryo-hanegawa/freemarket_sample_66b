@@ -1,0 +1,149 @@
+.signin__container{
+  background-color: global-background;
+  height: 100%;
+  width: 100%;
+}
+.signin-main{
+  width: 460px;
+  margin: 0 auto;
+  background-color:white;
+  &__section{
+    font-size: 14px;
+    padding: 24px 32px;
+    text-align: center;
+    -moz-box-shadow: rgba(146, 179, 187, 0.2) 0px 0px 1px 0px;
+    box-shadow:rgba(190, 190, 190, 0.37) 0px 1px 0px 0px;
+    &__top{
+      margin-bottom:0px;
+    } 
+  }
+  &__conect{
+    padding:40px 40px 40px;
+    &__lists{
+      margin-top: 8px;
+      &__mail{
+        color: white;
+        background-color: #0099e8;
+        width: 100px;
+        &__btn{
+          line-height: 50px;
+          color:white;
+        }
+      }
+      &__input{
+        margin-top:100px;
+        .input_box1{
+          width: 330px;
+          height: 48px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          padding-left: 10px;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          margin-top: 40px;
+        }
+        .input_box2{
+          width: 330px;
+          height: 48px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          padding-left: 10px;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          margin-top: 50px;
+        }
+      }
+      &__reCAPTCHA{
+        width: 300px;
+        height: 74px;
+        margin-top: 70px;
+        border-radius: 4px;
+      }
+    li{
+      max-width: 343px;
+      height: 50px;
+      margin: auto;
+      margin-bottom: 16px;
+      width: 343px;
+      font-size:14px;
+      text-align: center;
+      a{
+        float: right;
+        width: 343px;
+        height: 40px;
+        text-decoration: none;
+        color:#ffffff;
+      }
+    }
+    &__facebook{
+      margin: 16px 0 0;
+      background: #385185;
+      &__btn{
+        color: white;
+        padding-top:17px;
+        padding-right: 20px;
+      .fbicon{
+        float: left;
+        padding-left: 17px;
+        position: relative;
+        bottom: 25px;
+        font-size: 33px;
+        color: #ffffff;
+        padding-top: 15px;
+        .fa{
+          color:#ffffff;
+        }
+      }
+      }
+    }
+    &__google2{
+      border: #979797 solid 1px;
+      color: #333;
+      padding-top: 17px;
+      &__btn{
+        color: #333;
+      }
+      &__icon{
+        background-image:url(https://i.gyazo.com/1e79bd9bde1dd4388dea6da9231efdc4.png);
+        background-size:cover;
+        height: 30px;
+        width: 30px;
+        position: relative;
+        bottom:28px;
+        left:15px;
+      }
+    }
+  }
+  }
+  .actions{
+    margin:auto;
+    &__btn{
+      width: 343px;
+      height: 50px;
+      input.submit_btn{
+        width: 343px;
+        height: 50px;
+        padding: 0 30px;
+        background-color: #ea352d;
+        color: white;
+        position: relative;
+        cursor: pointer;
+        font-size: 14px;
+        top: 48px;
+        right: -18px;
+        border-radius: 3px;
+      }
+    }
+    &__link{
+      margin-top: 90px;
+      margin-left: 43px;
+      a{
+        color: #0099e8;
+        text-decoration: none;
+        font-size:14px;
+      }
+    }
+  }
+}

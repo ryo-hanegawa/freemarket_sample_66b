@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'd2b0d1dc378554c31a49f79838e92b1dd67c2b928451a0a5f7ebedf966f613a5741770b03557b911b1ea2e66ca5f60cd9f2103b7c9e6999d360fe4adaf6ec5d7'
+  # config.secret_key = 'cec3c7d78b9c88843084e2289af729ad7e94c5a50a034f7e6877aa10dca78283f743784d59676a7a8869a21caa34d66e9a59e15476d93f8287a7fc3d9f29c836'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -114,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '906e6f29c662279227c03d4f5afac4212980eba0d41b1850cec2d55662f967a3523aa7b85a4be85bc04c7e5da8d28b09e8c4990c3a45ff225db7ba0de9601348'
+  # config.pepper = '2178184ffe219e23aff0f51c1c21afe33a612f0a2e538026578cb767384ebeb5ce098a69c5531625837255f7380bb6b6b1dbdbfddbdf6e14369c000a5c79660e'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -256,10 +256,10 @@ Devise.setup do |config|
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 
-  # ==> OmniAuth
-  # Add a new OmniAuth provider. Check the wiki for more information on setting
+  # ==> 
+  # Add a new  provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  # config. :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -269,7 +269,7 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
-
+  
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.
@@ -280,9 +280,9 @@ Devise.setup do |config|
   # The router that invoked `devise_for`, in the example above, would be:
   # config.router_name = :my_engine
   #
-  # When using OmniAuth, Devise cannot automatically set OmniAuth path,
+  # When using , Devise cannot automatically set  path,
   # so you need to do it manually. For the users scope, it would be:
-  # config.omniauth_path_prefix = '/my_engine/users/auth'
+  # config._path_prefix = '/my_engine/users/auth'
 
   # ==> Turbolinks configuration
   # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:

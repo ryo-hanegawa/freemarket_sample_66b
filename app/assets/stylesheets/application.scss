@@ -11,6 +11,14 @@
 @import "products/show";
 @import "exhibitions";
 @import "shared/breadcrumbs";
+@import "devise/new";
+@import "devise/signin-1";
+@import "signup/signup-common";
+@import "signup/signup-index";
+@import "signup/signup-step2";
+@import "signup/signup-step3";
+@import "signup/signup-step4";
+@import "signup/signup-done";
 
 @import "modules/users";
 @import "modules/signup";
