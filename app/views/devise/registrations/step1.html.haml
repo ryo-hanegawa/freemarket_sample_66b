@@ -1,5 +1,5 @@
 .signup-wrapper
-  = render 'signup/progress_header' 
+  = render 'devise/shared/progress_header' 
   %main.single-main
     %section.l-single-container
       %h2.l-single-head__registration 会員情報入力
@@ -55,7 +55,7 @@
             .actions
               .g-recaptcha-signup-recaptcha
                 -# = image_tag("https://i.gyazo.com/ce5541bb0a64b4d3a55f24edb0f9b140.png")
-                = recaptcha_tags
+                  = recaptcha_tags
             .form-text-center-on
               %p.form-text-center 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします 
               %br/

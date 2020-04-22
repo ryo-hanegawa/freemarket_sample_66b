@@ -1,8 +1,32 @@
+.signup-index-wrapper {
+  background-color: #F5F5F5;
+  height: 100%;
+  width: 100%;
+}
+.signuptopheader{
+  height: 128px;
+  text-align: center;
+  background-color: #f5f5f5;
+  &__logo{
+    a{
+    width: 185px;
+    line-height: 49px;
+      img{
+        margin: 40px 0 0;
+        width: 180px;
+        height: 50px;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}
 .signup-index-main {
   background-color: #FFFFFF;
   font-family: 'Font Awesome 5 Free', 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   height: 350px;
-  margin: 0 auto 220px;
+  margin: 0 auto 150px;
   width: 700px;
   &__head {
     background-color: #FFFFFF;
@@ -15,100 +39,106 @@
     width: 700px;
     margin: 0 auto 0;
   }
-  .signup-submit-button-form {
-    background-color: #FFFFFF;
-    height: 287px;
-    margin: 0 auto;
-    padding: 40px 40px 64px 40px;
-    width: 700px;
-    .signup-index-mail-box {
+}
+.signup-submit-button-form {
+  background-color: #FFFFFF;
+  height: 287px;
+  margin: 0 auto;
+  padding: 40px 40px 64px 40px;
+  width: 700px;
+  .signup-index-mail-box {
+    height: 50px;
+    margin: 0 auto 16px;
+    width: 620px;
+    display: inline-flex;
+    a {
+      background-color: #EA352D;
+      border: 1px solid;
+      border-radius: 4px;
+      color: #FFFFFF;
+      font-size: 14px;
       height: 50px;
-      margin: 0 auto 16px;
-      width: 620px;
-      display: inline-flex;
-      a {
-        background-color: #EA352D;
-        border: 1px solid;
-        border-radius: 4px;
-        color: #FFFFFF;
-        font-size: 14px;
-        height: 50px;
-        line-height: 50px;
-        text-align: center;
-        width: 343px;
-        margin: 0 auto;
-        display:block;
-        padding-right: 16px;
-        i {
-          float: left;
-          padding-left: 11px;
-          bottom: 25px;
-          font-size: 20px;
-          color: #ffffff;
-          padding-top: 7px;
-        }
-      }    
-    }
-    .signup-index-facebook-box {
-      height: 50px;
-      margin: 0 auto 16px;
-      width: 620px;
-      display: inline-flex;
-      a{
-        background-color: #385185;
-        border: 1px solid;
-        border-radius: 4px;
-        color: #FFFFFF;
-        font-size: 14px;
-        height: 50px;
-        line-height: 50px;
-        text-align: center;
-        width: 343px;
-        margin: 0 auto;
-        display:block;
-        padding-right: 16px;
-        i {
-          float: left;
-          padding-left: 11px;
-          bottom: 25px;
-          font-size: 33px;
-          color: #ffffff;
-          padding-top: 4px;
-        }
-      }     
-    } 
-    .signup-index-google-box {
-      height: 50px;
-      margin: 0 auto 16px;
-      width: 620px;
-      display: inline-flex;
-      a{
-        background-color: #FFFFFF;
-        border: 1px solid;
-        border-color: #979797;
-        border-radius: 4px;
-        color: #333333;
-        font-size: 14px;
-        height: 50px;
-        line-height: 50px;
-        text-align: center;
-        width: 343px;
-        margin: 0 auto;
-        display:block;
-        padding-right: 16px;
-        .main__conect__lists__google__btn {
-        color: #333;
-        }
-        .main__conect__lists__google__icon {
-          background-image:url("https://i.gyazo.com/1e79bd9bde1dd4388dea6da9231efdc4.png");
-          background-size:cover;
-          height: 30px;
-          width: 30px;
-          position: relative;
-          bottom:40px;
-          left:15px;
-        }      
+      line-height: 50px;
+      text-align: center;
+      width: 343px;
+      margin: 0 auto;
+      display:block;
+      padding-right: 16px;
+      i {
+        float: left;
+        padding-left: 11px;
+        bottom: 25px;
+        font-size: 20px;
+        color: #ffffff;
+        padding-top: 7px;
       }
+    }    
+  }
+}
+.signup-index-facebook-box {
+  height: 50px;
+  margin: 0 auto 16px;
+  width: 620px;
+  display: inline-flex;
+  a{
+    background-color: #385185;
+    border: 1px solid;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 343px;
+    margin: 0 auto;
+    display:block;
+    padding-right: 16px;
+    i {
+      float: left;
+      padding-left: 11px;
+      bottom: 25px;
+      font-size: 33px;
+      color: #ffffff;
+      padding-top: 4px;
+    }
+  }     
+} 
+.signup-index-google-box {
+  height: 50px;
+  margin: 0 auto 16px;
+  width: 620px;
+  display: inline-flex;
+  a{
+    background-color: #FFFFFF;
+    border: 1px solid;
+    border-color: #979797;
+    border-radius: 4px;
+    color: #333333;
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    width: 343px;
+    margin: 0 auto;
+    display:block;
+    padding-right: 16px;
+    .main__conect__lists__google__btn {
+    color: #333;
+    }
+    .main__conect__lists__google__icon {
+      background-image:url(https://i.gyazo.com/1e79bd9bde1dd4388dea6da9231efdc4.png);
+      background-size:cover;
+      height: 30px;
+      width: 30px;
+      position: relative;
+      bottom:40px;
+      left:15px;
+    }      
+    .far.fa-envelope {
+      height: 16px;
+      width: 20px;
+      color:#fff;
+      
     }
   }
 }

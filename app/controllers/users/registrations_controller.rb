@@ -17,19 +17,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:email] = params[:user][:email]
     session[:password] = params[:user][:password]
     session[:password_confirmation] = params[:user][:password_confirmation]
-    session[:f_name_kana] = params[:user][:f_name_kana]
-    session[:l_name_kana] = params[:user][:l_name_kana]
-    session[:f_name_kanji] = params[:user][:f_name_kanji]
-    session[:l_name_kanji] = params[:user][:l_name_kanji]
+    session[:first_name_reading] = params[:user][:first_name_reading]
+    session[:last_name_reading] = params[:user][:last_name_reading]
+    session[:first_name] = params[:user][:first_name]
+    session[:last_name] = params[:user][:last_name]
     session[:birthday] = birthday_join
-    @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], f_name_kana: session[:f_name_kana],l_name_kana: session[:l_name_kana], f_name_kanji: session[:f_name_kanji], l_name_kanji: session[:l_name_kanji], birthday: session[:birthday], tel: params[:user][:tel])
+    @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name_reading: session[:first_name_reading],last_name_reading: session[:last_name_reading], first_name: session[:first_name], last_name: session[:last_name], birthday: session[:birthday], tel: params[:user][:tel])
   end
 
 
 
   def create
     if params[:user][:password].nil?
-      @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], f_name_kana: session[:f_name_kana],l_name_kana: session[:l_name_kana], f_name_kanji: session[:f_name_kanji], l_name_kanji: session[:l_name_kanji], birthday: session[:birthday], tel: params[:user][:tel])
+      @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name_reading: session[:first_name_reading],last_name_reading: session[:last_name_reading], first_name: session[:first_name], last_name: session[:last_name], birthday: session[:birthday], tel: params[:user][:tel])
       sns = SnsCredential.create(user_id: @user.id,uid: params[:user][:uid], provider: params[:user][:provider])
       sign_in(@user)
       redirect_to controller: '/addresses', action: 'step3'
@@ -41,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
   def user_via_sns_params
     password = Devise.friendly_token.first(7)
-    params.require(:user).permit(:nickname, :email, :f_name_kanji, :l_name_kanji, :f_name_kana, :l_name_kana, :birthday, :tel, :uid, :provider).merge(password: password, password_confirmation: password)
+    params.require(:user).permit(:nickname, :email, :first_name, :last_name, :first_name_reading, :last_name_reading, :birthday, :tel, :uid, :provider).merge(password: password, password_confirmation: password)
   end
 
 

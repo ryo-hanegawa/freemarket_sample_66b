@@ -10,10 +10,10 @@ class User < ApplicationRecord
          year_month_day = /\A\d{4}-\d{2}-\d{2}\z/
 
   validates :nickname, presence: true, length: { maximum: 15 }
-  validates :f_name_kanji, presence: true, length: { maximum: 15 }, format: { with: kanji }
-  validates :l_name_kanji, presence: true, length: { maximum: 15 }, format: { with: kanji }
-  validates :f_name_kana, presence: true, length: { maximum: 15 }, format: { with: kana }
-  validates :l_name_kana, presence: true, length: { maximum: 15 }, format: { with: kana }
+  validates :first_name, presence: true, length: { maximum: 15 }, format: { with: kanji }
+  validates :last_name, presence: true, length: { maximum: 15 }, format: { with: kanji }
+  validates :first_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
+  validates :last_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
   validates :birthday, presence: true, format: { with: year_month_day }
   validates :tel, presence: true
 
