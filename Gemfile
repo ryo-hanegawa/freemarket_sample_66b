@@ -86,6 +86,8 @@ gem 'dotenv-rails'
 
 gem 'gon'
 
+gem 'rspec-rails'
+
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
