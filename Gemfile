@@ -86,6 +86,10 @@ gem 'dotenv-rails'
 
 gem 'gon'
 
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+gem 'rails-controller-testing'
+
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
