@@ -1,0 +1,284 @@
+// Progressバー
+.single-header {
+  height: 128px;
+  text-align: center;
+  background: #f5f5f5;
+&__logo{
+  margin: 40px 0 0;
+  display: inline-block;
+  width: 185px;
+  height: 49px;
+  line-height: 49px;
+  &:hover {
+    opacity: 0.7;
+  }
+  }
+.progress-bar3 {
+  background: #f5f5f5;
+  padding: 40px 0 0 44px;
+  border: 0;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+  text-align: center;
+  }
+.progress-bar3__active {
+  color: #888;
+  margin: 0 40px 0 0;
+  min-width: 60px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-size: 12px;
+&__status {
+  background: #ea352d;
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  &::after {
+    content: '';
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ea352d;
+    }
+  }
+&__phone-number {
+  margin: 0 40px 0 0;
+  font-size: 12px;
+  color: #888;
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+  }
+&__status__phone-number { 
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  background: #ea352d;
+  &::before {
+    right: 50%;
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ea352d;
+  }
+  &::after {
+    content: '';
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ea352d;
+    }
+  }
+&__address {
+  font-weight: 600;
+  margin: 0 40px 0 0;
+  font-size: 12px;
+  color: #ea352d;
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+  }
+&__status__address {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  background: #ea352d;
+  &::before {
+    right: 50%;
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ea352d;
+  }
+  &::after {
+    content: '';
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+    }
+  }
+&__payment {
+  margin: 0 40px 0 0;
+  font-size: 12px;
+  color: #888;
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+  }
+&__status__payment {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  background: #ccc;
+  &::before {
+    right: 50%;
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+  }
+  &::after {
+    content: '';
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+    }
+  }
+&__complete {
+  margin: 0 40px 0 0;
+  font-size: 12px;
+  color: #888;
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+  }
+&__status__complete {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  background: #ccc;
+  &::before {
+    right: 50%;
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+      }
+    } 
+  }
+}
+// ここまでprogressbar
+
+.signup-wrapper {
+  background-color: #f5f5f5;
+  .signup-main3 {
+    background-color: #FFFFFF;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    margin: 0 auto 10px;
+    width: 700px;
+    &__head {
+      font-size: 22px;
+      font-weight: bold;
+      padding: 32px;
+      line-height: 33px;
+      text-align: center;
+      border-bottom:#eee solid 1px;
+    }
+    .a-3 {
+      width: 350px;
+      margin: 0 auto;
+      padding: 0px 10px 40px;
+      .signup3__form {
+        margin-top: 30px;
+        line-height: 17px;
+        display: flex;
+          p {
+            font-weight: 600;
+            font-size: 14px;
+          }
+        &__input {
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          margin: 8px 0px 0px;
+          width: 315px;
+        }
+      }
+    }
+  } 
+}
+
+//発送元・お届け先登録ページ用　都道府県プルダウン
+#signin3__prefecture {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  margin: 8px 0px 0px;
+  width: 315px;
+}
+
+// 次へボタン
+.next-btn {
+  margin: 24px 0 0;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+// 必須マーク
+span.content__require {
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  right: 12px;
+  }
+
+// 任意マーク
+  span.content__option {
+    background: #888;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    right: 12px;
+    }

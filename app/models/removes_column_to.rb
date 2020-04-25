@@ -1,0 +1,2 @@
+class RemovesColumnTo < ApplicationRecord
+end

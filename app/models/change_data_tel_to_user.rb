@@ -1,0 +1,2 @@
+class ChangeDataTelToUser < ApplicationRecord
+end
