@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: "top#index"
-  devise_for :users, 
+  devise_for :users
+  root 'top#index'
   controllers: {
     sessions: 'users/sessions',
     registrations: "users/registrations",
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :addresses,only:[:create]
     get '/addresses/new', to: 'addresses#step3'
   resources :users, only: [:index, :show] do
-  resources :creditcards, only: [:index, :new, :create, :destroy]
+    resources :creditcards, only: [:index, :new, :create, :destroy]
   end
   
   resources :logouts, only: [:index]
