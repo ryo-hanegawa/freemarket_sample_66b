@@ -1,4 +1,3 @@
-
 = link_to image_tag("logo/logo.png", height: "30", width: "180", class: "header-logo")
 .items-wrapper
   .item-image
@@ -11,29 +10,7 @@
       最大10枚までアップロードできます。
     
 
-    
-    = form_with model: @item, class: "form", id: "item-form" do |f|
-      .clearfix
-        %ul#previews
-          = f.fields_for :images do |image|
-            - @item.images.each_with_index do |img, i|
-              %li.image-preview
-                %li.input
-                  %label.upload-label{style:"display: none;"}
-                    .upload-label__text
-                      
-                      ドラッグアンドドロップ
-                      %br
-                      またはクリックしてファイルをアップロード
-                      .input-area
-                        = image.file_field :image, value: img.name, class: "hidden-image_upload", style: "display:none;"
-                        = image.hidden_field :id, value: img.id, name:"item[image][#{i}]"
-                  //画像を表示する部分↓
-                  .image-preview__wapper
-                    = image_tag img.name.to_s, class:"preview"
-                  .image-preview_btn
-                    .image-preview_btn_edit 編集
-                    .image-preview_btn_delete 削除
+    = render partial: 'form'
                 
 
   
