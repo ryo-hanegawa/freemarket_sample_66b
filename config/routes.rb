@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'top#index'
-  controllers: {
+  devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: "users/registrations",
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+  root 'top#index'
 
   resources :signup do
     collection do
