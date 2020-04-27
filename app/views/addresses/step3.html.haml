@@ -46,7 +46,7 @@
           %p
             都道府県
           %span.content__require 必須 
-        = f.select :prefecture, Address.prefectures.keys,{prompt: '---'}, id:"signin3__prefecture"
+        = f.select :prefecture_id, Prefecture.all, :id, :name, id: "signin3__prefecture"
         .signup3__form
           %p
             市区町村
