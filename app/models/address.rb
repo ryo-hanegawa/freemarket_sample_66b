@@ -1,10 +1,10 @@
 class Address < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  postal = /\A\d{7}\z/
+  kanji = /\A[一-龥]+\z/
+  kana = /\A([ァ-ン]|ー)+\z/
 
-  # kanji = /\A[一-龥]+\z/
-  # kana = /\A([ァ-ン]|ー)+\z/
-
-  validates :postal_code, presence: true,format: { with: postal}
+  validates :postal_code, presence: true,format: { with: postal }
   validates :prefecture, presence: true
   validates :city, presence: true
   validates :street, presence: true
