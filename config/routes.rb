@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+  root 'top#index'
 
   root 'top#index'
 
@@ -21,15 +22,21 @@ Rails.application.routes.draw do
     get    'users/signup/sms_confirmation',      to: 'users/registrations#step2'
   end
 
-  resources :items, except: :index
   resources :addresses,only:[:create]
     get '/addresses/new', to: 'addresses#step3'
   resources :users, only: [:index, :show] do
     resources :creditcards, only: [:index, :new, :create, :destroy]
   end
   
-  resources :logouts, only: [:index]
-  resources :exhibitions, only: [:index, :create]
   resources :purchases,only: [:show]
+  resources :top, except: :index
+
+  resources :users, only: [:index, :show] do
+    resources :creditcards, only: [:index, :new, :create, :destroy]
+  end
+
+  resources :logouts, only: :index
+  resources :items, except: :show
   resources :products,only: [:index, :show, :edit, :destroy]
+
 end

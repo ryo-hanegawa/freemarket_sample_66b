@@ -1,5 +1,6 @@
 class User < ApplicationRecord
        has_many :sns_credentials, dependent: :destroy
+       has_one :address, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,7 +15,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { maximum: 15 }, format: { with: kanji }
   validates :first_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
   validates :last_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
-  validates :birthday, presence: true, format: { with: year_month_day }
+  validates :birth_day, presence: true, format: { with: year_month_day }
   validates :tel, presence: true
 
   
