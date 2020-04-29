@@ -1,12 +1,34 @@
 %section.main__pickup
   %h2.main__pickup__title
-    ピックアップカテゴリー
+    商品一覧
   .main__pickup__box
     .main__pickup__box__title
       %a(href="#")
         %h3.name
           新規投稿商品
     .main__pickup__box__contents
+
+      - @items.each do |i|
+        .main__pickup__box__contents__content
+          %a(href="#")
+            %figure.main__pickup__box__contents__content__img
+              = image_tag '/images/ooya.jpeg', alt: 'BOSS'
+            .main__pickup__box__contents__content__text
+              %h3.name
+                = i.name
+              .details
+                %ul
+                  %li
+                    = i.price
+                  %li
+                    = icon('fas', 'star', '0')
+                %p
+                  (税込)
+
+
+
+
+
       .main__pickup__box__contents__content
         %a(href="#")
           %figure.main__pickup__box__contents__content__img

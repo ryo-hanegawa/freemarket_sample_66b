@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   }
   root 'top#index'
 
-  root 'top#index'
-
   resources :signup do
     collection do
       get 'index' #新規会員登録ページTOPへ移動
