@@ -17,7 +17,7 @@
       %ul.items__under__right
       - if user_signed_in?
         %li
-          = link_to "ログアウト", logouts_path
+          = link_to "ログアウト", logouts_path, class: "items__under__right__d-btn"
       - else
         %li
           = link_to "ログイン", new_user_session_path, class: "items__under__right__r-btn"

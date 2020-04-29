@@ -41,6 +41,7 @@
       font-size: 14px;
       display: flex;
       justify-content: space-between;
+      list-style: none;
       &__left {
         display: flex;
         &__c-btn {
@@ -56,12 +57,18 @@
       }
       &__right {
         display: flex;
+        list-style: none;
         &__r-btn {
           color: #333;
           padding-left: 16px;
           text-decoration: none;
         }
         &__n-btn {
+          color: #333;
+          padding-left: 16px;
+          text-decoration: none;
+        }
+        &__d-btm {
           color: #333;
           padding-left: 16px;
           text-decoration: none;
