@@ -14,11 +14,12 @@ class ItemsController < ApplicationController
     
     @item = Item.new(item_params)
     
-    if @item.save
-      
-      redirect_to item_path(@item)
-    
+    if @item.save!
+      flash[:success] = 'ok'
+      redirect_to controller: :items, action: :index
+
     else
+      flash[:danger] = 'no'
       redirect_to new_item_path
     end
   end
@@ -68,5 +69,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.permit(images_attributes: [:image])
+  end
+
+  def create_items_instance
+    @item = Item.new
   end
 end
