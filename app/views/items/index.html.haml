@@ -53,7 +53,7 @@
       .title__hissu
         必須
     = form_with(model: @item, local:true) do |f|
-      = f.select :name, ['レディース', 'メンズ', 'ベビー・キッズ','インテリア・住まい・小物','本・音楽・ゲーム','おもちゃ・ホビー・グッズ','コスメ・香水・美容','家電・スマホ・カメラ','スポーツ・レジャー','ハンドメイド','チケット','自転車・オートバイ','その他'], {include_blank: '選択してください'}, class: "category__input-form"
+      = f.select :category, [['レディース',1],['メンズ',2],['ベビー・キッズ',3],['インテリア・住まい・小物',4],['本・音楽・ゲーム',5],['おもちゃ・ホビー・グッズ',6],['コスメ・香水・美容',7],['家電・スマホ・カメラ',8],['スポーツ・レジャー',9],['ハンドメイド',10],['チケット',11],['自転車・オートバイ',12],['その他',13]], {include_blank: '選択してください'}, class: "category__input-form"
     .comment-red
       選択してください  
     .title
@@ -70,7 +70,7 @@
         ブランド
       .title-brand__gray
         任意
-    = form_with(model: @brand, local:true) do |f|
+    = form_with(model: @item, local:true) do |f|
       = f.text_field :name, placeholder: "例）シャネル", class: "brand__input-form"    
     .title
       .title__black
@@ -98,7 +98,7 @@
       .title__hissu
         必須
     = form_with(model: @item, local:true) do |f|
-      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "area__input-form"}
+      = f.collection_select :prefecture, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "area__input-form"}
     .comment-red
       選択してください
     .title

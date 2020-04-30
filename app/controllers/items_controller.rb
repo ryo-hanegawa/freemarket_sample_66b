@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.includes(:images)
     @item = Item.new
+    @items = Item.includes(:images)
   end
 
   def new
@@ -9,15 +9,17 @@ class ItemsController < ApplicationController
     @item.images.new
   end
 
-  def show
-  end
   
   def create
+    
     @item = Item.new(item_params)
+    
     if @item.save
-      redirect_to root_path
+      
+      redirect_to item_path(@item)
+    
     else
-      render :new
+      redirect_to new_item_path
     end
   end
 
@@ -65,6 +67,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(images_attributes: [:image])
+    params.permit(images_attributes: [:image])
   end
 end
