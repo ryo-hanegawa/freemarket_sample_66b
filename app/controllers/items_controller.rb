@@ -11,15 +11,12 @@ class ItemsController < ApplicationController
 
   
   def create
-    
     @item = Item.new(item_params)
+    if @item.save！
     
-    if @item.save!
-      flash[:success] = 'ok'
       redirect_to controller: :items, action: :index
-
     else
-      flash[:danger] = 'no'
+      
       redirect_to new_item_path
     end
   end
@@ -68,10 +65,18 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.permit(images_attributes: [:image])
+    params.require(:item).permit(:name, :description, :size, :category, :condition, :postage, :prefecture, :deliberydate, :price, :buyer)
+  end
+
+  def item_update_params
+    params.require(:item).permit(:name, :description, :size, :category, :condition, :postage, :prefecture, :deliberydate, :price, :buyer)
   end
 
   def create_items_instance
     @item = Item.new
+  end
+
+  def set_items
+    @item = Item.find(params[:id])
   end
 end
