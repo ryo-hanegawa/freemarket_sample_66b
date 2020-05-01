@@ -10,7 +10,6 @@ class ItemsController < ApplicationController
 
   
   def create
-    binding.pry
     @item = Item.new(item_params)
     if @item.save
       redirect_to controller: :items, action: :index
@@ -63,11 +62,11 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :size, :category, :condition, :postage, :prefecture, :deliberydate, :price, :buyer, images_attributes: [:image])
+    params.require(:item).permit(:name, :description, :size, :category, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer, images_attributes: [:image])
   end
 
   def item_update_params
-    params.require(:item).permit(:name, :description, :size, :category, :condition, :postage, :prefecture, :deliberydate, :price, :buyer)
+    params.require(:item).permit(:name, :description, :size, :category, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer)
   end
 
   def create_items_instance
