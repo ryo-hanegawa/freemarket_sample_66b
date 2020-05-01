@@ -1,0 +1,2 @@
+class AddColumnTo < ApplicationRecord
+end

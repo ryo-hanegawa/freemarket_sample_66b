@@ -1,6 +1,6 @@
 @mixin background-size($height, $width) {
-  height: $height;
-  width: $width;
+  height: height;
+  width: width;
 }
 
 @mixin list-top {
@@ -21,7 +21,7 @@
 @mixin list-position {
   display: block;
   padding-left: 16px;
-  color: $color-000;
+  color: color-000;
 }
 
 @mixin list-action {

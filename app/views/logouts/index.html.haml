@@ -1,13 +1,13 @@
 .wrapper
   = render 'shared/header'
 
-  .user-main
-    .user-main__contents
+  .user-main-logout
+    .user-main-logout__contents
       .left-contents
         = render 'shared/side-bar'
 
-      .right
-        .right__logout
+      .right-logout
+        .right-logout__logout
           = link_to "ログアウト", destroy_user_session_path, method: :delete
 
   = render 'shared/footer'

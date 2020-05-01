@@ -28,6 +28,10 @@
 |address|string|null: false|
 |building_name|string||
 |user|references|null: false, foreign_key: true|
+|last_name|string|null: false|
+|first_name|string|null: false|
+|last_name_reading|string|null: false|
+|first_name_reading|string|null: false|
 
 ### Association
 - belongs_to: user

@@ -1,0 +1,66 @@
+.signup-wrapper
+  .single-header
+    %h1.single-header__logo
+      = link_to root_path do 
+        = image_tag "logo/logo.png"
+    %nav.progress-bar3
+      %ol.clearfix
+        %li.progress-bar3__active
+          会員情報
+          .progress-bar3__active__status
+        %li.progress-bar3__active__phone-number
+          電話番号認証
+          .progress-bar3__active__status__phone-number
+        %li.progress-bar3__active__address
+          お届け先住所入力
+          .progress-bar3__active__status__address
+        %li.progress-bar3__active__payment
+          支払い方法
+          .progress-bar3__active__status__payment
+        %li.progress-bar3__active__complete
+          完了
+          .progress-bar3__active__status__complete
+  .signup-main3      
+    .signup-main3__head 発送元・お届け先住所入力
+    .a-3
+      = form_for @address do |f|
+        = render 'devise/shared/error_messages', resource: f.object
+        .signup3__form
+          %p
+            お名前
+          %span.content__require 必須 
+        = f.text_field :last_name, autocomplete: "last_name", placeholder: '例) 山田', class: "signup3__form__input" 
+        = f.text_field :first_name, autocomplete: "first_name", placeholder: '例) 哲人', class: "signup3__form__input"
+        .signup3__form
+          %p
+            お名前カナ
+          %span.content__require 必須 
+        = f.text_field :last_name_reading, autocomplete: "last_name_reading", placeholder: '例) ヤマダ', class: "signup3__form__input" 
+        = f.text_field :first_name_reading, autocomplete: "first_name_reading", placeholder: '例) テツト', class: "signup3__form__input"
+        .signup3__form
+          %p
+            郵便番号
+          %span.content__require 必須 
+        = f.text_field :postal_code, autocomplete: "postal_code", placeholder: '例) 123-4567', class: "signup3__form__input"
+        .signup3__form
+          %p
+            都道府県
+          %span.content__require 必須 
+        = f.select :prefecture_id, Prefecture.all.map { |f| [f.name, f.id] }, id: "signin3__prefecture"
+        .signup3__form
+          %p
+            市区町村
+          %span.content__require 必須 
+        = f.text_field :city, autocomplete: "city", placeholder: '例) 横浜市緑区', class: "signup3__form__input"
+        .signup3__form
+          %p
+            番地
+          %span.content__require 必須 
+        = f.text_field :street, autocomplete: "street", placeholder: '例) 青山1-1-1', class: "signup3__form__input"
+        .signup3__form
+          %p
+            建物名
+          %span.content__option 任意
+        = f.text_field :building, autocomplete: "building", placeholder: '例) 柳田ビル333', class: "signup3__form__input"
+        %input.next-btn{type: 'submit',value: '次へ進む'} 
+  = render 'signup/login_footer'

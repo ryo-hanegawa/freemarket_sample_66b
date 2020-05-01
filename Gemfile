@@ -54,6 +54,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :test do
@@ -83,5 +86,14 @@ gem "font-awesome-sass"
 
 gem 'active_hash'
 
+gem 'dotenv-rails'
+
+gem 'gon'
+
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
 gem 'jquery-rails'
 
+gem 'whiny_validation', '~> 1.0'

@@ -1,0 +1,303 @@
+// Progressバー
+.single-header {
+  height: 128px;
+  text-align: center;
+  background: #f5f5f5;
+&__logo{
+  margin: 40px 0 0;
+  display: inline-block;
+  width: 185px;
+  height: 49px;
+  line-height: 49px;
+  &:hover {
+    opacity: 0.7;
+  }
+  }
+.progress-bar4 {
+  background: #f5f5f5;
+  padding: 40px 0 0 44px;
+  border: 0;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+  text-align: center;
+  }
+.progress-bar4__active {
+  color: #888;
+  margin: 0 40px 0 0;
+  min-width: 60px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-size: 12px;
+&__status {
+  background: #ea352d;
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  &::after {
+    content: '';
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ea352d;
+    }
+  }
+&__phone-number {
+  margin: 0 40px 0 0;
+  font-size: 12px;
+  color: #888;
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+  }
+&__status__phone-number { 
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  background: #ea352d;
+  &::before {
+    right: 50%;
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ea352d;
+  }
+  &::after {
+    content: '';
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ea352d;
+    }
+  }
+&__address {
+  margin: 0 40px 0 0;
+  font-size: 12px;
+  color: #888;
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+  }
+&__status__address {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  background: #ea352d;
+  &::before {
+    right: 50%;
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ea352d;
+  }
+  &::after {
+    content: '';
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ea352d;
+    }
+  }
+&__payment {
+  font-weight: 600;
+  margin: 0 40px 0 0;
+  font-size: 12px;
+  color: #ea352d;
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+  }
+&__status__payment {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  background: #ea352d;
+  &::before {
+    right: 50%;
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ea352d;
+  }
+  &::after {
+    content: '';
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+    }
+  }
+&__complete {
+  margin: 0 40px 0 0;
+  font-size: 12px;
+  color: #888;
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+  }
+&__status__complete {
+  width: 12px;
+  height: 12px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  background: #ccc;
+  &::before {
+    right: 50%;
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+      }
+    } 
+  }
+}
+// ここまでprogressbar
+
+.signup-wrapper {
+  background-color: #f5f5f5;
+  .signup-main4 {
+    background-color: #FFFFFF;
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+    margin: 0 auto;
+    width: 700px;
+    &__head {
+      font-size: 22px;
+      font-weight: bold;
+      padding: 32px;
+      line-height: 33px;
+      text-align: center;
+      border-bottom:#eee solid 1px;
+    }
+  }
+  .card-input-contents4{
+    height: 630px;
+    width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+      form{
+        padding: 40px 40px 64px;
+        border-top: 1px solid #f5f5f5;
+        .card-input-content4{
+          max-width: 343px;
+          margin: 0 auto;
+          .input-default{
+            width: 100%;
+            margin: 8px 0 0;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 16px;
+          }
+          ul{
+            margin: 8px 0 0;
+            font-size: 0;
+            display:flex;
+            li{
+              margin: 0 0 0 8px;
+            }
+          }
+          .select-wrap{
+            .select-wrap-half{
+              display: inline-block;
+              width: 50%;
+              margin: 8px 0 0;
+              position: relative;
+              background: #fff;
+              select{
+                width: calc(100% - 38px);
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+              }
+              i{
+                top:5px;
+                right: 50px;
+                position: absolute;
+                z-index: 10;
+                color: #888;
+                font-size: 35px;
+              }
+            }
+          }
+          .signup-seqcode{
+            text-align: right;
+            font-size: 14px;
+            margin: 8px 0 0;
+            .signup-seqcode-text{
+              color: #0099e8;
+              display: inline-block;
+              width: 14px;
+              height: 14px;
+              border-radius: 50%;
+              background: #0099e8;
+              color: #fff;
+              line-height: 14px;
+              font-size: 12px;
+              text-align: center;
+            }
+            span{
+              color: #0099e8;
+            }
+          }
+        }
+        .add-btn{
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          width: 100%;
+          margin: 8px 0 0;
+          height: 48px;
+          padding: 10px 16px 8px;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+      }
+  }
+}

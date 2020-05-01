@@ -29,7 +29,7 @@
                   .product-user-rating
                     = image_tag("")
                     = icon('far', 'fa-smile', class: 'fa-smile-o')
-                    %span 0
+                    %span 1000
                   .product-user-rating
                     = image_tag("")
                     = icon("far", "fa-meh", class: "fa-meh-o")
@@ -43,14 +43,17 @@
               %td
                 .product-detail-table-sub
                 .product-detail-table-sub
+                  = link_to "メンズ" 
                 .product-detail-table-sub__sub
+                  = link_to "ジャケット"
                 .product-detail-table-sub__sub__sub
+                  = link_to "ノーカラージャケット" 
             %tr
               %th ブランド
               %td
-                = link_to "//www.mercari.com/jp/brand/4136/" do
+                = link_to "#" do
                   .brand-name
-                    o-year
+                    o-yeah
             %tr
               %th 商品の状態
               %td
@@ -98,7 +101,7 @@
 
       .product-description
         %p.product-description__inner
-        -# @product.detail hogehogehogehogehogehogehogehogehogehogehogehogehoge
+          -#  =@product.detail hogehogehogehogehogehogehogehogehogehogehogehogehoge
       .product-button-container.clearfix
         .product-button-left
           .product-button-like
@@ -107,11 +110,11 @@
               %span.fade-in-down いいね!
               %span.fade-in-down 0
         .product-button__report
-          = link_to "", class: "product-button__report" do
+          = link_to "#", class: "product-button__report" do
             = icon("far", "fa-flag", class: "fa-flag")
             %span.fade-in-down 不適切な商品の報告            
         .product-button-right
-          = link_to 'https://www.mercari.com/jp/safe/description/', target: "_blank", class: "safe-description" do
+          = link_to '#', target: "_blank", class: "safe-description" do
             = icon("fas", "fa-lock", class: "fa-lock")
             あんしん・あんぜんへの取り組み
       .nav-product-link
