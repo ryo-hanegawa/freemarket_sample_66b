@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   def index
-    @item = Item.new
     @items = Item.includes(:images)
   end
 
@@ -11,13 +10,9 @@ class ItemsController < ApplicationController
 
   
   def create
-    
     @item = Item.new(item_params)
-    
     if @item.save
-      
       redirect_to item_path(@item)
-    
     else
       redirect_to new_item_path
     end
