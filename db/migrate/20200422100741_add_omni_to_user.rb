@@ -1,4 +1,4 @@
 class AddOmniToUser < ActiveRecord::Migration[5.2]
-  def changzzz
+  def change
   end
 end
