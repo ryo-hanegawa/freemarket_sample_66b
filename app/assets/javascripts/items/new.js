@@ -72,3 +72,14 @@ $(function(){
     if ((targetIndex == limitFileField ) || ($(".js-file_group").length >= 9)) ($('#image-box').append(buildFileField(fileIndex)));
   });
 });
+
+//フォームが未入力だった時、コメントレッドを入れる
+$(document).ready(function() {
+  $("#btn").click(function() {
+    var vallst = $("#arert-form").val();
+    if (!vallst) {
+      alert("入力されていません")
+      return false;
+    }
+  }
+}

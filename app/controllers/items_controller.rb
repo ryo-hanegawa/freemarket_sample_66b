@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to controller: :items, action: :index
     else
+      flash.now[:alert] = 'メッセージを入力してください。'
       redirect_to new_item_path
     end
   end

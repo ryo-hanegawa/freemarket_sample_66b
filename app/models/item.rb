@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :category, presence: true
+  validates :size, presence: true
   validates :condition, presence: true
   validates :prefecture, presence: true
   validates :deliberydate, presence: true
