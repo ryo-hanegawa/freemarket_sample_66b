@@ -1,23 +1,22 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @items = Item.includes(:images)
-    @item = Item.new
   end
 
   def new
     @item = Item.new
+    @items = Item.includes(:images)
     @item.images.new
   end
 
-  def show
-  end
   
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to controller: :items, action: :index
     else
-      render :new
+      redirect_to new_item_path
     end
   end
 
@@ -65,6 +64,18 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(images_attributes: [:image])
+    params.require(:item).permit(:name, :description, :size, :category, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer, images_attributes: [:image])
+  end
+
+  def item_update_params
+    params.require(:item).permit(:name, :description, :size, :category, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer)
+  end
+
+  def create_items_instance
+    @item = Item.new
+  end
+
+  def set_items
+    @item = Item.find(params[:id])
   end
 end
