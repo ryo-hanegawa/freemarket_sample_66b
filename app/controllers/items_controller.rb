@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @items = Item.includes(:images)
   end
@@ -6,6 +7,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @items = Item.includes(:images)
+    @item.images.new
   end
 
   
