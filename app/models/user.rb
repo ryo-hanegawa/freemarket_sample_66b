@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-       has_many :sns_credentials, dependent: :destroy
-       has_one :address, dependent: :destroy
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :sns_credentials, dependent: :destroy
+  has_one :address, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
@@ -16,7 +15,7 @@ class User < ApplicationRecord
   validates :first_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
   validates :last_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
   validates :birth_day, presence: true, format: { with: year_month_day }
-  validates :tel, presence: true
+  validates :phone_number, presence: true
 
   
   def self.without_sns_data(auth)

@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  belongs_to :user
+  belongs_to :user, optional: true
 
   postal = /\A\d{7}\z/
   kanji = /\A[一-龥]+\z/

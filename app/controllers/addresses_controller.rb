@@ -4,17 +4,19 @@ class AddressesController < ApplicationController
   end
 
   def create
+    binding.pry
     @address = Address.new(address_params)
     if @address.save
-      redirect_to controller: '/card', action: 'step4'
+      redirect_to controller: '/creditcards', action: 'index'
     else
       redirect_to controller: '/addresses', action: 'step3'
     end
     
   end
 
-    private
-    def address_params
-      params.require(:address).permit(:last_name, :first_name, :last_name_reading, :first_name_reading, :postal_code, :city, :prefecture_id, :street, :building).merge(user_id: current_user.id)
-    end
+  private
+  def address_params
+    binding.pry
+    params.require(:address).permit(:last_name, :first_name, :last_name_reading, :first_name_reading, :postal_code, :city, :prefecture_id, :street, :building).merge(user_id: current_user.id)
+  end
 end
