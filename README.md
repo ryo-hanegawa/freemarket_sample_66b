@@ -11,7 +11,7 @@
 <!-- |birth_year|integer|null: false, default: 0|
 |birth_month|integer|null: false, default: 0| -->
 |birth_day|integer|null: false, default: 0|
-|phone_number|integer|null: false|
+|phone_number|string|null: false|
 
 ### Association
 - has_one: creditcard, dependent: :destroy
