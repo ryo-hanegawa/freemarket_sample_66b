@@ -5,7 +5,7 @@
       %h2.l-single-head__registration 会員情報入力
       .l-single-head__registration__form
         .l-single-content
-          = form_for(@user, url:  users_signup_sms_confirmation_path(@user), html: {method: "get"}) do |f|
+          = form_with(model: @user, local:true) do |f|
             = render 'devise/shared/error_messages', model: f.object
             .l-single-content__nickname
               = f.label :nickname, 'ニックネーム'

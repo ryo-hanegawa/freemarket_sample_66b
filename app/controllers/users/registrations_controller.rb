@@ -9,11 +9,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def step1
-    @user = User.new
+     @user = User.new
   end
   
   def step2
-    binding.pry
     session[:nickname] = params[:user][:nickname]
     session[:email] = params[:user][:email]
     session[:password] = params[:user][:password]
@@ -31,18 +30,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def create
-    if params[:user][:password].nil?
-      binding.pry
-      @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name_reading: session[:first_name_reading],last_name_reading: session[:last_name_reading], first_name: session[:first_name], last_name: session[:last_name], birth_year: session[:birth_year], birth_month: session[:birth_month], birth_day: session[:birth_day], phone_number: params[:user][:phone_number])
-      # @user = User.create(phone_number: params[:user][:phone_number])
-      # sns = SnsCredential.create(user_id: @user.id,uid: params[:user][:uid], provider: params[:user][:provider])
-      @user.save
-      sign_in(:user, @user)
-      redirect_to controller: '/addresses', action: 'step3'
-    else 
-      redirect_to :back
-    end
+    @user = User.new(params[:id])
+    # if params[:user][:password].nil?
+    #   @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name_reading: session[:first_name_reading],last_name_reading: session[:last_name_reading], first_name: session[:first_name], last_name: session[:last_name], birth_year: session[:birth_year], birth_month: session[:birth_month], birth_day: session[:birth_day], phone_number: params[:user][:phone_number])
+    #   @user = User.create(phone_number: params[:user][:phone_number])
+    #   # sns = SnsCredential.create(user_id: @user.id,uid: params[:user][:uid], provider: params[:user][:provider])
+    # else 
+    #  redirect_back(fallback_location: root_path)
+    # end
+  
+  if @user.save
+    redirect_to controller: 'addresses', action: 'step3'
+    sign_in(@user)
+    bypass_sign_in(@user)
+  else
+    render "step1"
   end
+end
 
   private
   def user_via_sns_params
@@ -52,12 +56,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
 
-  # def birthday_join
-  #   year = params[:user]["birthday(1i)"]
-  #   month = params[:user]["birthday(2i)"]
-  #   day = params[:user]["birthday(3i)"]
-  #   birth_day = year.to_s + "-" + month.to_s + "-" + day.to_s
-  #   return birth_day
-  # end
+  def birthday_join
+    year = params[:user]["birth_day(1i)"]
+    month = params[:user]["birth_day(2i)"]
+    day = params[:user]["birth_day(3i)"]
+    birth_day = year.to_s + "-" + month.to_s + "-" + day.to_s
+    return birth_day
+  end
 
 end
