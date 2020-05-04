@@ -1,12 +1,8 @@
 class AddColumnToAddress < ActiveRecord::Migration[5.2]
   def change
-    create_table :addresses do |t|
-      t.integer :postal_code
-      t.integer :prefecture
-      t.string :city
-      t.string :street
-      t.string :building
-      t.references :user, foreign_key: true
-    end
+    add_column :addresses, :postal_code, :integer, null: false
+    add_column :addresses, :street, :string, null: false
+    add_column :addresses, :building, :string, null: false
+    add_reference :addresses, :user, foreign_key: true
   end
 end

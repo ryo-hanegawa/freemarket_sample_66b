@@ -1,0 +1,70 @@
+.signup-wrapper
+  = render 'devise/shared/progress_header' 
+  %main.single-main
+    %section.l-single-container
+      %h2.l-single-head__registration 会員情報入力
+      .l-single-head__registration__form
+        .l-single-content
+          = form_with(model: @user, local:true) do |f|
+            = render 'devise/shared/error_messages', model: f.object
+            .l-single-content__nickname
+              = f.label :nickname, 'ニックネーム'
+              %span.l-single-content__require 必須
+              %br/
+              = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例)フリマ太郎"
+            .l-single-content__phone
+              = f.label :phone_number, '電話番号'
+              %span.l-single-content__require 必須
+              %br/
+              = f.text_field :phone_number, autofocus: true,  placeholder: "例)08012345678", class: "signup-main2__form__phone-number__input" 
+            .l-single-content__email
+              = f.label :email, 'メールアドレス'
+              %span.l-single-content__require 必須
+              %br/
+              = f.email_field :email, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+              .l-single-content__password
+                = f.label :password, 'パスワード'
+                %span.l-single-content__require 必須
+                %br/
+                = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上"
+              .l-single-content__password__confirmation
+                = f.label :password_confirmation, 'パスワード（確認）'
+                %span.l-single-content__require 必須
+                %br/
+                = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "7文字以上"
+              .l-single-sub-head
+                %h3.l-single-sub-head__left-text 本人確認
+                %p.l-single-sub-head__text 
+                  安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。            
+            .signup-main__form__name 
+              %p 
+                お名前(全角) 
+              %span.l-single-content__require 必須 
+            .signup-main__form__name__inputbox
+              = f.text_field :last_name, autocomplete: "l_name", placeholder: '例) 山田', class: "signup-main__form__name__inputbox__last-name-input"
+              = f.text_field :first_name, autocomplete: "f_name", placeholder: '例) 哲人', class: "signup-main__form__name__inputbox__first-name-input"
+            .signup-main__form__name-kana 
+            .l-single-content__user-full-name-kana
+              = f.label :"お名前カナ(全角)"
+              %span.l-single-content__require 必須
+              %br/
+              = f.text_field :last_name_reading, autocomplete: "l_name_reading", placeholder: "例)ヤマダ", class: "signup-main__form__name__inputbox__last-name-input"
+              = f.text_field :first_name_reading, autocomplete: "f_name_reading", placeholder: "例)テツト", class: "signup-main__form__name__inputbox__first-name-input"
+            .l-single-content__user__birthday
+              = f.label :"生年月日"
+              %span.l-single-content__require 必須
+              %br/  
+              .birthday-select-wrap
+                = f.date_select :birth_date, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)
+              %p.form-into-text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。 
+            .actions
+              .g-recaptcha-signup-recaptcha
+                -# = image_tag("https://i.gyazo.com/ce5541bb0a64b4d3a55f24edb0f9b140.png")
+                  = recaptcha_tags
+            .form-text-center-on
+              %p.form-text-center 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします 
+              %br/
+              = f.submit "次へ進む", class: 'next-btn'
+            .l-single-content-text__right
+              本人情報の登録について
+  = render 'signup/login_footer'

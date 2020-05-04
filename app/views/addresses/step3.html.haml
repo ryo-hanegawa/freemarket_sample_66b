@@ -23,8 +23,8 @@
   .signup-main3      
     .signup-main3__head 発送元・お届け先住所入力
     .a-3
-      = form_for @address do |f|
-        = render 'layouts/error_messages', model: f.object
+      = form_with @address do |f|
+        = render 'devise/shared/error_messages', resource: f.object
         .signup3__form
           %p
             お名前
@@ -46,7 +46,7 @@
           %p
             都道府県
           %span.content__require 必須 
-        = f.select :prefecture, Address.prefectures.keys,{prompt: '---'}, id:"signin3__prefecture"
+        = f.select :prefecture_id, Prefecture.all.map { |f| [f.name, f.id] }, id: "signin3__prefecture"
         .signup3__form
           %p
             市区町村
@@ -61,6 +61,6 @@
           %p
             建物名
           %span.content__option 任意
-        = f.text_field :building, autocomplete: "building", placeholder: '例) 柳ビル103', class: "signup3__form__input"
+        = f.text_field :building, autocomplete: "building", placeholder: '例) 柳田ビル333', class: "signup3__form__input"
         %input.next-btn{type: 'submit',value: '次へ進む'} 
   = render 'signup/login_footer'

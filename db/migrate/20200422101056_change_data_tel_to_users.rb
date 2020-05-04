@@ -1,5 +1,5 @@
 class ChangeDataTelToUsers < ActiveRecord::Migration[5.2]
-  def change
+  def up
     change_column :users, :tel, :string
   end
 end
