@@ -10,14 +10,14 @@ Rails.application.routes.draw do
     get   'addresses', to: 'users/registrations#new_address'
     post  'addresses', to: 'users/registrations#create_address'
   end
-  # resources :signup do
-  #   collection do
+  resources :signup do
+    collection do
   #     get 'index' #新規会員登録ページTOPへ移動
   #     get 'step3' #【新規会員登録】住所入力ページへ移動
   #     # get 'step4' #【新規会員登録】支払い方法登録ページへ移動
-  #     get 'done' #【新規会員登録】完了ページへ移動
-  #   end
-  # end
+      get 'done' #【新規会員登録】完了ページへ移動
+    end
+  end
 
 
   # resources :addresses,only:[:create]
