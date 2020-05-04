@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true, length: { maximum: 15 }, format: { with: kanji }
   validates :first_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
   validates :last_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
-  validates :birth_day, presence: true, format: { with: year_month_day }
+  validates :birth_date, presence: true, format: { with: year_month_day }
   validates :phone_number, presence: true
 
   

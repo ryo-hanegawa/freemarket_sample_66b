@@ -11,7 +11,7 @@ class Address < ApplicationRecord
   validates :prefecture, presence: true
   validates :city, presence: true
   validates :street, presence: true
-  validates :user_id, presence: true
+  # validates :user_id, presence: true
   validates :first_name, presence: true, length: { maximum: 15 }, format: { with: kanji }
   validates :last_name, presence: true, length: { maximum: 15 }, format: { with: kanji }
   validates :first_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
