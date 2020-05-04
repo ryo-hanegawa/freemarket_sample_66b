@@ -13,7 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
   
   def create
-    binding.pry
     @user = User.new(sign_up_params)
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
@@ -42,7 +41,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def create_address
-    binding.pry
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
     unless @address.valid?
@@ -65,12 +63,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #   redirect_to :back
     # end
     redirect_to controller: '/signup', action: 'done'
-  end
 end
 
   protected
   def address_params
-    binding.pry
     params.require(:address).permit(:last_name, :first_name, :last_name_reading, :first_name_reading, :postal_code, :city, :prefecture_id, :street, :building) #.merge(user_id: current_user.id)
   end
 
