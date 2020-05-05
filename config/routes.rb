@@ -35,6 +35,6 @@ Rails.application.routes.draw do
 
   resources :logouts, only: :index
   resources :items, except: :show
-  resources :products,only: [:index, :show, :edit, :destroy]
+  resources :products,only: [:index, :show, :edit, :destroy, :update]
 
 end

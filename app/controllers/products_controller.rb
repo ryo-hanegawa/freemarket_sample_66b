@@ -3,13 +3,20 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
+  def show
+    @item = Item.find(params[:id])
+    @images = @item.images
+    @image = @images.first
+    end
+
+
   def update
-    post = Post.find(params[:id])
-    post.update(post_params)
-    redirect_to post_path(post.id)
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to item_path(item.id)
   end
 
   def destroy

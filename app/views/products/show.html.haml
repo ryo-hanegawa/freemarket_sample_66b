@@ -6,7 +6,7 @@
     %section.product-show-product-box-container
       %h1
         .product-name
-          -# =@ product.name
+          -# = @item.name
       .product-main-content
         .product-photo
           //メイン画像
@@ -85,15 +85,15 @@
         %span.product-tax (税込)
         %span.product-fee_payer
       -if user_signed_in?
-        -if @product.user_id == current_user.id
-          =link_to edit_product_path(@product), data: {turbolinks: false} do
+        -# -if @item.user_id == current_user.id
+          =link_to edit_item_path(@item), data: {turbolinks: false} do
             .product-edit-btn
             商品の編集
             .product-btn-or 
             or
             .product-stop-btn
             出品を停止する
-          =link_to product_path(@product), method: :delete, data: {turbolinks: false} do
+          =link_to product_path(@item), method: :delete, data: {turbolinks: false} do
             .product-delete-btn
             この商品を削除する
       .product-buy-btn
@@ -101,7 +101,7 @@
 
       .product-description
         %p.product-description__inner
-          -#  =@product.detail hogehogehogehogehogehogehogehogehogehogehogehogehoge
+          -# =@item.description 
       .product-button-container.clearfix
         .product-button-left
           .product-button-like
