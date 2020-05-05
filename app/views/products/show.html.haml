@@ -11,14 +11,20 @@
         .product-photo
           //メイン画像
           .image
-            = image_tag 'https://ca.slack-edge.com/T1MLERC4C-UQKTCNSGG-9a3b05893ded-512', alt: '', height: '300', width: '300', class: 'image-main'
+            = image_tag @image.image.to_s, alt: '', height: '300', width: '300', class: 'image-main'
           //サムネイル画像
           .owl-dot
-            = image_tag 'https://ca.slack-edge.com/T1MLERC4C-UQKTCNSGG-9a3b05893ded-512', alt: '', height: '200', width: '200', class: 'image-sub'
-            .owl-dot
-              = image_tag 'https://ca.slack-edge.com/T1MLERC4C-UQKTCNSGG-9a3b05893ded-512', alt: '', height: '200', width: '200', class: 'image-sub'
-              .owl-dot
-                = image_tag 'https://ca.slack-edge.com/T1MLERC4C-UQKTCNSGG-9a3b05893ded-512', alt: '', height: '200', width: '200', class: 'image-sub'
+           - @item.images.each.with_index do |image, index|
+              - if image.present?
+                .owl-dot__product.current
+                  .owl-dot__product__box
+                    = image_tag image.image_url, class: "image-sub"
+              - else
+                .owl-dot__product
+                  .owl-dot__product__box
+                    = image_tag image.image, class: "image-sub"
+            - if @item.images.length > 5
+              - for i in 1..(10 - @item.images.length)
         %table.product-detail-table
           %tbody
             %tr
