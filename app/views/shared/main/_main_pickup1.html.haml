@@ -6,20 +6,23 @@
       %a(href="#")
         %h3.name
           新規投稿商品
-    .main__pickup__box__contents
-      - @items.find_each do |item|
-        .main__pickup__box__contents__content
-          %a(href="#")
-            %figure.main__pickup__box__contents__content__img
-              = item.images.first
-            .main__pickup__box__contents__content__text
-              %h3.name
-                = item.name
-              .details
-                %ul
-                  %li
-                    = item.price
-                  %li
-                    = icon('fas', 'star', '0')
-                %p
-                  (税込)
+    %ul.main__pickup__box__contents
+      - @items.each_slice(3) do |items|
+        %li.container
+          - items.each do |item|
+            .main__pickup__box__contents__content
+              %a(href="#")
+                %figure.main__pickup__box__contents__content__img
+                  - first_image = item.images.first
+                  = image_tag first_image.image.url
+                .main__pickup__box__contents__content__text
+                  %h3.name
+                    = item.name
+                  .details
+                    %ul
+                      %li
+                        = item.price
+                      %li
+                        = icon('fas', 'star', '0')
+                    %p
+                      (税込)

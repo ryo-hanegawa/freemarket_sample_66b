@@ -25,8 +25,11 @@
     &__contents {
       width: 780px;
       margin: 26px auto;
-      display: flex;
-      justify-content: space-around;
+      li {
+        display: flex;
+        justify-content: space-around;
+        padding-bottom: 50px;
+      }
       &__content {
         width: 220px;
         display: inline-block;
