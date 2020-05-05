@@ -43,7 +43,7 @@
 |------|----|-------|
 |customer_id|string|null: false|
 |card_id|string|null: false|
-|user|references|null: false, foreign_key: true|
+|user|integer|null: false|
 
 ### Association
 - belongs_to: user
