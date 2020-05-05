@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :sns_credentials, dependent: :destroy
   has_one :address, dependent: :destroy
+  has_one :creditcard, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
