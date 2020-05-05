@@ -6,7 +6,7 @@
     %section.product-show-product-box-container
       %h1
         .product-name
-          -# = @item.name
+          = @item.name
       .product-main-content
         .product-photo
           //メイン画像
@@ -14,7 +14,7 @@
             = image_tag @image.image.to_s, alt: '', height: '300', width: '300', class: 'image-main'
           //サムネイル画像
           .owl-dot
-           - @item.images.each.with_index do |image, index|
+            - @item.images.each.with_index do |image, index|
               - if image.present?
                 .owl-dot__product.current
                   .owl-dot__product__box
@@ -30,7 +30,7 @@
             %tr
               %th 出品者
               %td
-                hoge
+                = link_to "#{@user.user.nickname}",  root_path, class: "user-name-string"
                 .product-user-ratings
                   .product-user-rating
                     = image_tag("")
@@ -48,50 +48,50 @@
               %th カテゴリー
               %td
                 .product-detail-table-sub
+                -#  =カテゴリー作ったら入れる 
                 .product-detail-table-sub
-                  = link_to "メンズ" 
+
                 .product-detail-table-sub__sub
-                  = link_to "ジャケット"
+       
                 .product-detail-table-sub__sub__sub
-                  = link_to "ノーカラージャケット" 
             %tr
               %th ブランド
               %td
                 = link_to "#" do
                   .brand-name
-                    o-yeah
+                    = @item.brand
             %tr
               %th 商品の状態
               %td
                 .product-detail
-                  良好
+                  = @item.condition
 
             %tr
               %th 配送料の負担
               %td
                 .product-detail
-                  全国一律１００円
+                  = @item.postage
             %tr
               %th 配送の方法
               %td
                 .product-detail らくらくフリマ便
             %tr
-              %th 発送元地域
+              %th 発送元の地域
               %td
                 .product-detail.prefecture-name
-                  愛知県
+                  = @item.prefecture
             %tr
               %th 配送日の目安
               %td
                 .product-detail
-                  ３日
+                  = @item.deliberydate
       .product-price-box
         %span.product-price 
-          30000円
+          =@item.price
         %span.product-tax (税込)
         %span.product-fee_payer
       -if user_signed_in?
-        -# -if @item.user_id == current_user.id
+        -if @item.user_id == current_user.id
           =link_to edit_item_path(@item), data: {turbolinks: false} do
             .product-edit-btn
             商品の編集
@@ -99,7 +99,7 @@
             or
             .product-stop-btn
             出品を停止する
-          =link_to product_path(@item), method: :delete, data: {turbolinks: false} do
+          =link_to item_path(@item), method: :delete, data: {turbolinks: false} do
             .product-delete-btn
             この商品を削除する
       .product-buy-btn
@@ -107,7 +107,7 @@
 
       .product-description
         %p.product-description__inner
-          -# =@item.description 
+          = @item.description 
       .product-button-container.clearfix
         .product-button-left
           .product-button-like
@@ -116,11 +116,11 @@
               %span.fade-in-down いいね!
               %span.fade-in-down 0
         .product-button__report
-          = link_to "#", class: "product-button__report" do
+          = link_to "#", class: "product-button__report"
             = icon("far", "fa-flag", class: "fa-flag")
             %span.fade-in-down 不適切な商品の報告            
         .product-button-right
-          = link_to '#', target: "_blank", class: "safe-description" do
+          = link_to '#', target: "_blank", class: "safe-description"
             = icon("fas", "fa-lock", class: "fa-lock")
             あんしん・あんぜんへの取り組み
       .nav-product-link
@@ -130,16 +130,16 @@
         .next-product.items-link_to
           = icon("fas", "fa-chevron-right", class: "fa-chevron-right")
           = link_to "次の商品へ", "#"
-          .product-social-media-box
-            .text-center
-            %ul.social-media-box
-              %li
-                = link_to "#", target: "_blank", class: "share-btn" do
-                  = icon("fab", "fa-facebook-square", class: "fa-facebook-square")
-              %li
-                = link_to "#", target: "_blank", class: "share-btn" do
-                  = icon("fab", "fa-twitter-square", class: "fa-twitter-square")
-              %li
-                = link_to "#", target: "_blank", class: "share-btn" do
-                  = icon("fab", "fa-pinterest-square", class: "fa-pinterest-square")
+        .product-social-media-box
+          .text-center
+          %ul.social-media-box
+            %li
+              = link_to "#", target: "_blank", class: "share-btn" do
+                = icon("fab", "fa-facebook-square", class: "fa-facebook-square")
+            %li
+              = link_to "#", target: "_blank", class: "share-btn" do
+                = icon("fab", "fa-twitter-square", class: "fa-twitter-square")
+            %li
+              = link_to "#", target: "_blank", class: "share-btn" do
+                = icon("fab", "fa-pinterest-square", class: "fa-pinterest-square")
   = render "shared/footer"
