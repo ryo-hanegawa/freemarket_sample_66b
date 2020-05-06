@@ -71,4 +71,9 @@ $(function(){
     //もし、（現在入力されてるフォームが最新のフォームで、かつ、入力フォームのlengthが９以上なら、新しく入力フォームを生成する。という条件分岐によって、入力フォーム自体が消滅することを防ぎつつ、「現在入力されてるフォームが最新のフォーム」以外の条件でフォーム自体を消してしまう不具合を解消しています。（要するに、最新の入力フォーム以外を削除すると入力フォーム自体が消滅してしまう）
     if ((targetIndex == limitFileField ) || ($(".js-file_group").length >= 9)) ($('#image-box').append(buildFileField(fileIndex)));
   });
+<<<<<<< Updated upstream
 });
+=======
+});
+
+>>>>>>> Stashed changes

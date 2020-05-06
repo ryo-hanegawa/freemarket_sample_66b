@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_075214) do
+ActiveRecord::Schema.define(version: 2020_05_04_113543) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.string "street", null: false
     t.string "building", null: false
     t.bigint "user_id"
@@ -42,10 +42,9 @@ ActiveRecord::Schema.define(version: 2020_04_27_075214) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id", null: false
     t.string "name", null: false
     t.text "description", null: false
-    t.text "brand"
     t.integer "size", default: 0, null: false
     t.integer "category", null: false
     t.integer "condition", default: 0, null: false
@@ -56,7 +55,6 @@ ActiveRecord::Schema.define(version: 2020_04_27_075214) do
     t.integer "buyer", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -74,10 +72,8 @@ ActiveRecord::Schema.define(version: 2020_04_27_075214) do
     t.string "first_name", null: false
     t.string "last_name_reading", null: false
     t.string "first_name_reading", null: false
-    t.integer "birth_year", default: 0, null: false
-    t.integer "birth_month", default: 0, null: false
-    t.integer "birth_day", default: 0, null: false
-    t.integer "phone_number", null: false
+    t.date "birth_date", null: false
+    t.string "phone_number", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -87,14 +83,11 @@ ActiveRecord::Schema.define(version: 2020_04_27_075214) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
-    t.string "tel", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["nickname"], name: "index_users_on_nickname", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "users"
   add_foreign_key "sns_credentials", "users"
 end

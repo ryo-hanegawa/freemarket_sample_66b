@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  belongs_to :user
+  belongs_to :user, optional: true
 
   postal = /\A\d{7}\z/
   kanji = /\A[一-龥]+\z/
@@ -11,7 +11,7 @@ class Address < ApplicationRecord
   validates :prefecture, presence: true
   validates :city, presence: true
   validates :street, presence: true
-  validates :user_id, presence: true
+  # validates :user_id, presence: true
   validates :first_name, presence: true, length: { maximum: 15 }, format: { with: kanji }
   validates :last_name, presence: true, length: { maximum: 15 }, format: { with: kanji }
   validates :first_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
