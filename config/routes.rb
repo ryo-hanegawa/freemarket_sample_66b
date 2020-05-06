@@ -23,11 +23,14 @@ Rails.application.routes.draw do
   # resources :addresses,only:[:create]
     # get '/addresses/new', to: 'addresses#step3'
   resources :users, only: [:index, :show] do
-    resources :creditcards, only: [:index, :new, :show] do
+    resources :creditcards, only: [:new, :show] do
       collection do
         post 'show', to: 'creditcards#show'
         post 'pay', to: 'creditcards#pay'
         post 'delete', to: 'creditcards#delete'
+      end
+      member do
+        get 'confirmation'
       end
     end
   end

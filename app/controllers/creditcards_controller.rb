@@ -40,6 +40,8 @@ class CreditcardsController < ApplicationController
       Payjp.api_key = Rails.application.credentials[:payjp_private_key]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
+      @exp_month = @default_card_information.exp_month.to_s
+      @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
     end
   end
 
@@ -48,10 +50,15 @@ class CreditcardsController < ApplicationController
     if card.blank?
     else
       Payjp.api_key = Rails.application.credentials[:payjp_private_key]
-      customer = Payjp::Customer.retrive(card.customer_id)
+      customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
     end
     redirect_to action: "new"
+  end
+
+  def confirmation
+    card = current_user.credit_cards
+    redirect_to action: "show" if card.exists?
   end
 end

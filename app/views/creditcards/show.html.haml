@@ -1,10 +1,36 @@
+-# .wrapper
+-#   = render 'shared/header'
+
+-#   .user-main
+-#     .user-main__contents
+-#       .left-contents
+-#         = render "shared/side-bar"
+    
+-#       .right-contents
+-#         .right-contents__pay-method
+-#           登録クレジットカード情報
+-#         .right-contents__content
+-#           .right-contents__content__add-card
+-#             .right-contents__content__add-card__btn
+-#               =link_to new_user_creditcard_path do
+-#                 クレジットカードを登録する
+-#           .right-contents__content__remove-card
+-#             -# showの記載内容を確認後こちらに記載する
+-#           .right-contents__content__about
+-#             =link_to do
+-#               支払方法について
+
+-#   = render 'shared/footer'
+
+
 %label 登録クレジットカード情報
 %br
 = "**** **** **** " + @default_card_information.last4
 %br
-- exp_month = @default_card_information.exp_month.to_s
-- exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-= exp_month + " / " + exp_year
-= form_tag(delete_user_creditcards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+-# - exp_month = @default_card_information.exp_month.to_s
+-# - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+= @exp_month + " / " + @exp_year
+-# = form_tag(delete_user_creditcards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+= form_with url: delete_user_creditcards_path(, method: :post, id: 'charge-form',  name: "inputForm") do
   %input{ type: "hidden", name: "card_id", value: "" }
   %button 削除する
