@@ -11,7 +11,7 @@
         .product-photo
           //メイン画像
           .image
-            = image_tag @image.image.to_s, alt: '', height: '300', width: '300', class: 'image-main'
+            = image_tag @image.image.to_s, size: "300x300"
           //サムネイル画像
           .owl-dot
             - @item.images.each.with_index do |image, index|
@@ -25,12 +25,14 @@
                     = image_tag image.image, class: "image-sub"
             - if @item.images.length > 5
               - for i in 1..(10 - @item.images.length)
+                .owl-dot__dummy
         %table.product-detail-table
           %tbody
             %tr
               %th 出品者
               %td
-                = link_to "#{@user.user.nickname}",  root_path, class: "user-name-string"
+                .user-name-string
+                  -# = @user.nickname
                 .product-user-ratings
                   .product-user-rating
                     = image_tag("")
@@ -48,18 +50,16 @@
               %th カテゴリー
               %td
                 .product-detail-table-sub
-                -#  =カテゴリー作ったら入れる 
                 .product-detail-table-sub
-
+                  -# カテゴリー作ったらやる
                 .product-detail-table-sub__sub
-       
                 .product-detail-table-sub__sub__sub
             %tr
               %th ブランド
               %td
                 = link_to "#" do
                   .brand-name
-                    = @item.brand
+                    ohyeah
             %tr
               %th 商品の状態
               %td
@@ -76,7 +76,7 @@
               %td
                 .product-detail らくらくフリマ便
             %tr
-              %th 発送元の地域
+              %th 発送元地域
               %td
                 .product-detail.prefecture-name
                   = @item.prefecture
@@ -87,19 +87,19 @@
                   = @item.deliberydate
       .product-price-box
         %span.product-price 
-          =@item.price
+          ¥ #{@item.price}
         %span.product-tax (税込)
         %span.product-fee_payer
       -if user_signed_in?
         -if @item.user_id == current_user.id
-          =link_to edit_item_path(@item), data: {turbolinks: false} do
+          =link_to edit_product_path(@item), data: {turbolinks: false} do
             .product-edit-btn
             商品の編集
             .product-btn-or 
             or
             .product-stop-btn
             出品を停止する
-          =link_to item_path(@item), method: :delete, data: {turbolinks: false} do
+          =link_to product_path(@item), method: :delete, data: {turbolinks: false} do
             .product-delete-btn
             この商品を削除する
       .product-buy-btn
@@ -107,7 +107,7 @@
 
       .product-description
         %p.product-description__inner
-          = @item.description 
+          =@item.description
       .product-button-container.clearfix
         .product-button-left
           .product-button-like
@@ -116,11 +116,11 @@
               %span.fade-in-down いいね!
               %span.fade-in-down 0
         .product-button__report
-          = link_to "#", class: "product-button__report"
+          = link_to "#", class: "product-button__report" do
             = icon("far", "fa-flag", class: "fa-flag")
             %span.fade-in-down 不適切な商品の報告            
         .product-button-right
-          = link_to '#', target: "_blank", class: "safe-description"
+          = link_to '#', target: "_blank", class: "safe-description" do
             = icon("fas", "fa-lock", class: "fa-lock")
             あんしん・あんぜんへの取り組み
       .nav-product-link
@@ -130,16 +130,16 @@
         .next-product.items-link_to
           = icon("fas", "fa-chevron-right", class: "fa-chevron-right")
           = link_to "次の商品へ", "#"
-        .product-social-media-box
-          .text-center
-          %ul.social-media-box
-            %li
-              = link_to "#", target: "_blank", class: "share-btn" do
-                = icon("fab", "fa-facebook-square", class: "fa-facebook-square")
-            %li
-              = link_to "#", target: "_blank", class: "share-btn" do
-                = icon("fab", "fa-twitter-square", class: "fa-twitter-square")
-            %li
-              = link_to "#", target: "_blank", class: "share-btn" do
-                = icon("fab", "fa-pinterest-square", class: "fa-pinterest-square")
+          .product-social-media-box
+            .text-center
+            %ul.social-media-box
+              %li
+                = link_to "#", target: "_blank", class: "share-btn" do
+                  = icon("fab", "fa-facebook-square", class: "fa-facebook-square")
+              %li
+                = link_to "#", target: "_blank", class: "share-btn" do
+                  = icon("fab", "fa-twitter-square", class: "fa-twitter-square")
+              %li
+                = link_to "#", target: "_blank", class: "share-btn" do
+                  = icon("fab", "fa-pinterest-square", class: "fa-pinterest-square")
   = render "shared/footer"
