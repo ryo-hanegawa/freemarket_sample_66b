@@ -7,6 +7,9 @@
         %h3.name
           新規投稿商品
     %ul.main__pickup__box__contents
+      - if @num == 0
+        %a.no-list
+          出品されていません。初めての出品者になってみませんか？
       - @items.each_slice(3) do |items|
         %li.container
           - items.each do |item|
