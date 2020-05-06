@@ -1,8 +1,10 @@
+-# refer _creditcards_show.scss
+
 .wrapper
   = render 'shared/header'
 
   .user-main
-    .user-main__main-contents
+    .user-main__mains-contents
       .left-contents
         = render "shared/side-bar"
 
@@ -15,10 +17,10 @@
               = "**** **** **** " + @default_card_information.last4
             .right-contents__content__info__card-exp
               = @exp_month + " / " + @exp_year
-          .right-contents__content__remove-card
-            = form_tag(delete_user_creditcards_path, method: :post, id: 'charge-form', name: "inputForm") do
-              %input{ type: "hidden", name: "card_id", value: "" }
-              %button 削除する
+            .right-contents__content__info__rem-card
+              = form_tag(delete_user_creditcards_path, method: :post, id: 'charge-form', name: "inputForm") do
+                %input{ type: "hidden", name: "card_id", value: "" }
+                %button 削除する
           .right-contents__content__about
             =link_to do
               支払方法について
