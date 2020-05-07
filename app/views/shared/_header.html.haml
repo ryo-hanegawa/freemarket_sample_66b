@@ -17,6 +17,7 @@
       %ul.items__under__right
       - if user_signed_in?
         %li
+          = link_to "マイページ", user_path(current_user.id), class: "items__under__right__d-btn"
           = link_to "ログアウト", logouts_path, class: "items__under__right__d-btn"
       - else
         %li
