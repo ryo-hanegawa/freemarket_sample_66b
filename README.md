@@ -8,9 +8,7 @@
 |first_name|string|null: false|
 |last_name_reading|string|null: false|
 |first_name_reading|string|null: false|
-<!-- |birth_year|integer|null: false, default: 0|
-|birth_month|integer|null: false, default: 0| -->
-|birth_day|integer|null: false, default: 0|
+|birth_date|date|null: false|
 |phone_number|string|null: false|
 
 ### Association
@@ -22,12 +20,12 @@
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|postalcode|integer|null: false|
-|prefecture|integer|null: false, default: 0|
-|municipalities|string|null: false|
+|postalcode|string|null: false|
+|prefecture_id|integer|null: false|
+|city|string|null: false|
 |address|string|null: false|
 |building_name|string||
-|user|references|null: false, foreign_key: true|
+|user|references|null: false|
 |last_name|string|null: false|
 |first_name|string|null: false|
 |last_name_reading|string|null: false|
@@ -43,7 +41,7 @@
 |------|----|-------|
 |customer_id|string|null: false|
 |card_id|string|null: false|
-|user|references|null: false, foreign_key: true|
+|user|integer|null: false|
 
 ### Association
 - belongs_to: user
