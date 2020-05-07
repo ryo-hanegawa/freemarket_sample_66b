@@ -2,32 +2,24 @@ class CreditcardsController < ApplicationController
   
   require "payjp"
 
-  def index
-  end
-
   def new
     card = Creditcard.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
   end
 
   def pay
-    binding.pry
     Payjp.api_key = Rails.application.credentials[:payjp_private_key]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
-        # description: "カード登録",
-        # email: current_user.email,
         card: params['payjp-token'],
-        # metadata: { user_id: current_user.id }
       )
-      # binding.pry
       @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to action: "show"
       else
-        redirect_to action: "create"
+        redirect_to action: "pay"
       end
     end
   end
@@ -55,10 +47,5 @@ class CreditcardsController < ApplicationController
       card.delete
     end
     redirect_to action: "new"
-  end
-
-  def confirmation
-    card = current_user.credit_cards
-    redirect_to action: "show" if card.exists?
   end
 end

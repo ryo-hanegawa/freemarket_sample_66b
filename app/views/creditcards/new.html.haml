@@ -12,22 +12,17 @@
         .right-contents__card-info
           クレジットカード情報入力
         .right-contents__add-info
-          -# コントローラ作成前なので仮のパス
-          -# = form_tag(new_user_creditcard_path, method: :post, id: 'charge-form', name: "inputForm") do
           = form_with url: pay_user_creditcards_url, html: { name: "inputForm" } do |f|
             .right-contents__add-info__number
-              -# %label.label カード番号
+
               = f.label :カード番号, class: "label"
               %span.form-require 必須
-              -# = text_field_tag "card_number", "", class: "input", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
               = f.text_field :card_number, type: 'text', class: 'input', placeholder: '半角英数のみ', maxlength: '16'
             .right-contents__add-info__expire
-              -# %label.label 有効期限
               = f.label :有効期限, class: 'label'
               %span.form-require 必須
               %br
               .right-contents__add-info__expire__wrapper
-                -# %select
                 = f.select :expire_month, Creditcard.expire_months.map { |k, l| [k, l] }, prompt: ""
                 %span.expire-text 月
                 =icon("fas", "fa-ad", class: "font")
