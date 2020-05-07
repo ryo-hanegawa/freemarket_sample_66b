@@ -39,8 +39,7 @@ class CreditcardsController < ApplicationController
 
   def delete
     card = Creditcard.where(user_id: current_user.id).first
-    if card.blank?
-    else
+    if card.present?
       Payjp.api_key = Rails.application.credentials[:payjp_private_key]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
