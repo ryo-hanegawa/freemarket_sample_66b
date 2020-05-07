@@ -12,7 +12,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :prefecture,   null:false, default:0
       t.integer :deliberydate, null:false, default:0        
       t.integer :price,        null:false
-      t.integer :buyer,        foreign_key:true
+      t.integer :buyer,        foreign_key:true, default:0
       t.timestamps
     end
   end
