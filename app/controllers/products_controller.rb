@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
+    @user = User.find(params[:id])
     @item = Item.find(params[:id])
     @images = @item.images
     @image = @images.first

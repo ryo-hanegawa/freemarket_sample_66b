@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @items = Item.includes(:images)
+    @items = Item.includes(:images, :images_attributes)
     @item.images.new
   end
 
@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   before_action :set_item, except: [:index, :new, :create]

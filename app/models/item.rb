@@ -12,4 +12,6 @@ class Item < ApplicationRecord
   validates :deliberydate, presence: true
   validates :postage, presence: true
   validates :price, presence: true
+
+  enum category: [:, ]
 end

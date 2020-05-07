@@ -24,7 +24,7 @@
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @item.persisted?
           .js-file_group{"data-index" => "#{@item.images.count}"}
-            = file_field_tag :image, name: "item[item_images_attributes][#{@item.images.count}][image]", class: 'js-file'
+            = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
             .js-remove 削除 
 
       .comment-red
@@ -54,7 +54,7 @@
         .title__hissu
           必須
       
-      = f.select :category, [['レディース',1],['メンズ',2],['ベビー・キッズ',3],['インテリア・住まい・小物',4],['本・音楽・ゲーム',5],['おもちゃ・ホビー・グッズ',6],['コスメ・香水・美容',7],['家電・スマホ・カメラ',8],['スポーツ・レジャー',9],['ハンドメイド',10],['チケット',11],['自転車・オートバイ',12],['その他',13]], {include_blank: '選択してください'}, class: "category__input-form"
+      = f.select :category, [['レディース',0],['メンズ',1],['ベビー・キッズ',2],['インテリア・住まい・小物',3],['本・音楽・ゲーム',4],['おもちゃ・ホビー・グッズ',5],['コスメ・香水・美容',6],['家電・スマホ・カメラ',7],['スポーツ・レジャー',8],['ハンドメイド',9],['チケット',10],['自転車・オートバイ',11],['その他',12]], {include_blank: '選択してください'}, class: "category__input-form"
       .comment-red
         選択してください  
       .title
@@ -63,7 +63,7 @@
         .title__hissu
           必須
       
-      = f.select :size, [["SS",1],["S",2],["M",3],["L",4],["LL",5],["XL",6],["サイズの詳細は説明欄に記載",7]], {include_blank: "選択してください"}, {class: "size__input-form"}
+      = f.select :size, [["SS",0],["S",1],["M",2],["L",3],["LL",4],["XL",5],["サイズの詳細は説明欄に記載",7]], {include_blank: "選択してください"}, {class: "size__input-form"}
       .comment-red
         選択してください
       .title-brand
@@ -78,7 +78,7 @@
           商品の状態
         .title__hissu
           必須
-      = f.select :condition, [["新品、未使用",1],["未使用に近い",2],["目立った傷や汚れなし",3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], {include_blank: "選択してください"}, {class: "status__input-form"}
+      = f.select :condition, [["新品、未使用",0],["未使用に近い",1],["目立った傷や汚れなし",2],["やや傷や汚れあり",3],["傷や汚れあり",4],["全体的に状態が悪い",5]], {include_blank: "選択してください"}, {class: "status__input-form"}
       .comment-red
         選択してください
 
@@ -89,7 +89,7 @@
         .title__hissu
           必須
       
-      = f.select :postage, [["送料込み（出品者負担）",1],["着払い（購入者負担）",2]], {include_blank: "選択してください"}, {class: "postage__input-form"}
+      = f.select :postage, [["送料込み（出品者負担）",0],["着払い（購入者負担）",1]], {include_blank: "選択してください"}, {class: "postage__input-form"}
       .comment-red
         選択してください
       .title
@@ -107,7 +107,7 @@
         .title__hissu
           必須
       
-      = f.select :deliberydate, [["1~2日で発送",1],["3~4日で発送",2],["4~7日で発送",3]], {include_blank: "選択してください"}, {class: "days__input-form"}
+      = f.select :deliberydate, [["1~2日で発送",0],["3~4日で発送",1],["4~7日で発送",2]], {include_blank: "選択してください"}, {class: "days__input-form"}
       .comment-red
         選択してください
       .title

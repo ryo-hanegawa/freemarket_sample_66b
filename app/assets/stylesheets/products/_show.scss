@@ -139,6 +139,7 @@
       height: 50px;
       margin: 24px 0 0;
       text-align: center;
+      background-color: lightgray;
       .product-price {
         margin: 0 16px 0 0;
         font-size: 50px;
@@ -348,4 +349,16 @@
 .product-btn-or{
   text-align: center;
   margin: 8px 0 0 0;
+}
+
+.product-buy-btn-sold {
+  background: #888;
+  cursor: not-allowed;
+  margin: 16px 0 0;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 24px;
+  height: 60px;
+  line-height: 60px;
 }
