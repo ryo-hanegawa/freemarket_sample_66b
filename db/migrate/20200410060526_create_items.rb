@@ -8,11 +8,11 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :size,         null:false, default:0
       t.integer :category,     null:false, foreign_key:true
       t.integer :condition,    null:false, default:0
-      t.integer :postage,      null:false, default:0    
+      t.integer :postage,      null:false, default:0
       t.integer :prefecture,   null:false, default:0
-      t.integer :deliberydate, null:false, default:0        
+      t.integer :deliberydate, null:false, default:0
       t.integer :price,        null:false
-      t.integer :buyer,        foreign_key:true
+      t.integer :buyer,        default:0, foreign_key:true
       t.timestamps
     end
   end
