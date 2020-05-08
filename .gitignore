@@ -26,3 +26,4 @@
 .DS_Store
 
 public/uploads/*
+config/1864.credentials.yml
