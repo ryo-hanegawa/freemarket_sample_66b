@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @items = Item.includes(:images, :images_attributes)
     @item.images.new
-    @
+    @parents = Category.all.order("ancestry ASC").limit(13)
   end
 
   
