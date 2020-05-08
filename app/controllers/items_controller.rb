@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
   end
 
   def item_update_params
-    params.require(:item).permit(:name, :description, :size, :category, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer)
+    params.require(:item).permit(:name, :description, :size, :category, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer, images_attributes: [:image])
   end
 
   def create_items_instance
