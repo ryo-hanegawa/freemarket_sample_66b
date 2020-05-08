@@ -4,8 +4,8 @@ $(function(){
   const buildFileField = (num)=> {
     const html = `<div class="js-file_group" data-index="${num}">
                     <input class="js-file" type="file"
-                    name="item[item_images_attributes][${num}][image]"
-                    id="item_item_images_attributes_${num}_image">
+                    name="item[images_attributes][${num}][image]"
+                    id="item_images_attributes_${num}_image">
                     <span class="js-remove">削除</span>
                   </div>`;
     //新しい入力フォームが生成されるたびに、インデックス番号を１足していく
