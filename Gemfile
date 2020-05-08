@@ -99,3 +99,5 @@ gem 'jquery-rails'
 gem 'whiny_validation', '~> 1.0'
 
 gem 'payjp'
+
+gem 'ancestry'
