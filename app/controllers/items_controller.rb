@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_item, except: [:index, :new, :create]
   def index
     @items = Item.includes(:images)
   end
@@ -24,7 +25,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  before_action :set_item, except: [:index, :new, :create]
 
   def update
 
