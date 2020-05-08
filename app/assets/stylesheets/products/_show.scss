@@ -362,3 +362,14 @@
   height: 60px;
   line-height: 60px;
 }
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+
+  .main {
+    background-color: #f8f8f8;
+    z-index: 0;
+    text-align: center
+  }
+}
