@@ -31,7 +31,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
 
   def destroy
     @item.destroy if @item.user_id == current_user.id
-    redirect_to controller: :products, action: :index
+    redirect_to controller: :products, action: :index if @item.user_id == current_user.id && @item.destroy
   end
 
 private
