@@ -5,7 +5,6 @@ html,body {
   background-color: whitesmoke;
   .header-logo {
     height: 70px;
-    width: 15%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -36,7 +35,8 @@ html,body {
         color: seashell; 
         font-size: 12px;
         font-weight: bold;
-        border-radius: 5px
+        border-radius: 5px;
+        line-height: 20px;
       }
     }
   
@@ -135,7 +135,8 @@ html,body {
           font-size: 12px;
           font-weight: bold;
           text-align: center;
-          border-radius: 5px
+          border-radius: 5px;
+          line-height: 20px;
         }
       }
 
