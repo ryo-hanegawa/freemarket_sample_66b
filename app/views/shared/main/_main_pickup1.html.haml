@@ -3,18 +3,18 @@
     商品一覧
   .main__pickup__box
     .main__pickup__box__title
-      %a(href="#")
+      = link_to "#" do
         %h3.name
           新規投稿商品
     %ul.main__pickup__box__contents
       - if @num == 0
-        %a.no-list
+        %p.no-list
           出品されていません。初めての出品者になってみませんか？
       - @items.each_slice(3) do |items|
         %li.container
           - items.each do |item|
             .main__pickup__box__contents__content
-              %a(href="#")
+              = link_to "#" do
                 %figure.main__pickup__box__contents__content__img
                   - first_image = item.images.first
                   = image_tag first_image.image.url
