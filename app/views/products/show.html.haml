@@ -6,25 +6,33 @@
     %section.product-show-product-box-container
       %h1
         .product-name
-          -# =@ product.name
+          = @item.name
       .product-main-content
         .product-photo
           //メイン画像
           .image
-            = image_tag 'https://ca.slack-edge.com/T1MLERC4C-UQKTCNSGG-9a3b05893ded-512', alt: '', height: '300', width: '300', class: 'image-main'
+            = image_tag @image.image.to_s, size: "300x300"
           //サムネイル画像
           .owl-dot
-            = image_tag 'https://ca.slack-edge.com/T1MLERC4C-UQKTCNSGG-9a3b05893ded-512', alt: '', height: '200', width: '200', class: 'image-sub'
-            .owl-dot
-              = image_tag 'https://ca.slack-edge.com/T1MLERC4C-UQKTCNSGG-9a3b05893ded-512', alt: '', height: '200', width: '200', class: 'image-sub'
-              .owl-dot
-                = image_tag 'https://ca.slack-edge.com/T1MLERC4C-UQKTCNSGG-9a3b05893ded-512', alt: '', height: '200', width: '200', class: 'image-sub'
+            - @item.images.each.with_index do |image, index|
+              - if image.present?
+                .owl-dot__product.current
+                  .owl-dot__product__box
+                    = image_tag image.image_url, class: "image-sub"
+              - else
+                .owl-dot__product
+                  .owl-dot__product__box
+                    = image_tag image.image, class: "image-sub"
+            - if @item.images.length > 5
+              - for i in 1..(10 - @item.images.length)
+                .owl-dot__dummy
         %table.product-detail-table
           %tbody
             %tr
               %th 出品者
               %td
-                hoge
+                .user-name-string
+                  = @user.nickname
                 .product-user-ratings
                   .product-user-rating
                     = image_tag("")
@@ -43,28 +51,26 @@
               %td
                 .product-detail-table-sub
                 .product-detail-table-sub
-                  = link_to "メンズ" 
+                  -# カテゴリー作ったらやる
                 .product-detail-table-sub__sub
-                  = link_to "ジャケット"
                 .product-detail-table-sub__sub__sub
-                  = link_to "ノーカラージャケット" 
             %tr
               %th ブランド
               %td
                 = link_to "#" do
                   .brand-name
-                    o-yeah
+                    = @item.brand
             %tr
               %th 商品の状態
               %td
                 .product-detail
-                  良好
+                  = @item.condition
 
             %tr
               %th 配送料の負担
               %td
                 .product-detail
-                  全国一律１００円
+                  = @item.postage
             %tr
               %th 配送の方法
               %td
@@ -73,67 +79,79 @@
               %th 発送元地域
               %td
                 .product-detail.prefecture-name
-                  愛知県
+                  = @item.prefecture
             %tr
               %th 配送日の目安
               %td
                 .product-detail
-                  ３日
+                  = @item.deliberydate
       .product-price-box
         %span.product-price 
-          30000円
+          ¥ #{@item.price}
         %span.product-tax (税込)
         %span.product-fee_payer
       -if user_signed_in?
-        -if @product.user_id == current_user.id
-          =link_to edit_product_path(@product), data: {turbolinks: false} do
+        -if @item.user_id == current_user.id
+          =link_to edit_product_path(@item), data: {turbolinks: false} do
             .product-edit-btn
-            商品の編集
+              商品の編集
             .product-btn-or 
             or
             .product-stop-btn
-            出品を停止する
-          =link_to product_path(@product), method: :delete, data: {turbolinks: false} do
+              出品を停止する
+          =link_to product_path(@item), method: :delete, data: {turbolinks: false} do
             .product-delete-btn
-            この商品を削除する
-      .product-buy-btn
-        購入画面に進む
+              この商品を削除する
+        -else 
+          -if @item.buyer == 0
+            = link_to root_path (@item), data: {turbolinks: false} do
+              .product-buy-btn
+                購入画面に進む
+          -else
+            .product-buy-btn-sold 売り切れました
+      -else
+        -if @item.buyer == 0
+          = link_to "/users/sign_in" do
+            .product-buy-btn 購入画面に進む
+        -else
+          .product-buy-btn-sold 売り切れました
+      -unless user_signed_in? && @item.user_id == current_user.id
 
-      .product-description
-        %p.product-description__inner
-          -#  =@product.detail hogehogehogehogehogehogehogehogehogehogehogehogehoge
-      .product-button-container.clearfix
-        .product-button-left
-          .product-button-like
-            %button{type: "button", name: "like!", class: "product-button"}
-              = icon("far", "fa-heart", class: "fa_icon-heart")
-              %span.fade-in-down いいね!
-              %span.fade-in-down 0
-        .product-button__report
-          = link_to "#", class: "product-button__report" do
-            = icon("far", "fa-flag", class: "fa-flag")
-            %span.fade-in-down 不適切な商品の報告            
-        .product-button-right
-          = link_to '#', target: "_blank", class: "safe-description" do
-            = icon("fas", "fa-lock", class: "fa-lock")
-            あんしん・あんぜんへの取り組み
-      .nav-product-link
-        .previous-product.items-link_to
-          = icon("fas", "fa-chevron-left", class: "fa-chevron-left")
-          = link_to "前の商品へ", "#"
-        .next-product.items-link_to
-          = icon("fas", "fa-chevron-right", class: "fa-chevron-right")
-          = link_to "次の商品へ", "#"
-          .product-social-media-box
-            .text-center
-            %ul.social-media-box
-              %li
-                = link_to "#", target: "_blank", class: "share-btn" do
-                  = icon("fab", "fa-facebook-square", class: "fa-facebook-square")
-              %li
-                = link_to "#", target: "_blank", class: "share-btn" do
-                  = icon("fab", "fa-twitter-square", class: "fa-twitter-square")
-              %li
-                = link_to "#", target: "_blank", class: "share-btn" do
-                  = icon("fab", "fa-pinterest-square", class: "fa-pinterest-square")
+        .product-description
+          %p.product-description__inner
+            =@item.description
+        .product-button-container.clearfix
+          .product-button-left
+            .product-button-like
+              %button{type: "button", name: "like!", class: "product-button"}
+                = icon("far", "fa-heart", class: "fa_icon-heart")
+                %span.fade-in-down いいね!
+                %span.fade-in-down 0
+          .product-button__report
+            = link_to "#", class: "product-button__report" do
+              = icon("far", "fa-flag", class: "fa-flag")
+              %span.fade-in-down 不適切な商品の報告            
+          .product-button-right
+            = link_to '#', target: "_blank", class: "safe-description" do
+              = icon("fas", "fa-lock", class: "fa-lock")
+              あんしん・あんぜんへの取り組み
+        .nav-product-link
+          .previous-product.items-link_to
+            = icon("fas", "fa-chevron-left", class: "fa-chevron-left")
+            = link_to "前の商品へ", "#"
+          .next-product.items-link_to
+            = icon("fas", "fa-chevron-right", class: "fa-chevron-right")
+            = link_to "次の商品へ", "#"
+            .product-social-media-box
+              .text-center
+              %ul.social-media-box
+                %li
+                  = link_to "#", target: "_blank", class: "share-btn" do
+                    = icon("fab", "fa-facebook-square", class: "fa-facebook-square")
+                %li
+                  = link_to "#", target: "_blank", class: "share-btn" do
+                    = icon("fab", "fa-twitter-square", class: "fa-twitter-square")
+                %li
+                  = link_to "#", target: "_blank", class: "share-btn" do
+                    = icon("fab", "fa-pinterest-square", class: "fa-pinterest-square")
   = render "shared/footer"

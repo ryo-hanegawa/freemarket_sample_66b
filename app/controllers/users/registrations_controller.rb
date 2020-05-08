@@ -22,20 +22,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @address = @user.build_address
     render :new_address
-
-    # binding.pry
-    # session[:nickname] = params[:user][:nickname]
-    # session[:email] = params[:user][:email]
-    # session[:password] = params[:user][:password]
-    # session[:password_confirmation] = params[:user][:password_confirmation]
-    # session[:first_name_reading] = params[:user][:first_name_reading]
-    # session[:last_name_reading] = params[:user][:last_name_reading]
-    # session[:first_name] = params[:user][:first_name]
-    # session[:last_name] = params[:user][:last_name]
-    # session[:birth_year] = params[:user]["birth_day(1i)"]
-    # session[:birth_month] = params[:user]["birth_day(2i)"]
-    # session[:birth_day] = params[:user]["birth_day(3i)"]
-    # @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name_reading: session[:first_name_reading],last_name_reading: session[:last_name_reading], first_name: session[:first_name], last_name: session[:last_name], birth_year: session[:birth_year], birth_month: session[:birth_month], birth_day: session[:birth_day])
+    
+    session[:nickname] = params[:user][:nickname]
+    session[:email] = params[:user][:email]
+    session[:password] = params[:user][:password]
+    session[:password_confirmation] = params[:user][:password_confirmation]
+    session[:first_name_reading] = params[:user][:first_name_reading]
+    session[:last_name_reading] = params[:user][:last_name_reading]
+    session[:first_name] = params[:user][:first_name]
+    session[:last_name] = params[:user][:last_name]
+    session[:birth_year] = params[:user]["birth_day(1i)"]
+    session[:birth_month] = params[:user]["birth_day(2i)"]
+    session[:birth_day] = params[:user]["birth_day(3i)"]
+    @user = User.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], first_name_reading: session[:first_name_reading],last_name_reading: session[:last_name_reading], first_name: session[:first_name], last_name: session[:last_name], birth_year: session[:birth_year], birth_month: session[:birth_month], birth_day: session[:birth_day])
   end
 
 
