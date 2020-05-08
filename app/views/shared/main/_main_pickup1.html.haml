@@ -1,54 +1,36 @@
 %section.main__pickup
   %h2.main__pickup__title
-    ピックアップカテゴリー
+    商品一覧
   .main__pickup__box
     .main__pickup__box__title
-      %a(href="#")
+      = link_to "#" do
         %h3.name
           新規投稿商品
-    .main__pickup__box__contents
-      .main__pickup__box__contents__content
-        %a(href="#")
-          %figure.main__pickup__box__contents__content__img
-            = image_tag '/images/ooya.jpeg', alt: 'BOSS'
-          .main__pickup__box__contents__content__text
-            %h3.name
-              自由にできる権利
-            .details
-              %ul
-                %li
-                  30000円
-                %li
-                  = icon('fas', 'star', '0')
-              %p
-                (税込)
-      .main__pickup__box__contents__content
-        %a(href="#")
-          %figure.main__pickup__box__contents__content__img
-            = image_tag '/images/yaguchi.png', alt: 'yagu'
-          .main__pickup__box__contents__content__text
-            %h3.name
-              全力の一発ギャグ
-            .details
-              %ul
-                %li
-                  10000円
-                %li
-                  = icon('fas', 'star', '0')
-              %p
-                (税込)
-      .main__pickup__box__contents__content
-        %a(href="#")
-          %figure.main__pickup__box__contents__content__img
-            = image_tag '/images/aoyama.png', alt: 'yume'
-          .main__pickup__box__contents__content__text
-            %h3.name
-              今すぐ奥さんに愛してると言って貰える権利
-            .details
-              %ul
-                %li
-                  20000円
-                %li
-                  = icon('fas', 'star', '0')
-              %p
-                (税込)
+    %ul.main__pickup__box__contents
+      - if @num == 0
+        %p.no-list
+          出品されていません。初めての出品者になってみませんか？
+      - @items.each_slice(3) do |items|
+        %li.container
+          - items.each do |item|
+            .main__pickup__box__contents__content
+              = link_to "#" do
+                %figure.main__pickup__box__contents__content__img
+                  - first_image = item.images.first
+                  = image_tag first_image.image.url
+                  - if item.buyer != 0
+                    .item-photo-sold
+                      .item-photo-sold__inner
+                        SOLD
+                .main__pickup__box__contents__content__text
+                  %h3.name
+                    = item.name
+                  .details
+                    %ul
+                      %li
+                        = item.price
+                        円
+                      %li
+                        = icon('fas', 'star', '0')
+                    %p
+                      (税込)
