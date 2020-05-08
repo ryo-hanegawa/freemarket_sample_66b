@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @items = Item.includes(:images, :images_attributes)
     @item.images.new
+    @
   end
 
   
