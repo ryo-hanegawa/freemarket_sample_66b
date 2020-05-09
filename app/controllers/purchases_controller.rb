@@ -7,13 +7,13 @@ class PurchasesController < ApplicationController
     # Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if @card.first.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to controller: "card", action: "new"
+      redirect_to new_user_creditcard_path(user_id: current_user.id)
     else
       Payjp.api_key = Rails.application.credentials[:payjp_private_key]
       #保管した顧客IDでpayjpから情報取得
-      customer = Payjp::Customer.retrieve(@card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.first.customer_id)
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
-      @default_card_information = customer.cards.retrieve(@card.card_id)
+      @default_card_information = customer.cards.retrieve(@card.first.card_id)
     end
   end
 
