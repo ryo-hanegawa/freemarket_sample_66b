@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_items, only: [:index, :new, :create, :edit, :update]
   def index
     @items = Item.includes(:images)
   end
@@ -23,11 +23,22 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    # @images = @item.images.order(id: "DESC")
   end
 
 
   def update
-
+    if params[:item][:images_attributes] == nil
+      @item.update(item_update_params)
+      redirect_to action: 'index'
+    else
+      @item.images.destroy_all
+      if @item.update(item_params)
+        redirect_to action: 'index'
+      else
+        redirect_to(edit_product_path, notice: '編集できませんでした')
+      end
+    end
   end
 
   private
