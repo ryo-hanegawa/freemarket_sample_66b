@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
-before_action :set_user, only: [:edit, :show, :update]
-before_action :set_item, only: [:edit, :show, :update]
+before_action :set_user, only: [:edit, :show, :update, :destroy]
+before_action :set_item, only: [:edit, :show, :update, :destroy]
 
   def index
   end
@@ -30,6 +30,8 @@ before_action :set_item, only: [:edit, :show, :update]
   end
 
   def destroy
+    @item.destroy if @item.user_id == current_user.id
+    redirect_to controller: :products, action: :index if @item.user_id == current_user.id && @item.destroy
   end
 
 private
