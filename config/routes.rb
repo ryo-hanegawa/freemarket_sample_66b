@@ -24,14 +24,14 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :purchases,only: [:show] do
+  resources :purchases, only: [:show] do
     collection do
-      get 'show', to: 'purchase#index'
-      post 'pay', to: 'purchase#pay'
-      get 'done', to: 'purchase#done'
+      get 'show', to: 'purchases#show'
+      post 'pay', to: 'purchases#pay'
+      get 'done', to: 'purchases#done'
     end
   end
-  
+
   resources :top, except: :index
   resources :logouts, only: :index
   resources :items, except: :show
