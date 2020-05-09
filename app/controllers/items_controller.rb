@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_items, only: [:index, :new, :create, :edit, :update]
+  before_action :item_update_params,             only:[:update]
   def index
     @items = Item.includes(:images)
   end
@@ -23,7 +24,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    # @images = @item.images.order(id: "DESC")
+    @images = @item.images.order(id: "DESC")
   end
 
 
