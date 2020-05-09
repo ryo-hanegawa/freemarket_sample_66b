@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_items, except: [:index, :new, :create]
   before_action :item_update_params,             only:[:update]
   def index
     @items = Item.includes(:images)
