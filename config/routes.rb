@@ -30,4 +30,6 @@ Rails.application.routes.draw do
   resources :items, except: :show
   resources :products,only: [:index, :show, :edit, :destroy, :update]
 
+  get 'search', to: 'items#search'
+  get 'grandchildren', to: 'items#grandchildren'
 end

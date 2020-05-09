@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @items = Item.includes(:images, :images_attributes)
     @item.images.new
-    @parents = Category.all.order("ancestry ASC").limit(13)
+    @parents = Category.where(ancestry: nil)
   end
 
   
@@ -29,6 +29,26 @@ class ItemsController < ApplicationController
 
   def update
 
+  end
+
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+        # 親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def grandchildren
+    respond_to do |format|
+      format.html
+      format.json do
+        # 子ボックスのidから孫ボックスのidの配列を作成してインスタンス変数で定義
+        @grandchildren = Category.find(params[:child_id]).children
+      end
+    end
   end
 
   private
