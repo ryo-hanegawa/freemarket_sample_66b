@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
-before_action :set_user, only: [:edit, :show, :update, :destroy]
-before_action :set_item, only: [:edit, :show, :update, :destroy]
+before_action :set_user, only: [:edit, :show, :update, :destroy, :update]
+before_action :set_item, only: [:edit, :show, :update, :destroy, :update]
 
   def index
   end
