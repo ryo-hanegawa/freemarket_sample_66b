@@ -30,11 +30,11 @@ class ItemsController < ApplicationController
   def update
     if params[:item][:images_attributes] == nil
       @item.update(item_update_params)
-      redirect_to action: 'show'
+      redirect_to controller: :products, action: 'show'
     else
       @item.images.destroy_all
       if @item.update(item_params)
-        redirect_to action: 'show'
+        redirect_to controller: :products, action: 'show'
       else
         redirect_to(edit_product_path, notice: '編集できませんでした')
       end
