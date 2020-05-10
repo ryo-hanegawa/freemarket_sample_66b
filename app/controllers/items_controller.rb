@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
 
 
   def update
-    if params[:item][:images_attributes] && @item.update(item_update_params) == nil
+    if params[:item][:images_attributes] == nil && @item.update(item_update_params)
       redirect_to controller: :products, action: 'show'
     else
       @item.images.destroy_all
