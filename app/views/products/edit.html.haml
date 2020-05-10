@@ -1,0 +1,121 @@
+= link_to image_tag("logo/logo.png", height: "30", width: "180", class: "header-logo"), root_path
+= form_with(model: @item, local:true) do |f|
+  .items-wrapper
+    .item-image
+      .title
+        .title__black
+          出品画像
+        .title__hissu
+          必須
+      .item-image__comment1
+        最大10枚までアップロードできます。
+      
+      #image-box
+        #previews
+          - if @item.persisted?
+            - @item.images.each_with_index do |image, i|
+              = image_tag "#{image.image}", data: { index: i}, width: "100", height: '100'
+        = f.fields_for :images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            = image.file_field :image, class: 'js-file', height: '70', width: '100%', required: "required"
+            %span.js-remove 削除
+          - if @item.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+        - if @item.persisted?
+          .js-file_group{"data-index" => "#{@item.images.count}"}
+            = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+            .js-remove 削除 
+
+    .item-info
+      .title
+        .title__black
+          商品名
+        .title__hissu
+          必須
+      
+      = f.text_field :name, placeholder: "40文字まで", class: "input-form", size:100, maxlength:40, required: "required"
+
+      .title
+        .title__black
+          商品の説明
+        .title__hissu
+          必須
+      
+      = f.text_area :description, placeholder: "商品の説明（必須 1,000文字以内）色、素材、重さ、定価、注意点など）", class: "description__input-form", maxlength:1000, required: "required"
+
+      .title
+        .title__black
+          カテゴリー
+        .title__hissu
+          必須
+
+      //あとでancestryによる記述になる箇所
+      = f.select :category, [['レディース',1],['メンズ',2],['ベビー・キッズ',3],['インテリア・住まい・小物',4],['本・音楽・ゲーム',5],['おもちゃ・ホビー・グッズ',6],['コスメ・香水・美容',7],['家電・スマホ・カメラ',8],['スポーツ・レジャー',9],['ハンドメイド',10],['チケット',11],['自転車・オートバイ',12],['その他',13]], {include_blank: '選択してください'}, class: "input-form", required: "required"
+      
+      .title
+        .title__black
+          サイズ
+        .title__hissu
+          必須
+
+      = f.select :size, Item.sizes.keys, {include_blank: "選択してください"}, class: "input-form", required: "required"
+
+
+      .title-brand
+        .title-brand__black
+          ブランド
+        .title-brand__gray
+          任意
+      
+      = f.text_field :brand, placeholder: "例）シャネル", class: "input-form"
+
+      .title
+        .title__black
+          商品の状態
+        .title__hissu
+          必須
+
+      = f.select :condition, Item.conditions.keys, {include_blank: "選択してください"}, class: "input-form", required: "required"
+
+    .shipping-info
+      .title
+        .title__black
+          配送料の負担
+        .title__hissu
+          必須
+      
+      = f.select :postage, Item.postages.keys, {include_blank: "選択してください"}, class: "input-form", required: "required"
+
+      .title
+        .title__black
+          発送元の地域
+        .title__hissu
+          必須
+      
+      = f.collection_select :prefecture, Prefecture.all, :id, :name, {include_blank: "選択してください"}, class: "input-form", required: "required"
+
+      .title
+        .title__black
+          発送までの日数
+        .title__hissu
+          必須
+
+      = f.select :deliberydate, Item.deliberydates.keys, {include_blank: "選択してください"}, class: "input-form", required: "required"
+
+      .title
+        .title__black
+          販売価格
+        .title__hissu
+          必須
+      
+      .price
+        .input-box
+          .yenMark
+            ￥ 
+          = f.number_field :price, placeholder: "0", class: "price__input-form", style: "text-align: right;", min: "1", required: "required"
+
+    = f.submit :変更する, placeholder: "", class: "syuppin-btn", id: "btn"
+    .back-btn
+      = link_to "もどる", root_path
+
+= render 'shared/footer'  

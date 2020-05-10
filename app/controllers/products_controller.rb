@@ -7,6 +7,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
   end
 
   def edit
+    @item.images.cache_key unless @item.images.blank?
   end
 
   def show
