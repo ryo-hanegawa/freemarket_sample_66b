@@ -3,7 +3,6 @@ class PurchasesController < ApplicationController
 
   before_action :set_card, :set_item, only: [:show, :pay]
   before_action :set_address, only: :show
-  before_action :move_to_root
 
   def show
     if @card.first.blank?
@@ -27,6 +26,7 @@ class PurchasesController < ApplicationController
       customer: @card.first.customer_id,
       currency: 'jpy',
     )
+    @item.update(item_params)
     redirect_to action: 'done'
   end
 
@@ -41,5 +41,9 @@ class PurchasesController < ApplicationController
 
   def set_address
     @address = Address.find(current_user.id)
+  end
+
+  def item_params
+    params.require(:item).permit(:buyer)
   end
 end

@@ -26,8 +26,7 @@ Rails.application.routes.draw do
   
   resources :purchases, only: [:show] do
     collection do
-      get 'show', to: 'purchases#show'
-      post 'pay', to: 'purchases#pay'
+      post 'pay/:id', to: 'purchases#pay', as: 'pay'
       get 'done', to: 'purchases#done'
     end
   end
