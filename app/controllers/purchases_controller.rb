@@ -1,35 +1,45 @@
 class PurchasesController < ApplicationController
   require "payjp"
 
-  before_action :set_card
+  before_action :set_card, :set_item, only: [:show, :pay]
+  before_action :set_address, only: :show
+  before_action :move_to_root
 
   def show
     if @card.first.blank?
-      #登録された情報がない場合にカード登録画面に移動
       redirect_to new_user_creditcard_path(user_id: current_user.id)
     else
       Payjp.api_key = Rails.application.credentials[:payjp_private_key]
-      #保管した顧客IDでpayjpから情報取得
-      info = Payjp::Customer.retrieve(@card.first.customer_id)
-      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
-      @default_card_information = info.cards.retrieve(@card.first.card_id)
+      customer = Payjp::Customer.retrieve(@card.first.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.first.card_id)
+      @exp_month = @default_card_information.exp_month.to_s
+      @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+      Prefecture.data[@address.prefecture_id][:name]
+      @user_address = Prefecture.data[@address.prefecture_id][:name] + @address.city + @address.street + @address.building
+      @postal_code = "〒" + @address.postal_code.slice(0..2) + "-" + @address.postal_code.slice(3..6)
     end
   end
 
   def pay
-    binding.pry
-    # card = Card.where(user_id: current_user.id).first
     Payjp.api_key = Rails.application.credentials[:payjp_private_key]
     Payjp::Charge.create(
-      amount: 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
-      customer: @card.first.customer_id, #顧客ID
-      currency: 'jpy', #日本円
+      amount: @item.price,
+      customer: @card.first.customer_id,
+      currency: 'jpy',
     )
-    redirect_to action: 'done' #完了画面に移動
+    redirect_to action: 'done'
   end
 
   private
   def set_card
     @card = Creditcard.where(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def set_address
+    @address = Address.find(current_user.id)
   end
 end
