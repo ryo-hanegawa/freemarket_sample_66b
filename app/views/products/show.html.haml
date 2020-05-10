@@ -23,7 +23,7 @@
                 .owl-dot__product
                   .owl-dot__product__box
                     = image_tag image.image, class: "image-sub"
-            - if @item.images.length > 5
+            - if @item.images.length > 3
               - for i in 1..(10 - @item.images.length)
                 .owl-dot__dummy
         %table.product-detail-table

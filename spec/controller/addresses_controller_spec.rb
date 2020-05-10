@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe AddressesController, type: :controller do
     let(:user) {create(:user)}
   
-    describe 'GET #step3' do
+    describe 'GET #users/registrations#new_address' do
     it "住所登録ページに遷移するか" do
       login_user user
-      get :step3
-      expect(response).to render_template :step3
+      get :addresses
+      expect(response).to render_template :address
     end
   end
   
