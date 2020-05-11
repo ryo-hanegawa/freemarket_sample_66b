@@ -49,7 +49,7 @@
         .title__hissu
           必須
 
-      = f.collection_select :category, @parents, :id, :name, {prompt: "選択してください"}, class: "input-form", id: "parent-form",name: 'item[category_ids][]', required: "required"
+      = f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"}, class: "input-form", id: "parent-form", required: "required"
       #pull_down_category
 
       .title

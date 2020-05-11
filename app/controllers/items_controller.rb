@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_items, except: [:index, :new, :create]
+  before_action :set_items, except: [:index, :new, :create, :search, :grandchildren]
   before_action :item_update_params,             only:[:update]
   def index
     @items = Item.includes(:images)
@@ -16,9 +16,6 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
-    
-    binding.pry
-    
     if @item.save
       redirect_to controller: :items, action: :index
     else 
@@ -67,7 +64,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :size, :category, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer, images_attributes: [:image])
+    params.require(:item).permit(:name, :description, :size, :category_id, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer, images_attributes: [:image])
   end
 
   def item_update_params

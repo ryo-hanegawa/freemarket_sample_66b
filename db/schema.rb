@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_05_08_103442) do
     t.text "description", null: false
     t.text "brand"
     t.integer "size", default: 0, null: false
-    t.integer "category", null: false
+    t.integer "category_id", null: false
     t.integer "condition", default: 0, null: false
     t.integer "postage", default: 0, null: false
     t.integer "prefecture", default: 0, null: false
