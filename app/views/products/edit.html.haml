@@ -23,7 +23,7 @@
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @item.persisted?
           .js-file_group{"data-index" => "#{@item.images.count}"}
-            = file_field_tag :image, name: "item[item_images_attributes][#{@item.images.count}][image]", class: 'js-file'
+            = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
             .js-remove 削除 
 
     .item-info
@@ -40,7 +40,7 @@
           商品の説明
         .title__hissu
           必須
-
+      
       = f.text_area :description, placeholder: "商品の説明（必須 1,000文字以内）色、素材、重さ、定価、注意点など）", class: "description__input-form", maxlength:1000, required: "required"
 
       .title
@@ -49,9 +49,9 @@
         .title__hissu
           必須
 
-      = f.collection_select :category, @parents, :id, :name, {prompt: "選択してください"}, class: "input-form", id: "parent-form",name: 'item[category_ids][]', required: "required"
-      #pull_down_category
-
+      //あとでancestryによる記述になる箇所
+      = f.select :category, [['レディース',1],['メンズ',2],['ベビー・キッズ',3],['インテリア・住まい・小物',4],['本・音楽・ゲーム',5],['おもちゃ・ホビー・グッズ',6],['コスメ・香水・美容',7],['家電・スマホ・カメラ',8],['スポーツ・レジャー',9],['ハンドメイド',10],['チケット',11],['自転車・オートバイ',12],['その他',13]], {include_blank: '選択してください'}, class: "input-form", required: "required"
+      
       .title
         .title__black
           サイズ
@@ -114,7 +114,7 @@
             ￥ 
           = f.number_field :price, placeholder: "0", class: "price__input-form", style: "text-align: right;", min: "1", required: "required"
 
-    = f.submit :出品する, placeholder: "", class: "syuppin-btn", id: "btn"
+    = f.submit :変更する, placeholder: "", class: "syuppin-btn", id: "btn"
     .back-btn
       = link_to "もどる", root_path
 

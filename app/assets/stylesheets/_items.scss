@@ -1,7 +1,3 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .header-logo {
   height: 70px;
   width: 15%;
@@ -49,14 +45,6 @@
     margin-bottom: 10px;
   }
 
-
-  
-  
-
-
-
-
-  
   .item-image {
     padding: 20px;
     border-bottom: groove;
@@ -65,9 +53,6 @@
       font-size: small;
     }
     
-
-
-
     #image-box {
     
       width: 100%;
@@ -76,28 +61,15 @@
       border: 3px #666 dashed;
       color: #999;
       font-weight: bold;
-      text-align: center;
-
-    
-
-          
-            
+      text-align: center;   
     }
-
-
   }
-  
-  
-    
-
-  
   
   .item-info {
     height: 100%;
     padding: 20px;
     border-bottom: groove;
 
-    
     .description__input-form {
       font-size: 100%;
       padding: 10px;
@@ -106,8 +78,6 @@
       margin-bottom: 10px;
       border-radius: 5px;
     }
-
-
 
     .title-brand {
       width: 150px;
@@ -132,11 +102,8 @@
         border-radius: 5px
       }
     }
-
-    
-
-
   }
+
   .shipping-info {
     padding: 20px;
     border-bottom: groove;
@@ -144,27 +111,24 @@
     .price {
       width: 100%;
       margin-left: 60%;
+
       .input-box {
         display:inline-flex;
+
         .yenMark {
           font-family: initial;
           padding: 5px;
           font-size: 30px;
         }
+
         .price__input-form {
           font-size: large;
           height: 40px;
           width: 70%;
-
         }
-
-      }
-      
+      }    
     }
-
   }
-
-
 
   .syuppin-btn {
     background-color: mediumturquoise;
@@ -177,15 +141,14 @@
     margin: 5% 25% 2% 25%;
   }
 
-  
   .back-btn {
     height: 30px;
-    width: 20%;
-    margin: 0 40% 0 40%;
-    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
-  
 }
+
 .footer {
   padding: 60px 0;
   color: black;
