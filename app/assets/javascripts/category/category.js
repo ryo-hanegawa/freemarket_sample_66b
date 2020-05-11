@@ -8,7 +8,7 @@ $(document).ready(function() {
     })
 
     var html = `<div id="children_wrapper">
-                  <select class= 'input-form', id= 'child-form', required= 'required'>
+                  <select class= 'input-form', id= 'child-form', name= 'item[category_id]',required= 'required'>
                 <option value label="選択してください"></option>
                 ${option}
                 </div>`;
@@ -23,7 +23,7 @@ $(document).ready(function() {
     })
 
     var html = `<div id="grandchildren_wrapper">
-                  <select class= 'input-form', id= 'grandchild-form', required= 'required'>
+                  <select class= 'input-form', id= 'grandchild-form', name= 'item[category_id]', required= 'required'>
                 <option value label="選択してください"></option>
                 ${option}
                 </div>`;

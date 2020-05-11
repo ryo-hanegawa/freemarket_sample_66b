@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_items, except: [:index, :new, :create, :search,:grandchildren]
+
   def index
     @items = Item.includes(:images)
   end
@@ -15,6 +16,9 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
+    
+    binding.pry
+    
     if @item.save
       redirect_to controller: :items, action: :index
     else 
@@ -25,7 +29,6 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
   end
-
 
   def update
 
