@@ -51,9 +51,11 @@
               %td
                 .product-detail-table-sub
                 .product-detail-table-sub
-                  -# カテゴリー作ったらやる
+                  = @parent_category.name
                 .product-detail-table-sub__sub
+                  = @child_category.name
                 .product-detail-table-sub__sub__sub
+                  = @parent_category.name
             %tr
               %th ブランド
               %td
