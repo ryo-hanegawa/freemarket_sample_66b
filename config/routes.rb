@@ -24,7 +24,13 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :purchases,only: [:show]
+  resources :purchases, only: [:show] do
+    collection do
+      post 'pay/:id', to: 'purchases#pay', as: 'pay'
+      get 'done', to: 'purchases#done'
+    end
+  end
+
   resources :top, except: :index
   resources :logouts, only: :index
   resources :items, except: :show
