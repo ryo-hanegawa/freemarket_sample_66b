@@ -13,7 +13,11 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
   def show
     @images = @item.images
     @image = @images.first
-    end
+
+    @grandchild_category = @item.category
+    @child_category = @item.category.parent
+    @parent_category = @item.category.root
+  end
 
 
   def update

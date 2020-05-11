@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_012734) do
+ActiveRecord::Schema.define(version: 2020_05_08_103442) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2020_05_05_012734) do
     t.string "first_name_reading", null: false
     t.string "last_name_reading", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+    t.index ["name"], name: "index_categories_on_name"
   end
 
   create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_012734) do
     t.text "description", null: false
     t.text "brand"
     t.integer "size", default: 0, null: false
-    t.integer "category", null: false
+    t.integer "category_id", null: false
     t.integer "condition", default: 0, null: false
     t.integer "postage", default: 0, null: false
     t.integer "prefecture", default: 0, null: false
