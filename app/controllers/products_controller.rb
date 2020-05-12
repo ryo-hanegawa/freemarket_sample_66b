@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 
+before_action :authenticate_user!,       only:[:new,:create,:destroy,:edit,:update]
 before_action :set_user, only: [:edit, :show, :update, :destroy]
 before_action :set_item, only: [:edit, :show, :update, :destroy]
 
@@ -13,7 +14,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
   def show
     @images = @item.images
     @image = @images.first
-
+    
     @grandchild_category = @item.category
     @child_category = @item.category.parent
     @parent_category = @item.category.root
