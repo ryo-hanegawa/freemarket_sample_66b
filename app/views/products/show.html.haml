@@ -23,7 +23,7 @@
                 .owl-dot__product
                   .owl-dot__product__box
                     = image_tag image.image, class: "image-sub"
-            - if @item.images.length > 5
+            - if @item.images.length > 3
               - for i in 1..(10 - @item.images.length)
                 .owl-dot__dummy
         %table.product-detail-table
@@ -51,9 +51,11 @@
               %td
                 .product-detail-table-sub
                 .product-detail-table-sub
-                  -# カテゴリー作ったらやる
+                  = @parent_category.name
                 .product-detail-table-sub__sub
+                  = @child_category.name
                 .product-detail-table-sub__sub__sub
+                  = @grandchild_category.name
             %tr
               %th ブランド
               %td
@@ -80,6 +82,7 @@
               %td
                 .product-detail.prefecture-name
                   = @item.prefecture
+          
             %tr
               %th 配送日の目安
               %td

@@ -7,12 +7,17 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
   end
 
   def edit
+    @item.images.cache_key unless @item.images.blank?
   end
 
   def show
     @images = @item.images
     @image = @images.first
-    end
+
+    @grandchild_category = @item.category
+    @child_category = @item.category.parent
+    @parent_category = @item.category.root
+  end
 
 
   def update
