@@ -19,7 +19,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
     @child_category = @item.category.parent
     @parent_category = @item.category.root
 
-    if params[:image] == nil
+    if @images_id == nil
       redirect_to action: 'index'
     end
   end
