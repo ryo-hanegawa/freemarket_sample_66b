@@ -19,7 +19,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
     @child_category = @item.category.parent
     @parent_category = @item.category.root
 
-    if @images_id == nil
+    if @image == nil
       redirect_to action: 'index'
     end
   end
@@ -46,7 +46,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
 
 private
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def product_update_params
