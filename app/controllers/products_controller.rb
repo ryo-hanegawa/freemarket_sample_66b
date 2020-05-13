@@ -42,7 +42,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
 
 private
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def set_item
