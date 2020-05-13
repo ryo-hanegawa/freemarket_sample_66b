@@ -9,6 +9,11 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
 
   def edit
     @item.images.cache_key unless @item.images.blank?
+
+    @parents = Category.where(ancestry: nil)
+    @grandchild_category = @item.category
+    @child_category = @item.category.parent
+    @parent_category = @item.category.root
   end
 
   def show
