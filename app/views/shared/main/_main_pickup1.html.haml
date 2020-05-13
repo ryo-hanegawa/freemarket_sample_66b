@@ -14,7 +14,7 @@
         %li.container
           - items.each do |item|
             .main__pickup__box__contents__content
-              = link_to "#" do
+              = link_to product_path(item.id) do
                 %figure.main__pickup__box__contents__content__img
                   - first_image = item.images.first
                   = image_tag first_image.image.url
