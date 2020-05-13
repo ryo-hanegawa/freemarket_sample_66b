@@ -46,7 +46,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
 
 private
   def set_user
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
   end
 
   def product_update_params
