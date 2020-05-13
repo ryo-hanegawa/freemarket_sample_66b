@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 
+before_action :authenticate_user!,       only:[:new,:create,:destroy,:edit,:update]
 before_action :set_user, only: [:edit, :show, :update, :destroy]
 before_action :set_item, only: [:edit, :show, :update, :destroy]
 
@@ -13,10 +14,14 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
   def show
     @images = @item.images
     @image = @images.first
-
+    
     @grandchild_category = @item.category
     @child_category = @item.category.parent
     @parent_category = @item.category.root
+
+    if @image == nil
+      redirect_to action: 'index'
+    end
   end
 
 
@@ -41,7 +46,15 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
 
 private
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
+  end
+
+  def product_update_params
+    params.require(:item).permit(:name, :description, :size, :category_id, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer, images_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
+  def create_items_instance
+    @item = Item.new
   end
 
   def set_item

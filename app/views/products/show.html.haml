@@ -81,7 +81,8 @@
               %th 発送元地域
               %td
                 .product-detail.prefecture-name
-                  = @item.prefecture
+                  北海道
+                  -# = @item.prefecture
           
             %tr
               %th 配送日の目安
@@ -107,7 +108,7 @@
               この商品を削除する
         -else 
           -if @item.buyer == 0
-            = link_to root_path (@item), data: {turbolinks: false} do
+            = link_to  purchase_path (@item), data: {turbolinks: false} do
               .product-buy-btn
                 購入画面に進む
           -else
