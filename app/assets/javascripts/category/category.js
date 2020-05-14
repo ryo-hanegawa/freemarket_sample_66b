@@ -72,7 +72,6 @@ $(document).ready(function() {
       })
       .done(function(grandchildren){
         $('#grandchildren_wrapper').remove();
-
         var html = buildGrandChildHTML(grandchildren);
         $("#pull_down_category").append(html);
       })

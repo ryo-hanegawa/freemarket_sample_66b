@@ -38,4 +38,6 @@ Rails.application.routes.draw do
 
   get 'search', to: 'items#search'
   get 'grandchildren', to: 'items#grandchildren'
+  get 'search_edit', to: 'products#search_edit'
+  get 'grandchildren_edit', to: 'products#grandchildren_edit'
 end

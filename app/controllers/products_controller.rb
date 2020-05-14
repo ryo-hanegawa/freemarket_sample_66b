@@ -9,10 +9,13 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
   def edit
     @item.images.cache_key unless @item.images.blank?
 
-    @parents = Category.where(ancestry: nil)
     @grandchild_category = @item.category
     @child_category = @item.category.parent
     @parent_category = @item.category.root
+
+    @parents = Category.where(ancestry: nil)
+    @child = @parent_category.children
+    @grandchild = @child_category.children
   end
 
   def show
@@ -47,6 +50,26 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
   def destroy
     @item.destroy if @item.user_id == current_user.id
     redirect_to controller: :products, action: :index if @item.user_id == current_user.id && @item.destroy
+  end
+
+  def search_edit
+    respond_to do |format|
+      format.html
+      format.json do
+        # 親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def grandchildren_edit
+    respond_to do |format|
+      format.html
+      format.json do
+        # 子ボックスのidから孫ボックスのidの配列を作成してインスタンス変数で定義
+        @grandchildren = Category.find(params[:child_id]).children
+      end
+    end
   end
 
 private
