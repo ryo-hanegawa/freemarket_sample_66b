@@ -52,6 +52,26 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
     redirect_to controller: :products, action: :index if @item.user_id == current_user.id && @item.destroy
   end
 
+  def search_edit
+    respond_to do |format|
+      format.html
+      format.json do
+        # 親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def grandchildren_edit
+    respond_to do |format|
+      format.html
+      format.json do
+        # 子ボックスのidから孫ボックスのidの配列を作成してインスタンス変数で定義
+        @grandchildren = Category.find(params[:child_id]).children
+      end
+    end
+  end
+
 private
   def set_user
     @user = User.find(current_user.id)
