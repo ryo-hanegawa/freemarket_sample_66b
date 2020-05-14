@@ -34,7 +34,8 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
 
 
   def update
-    if params[:item][:images_attributes] == nil
+    binding.pry
+    if params[:item][:images_attributes] != nil
       @item.update(item_update_params)
       redirect_to action: 'show'
     else
