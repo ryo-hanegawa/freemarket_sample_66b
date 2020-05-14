@@ -49,7 +49,9 @@
         .title__hissu
           必須
 
-      = f.collection_select :category_id, @parents, :id, :name, {selected: @parent_category.id}, class: "input-form", id: "parent-form", required: "required"
+      = f.collection_select :category_id, @parents, :id, :name, {prompt: "", selected: @parent_category.id}, class: "input-form", id: "parent-form", required: "required"
+      = f.collection_select :category_id, @child, :id, :name, {prompt: "", selected: @child_category.id}, class: "input-form", id: "parent-form", required: "required"
+      = f.collection_select :category_id, @grandchild, :id, :name, {prompt: "", selected: @grandchild_category.id}, class: "input-form", id: "parent-form", required: "required"
 
       .title
         .title__black
