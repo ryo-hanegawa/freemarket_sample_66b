@@ -23,7 +23,7 @@
           -#   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @item.persisted?
           .js-file_group{"data-index" => "#{@item.images.count}"}
-            = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+            = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file', required: "required"
             .js-remove 削除 
 
     .item-info
