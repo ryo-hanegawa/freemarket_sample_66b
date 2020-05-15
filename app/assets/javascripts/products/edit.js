@@ -1,3 +1,4 @@
+(window.location.href.match(/\/products\/\d+\/edit/))( {
 $(function(){
   //変数fileIndex = インデックス番号をつける。この番号を使ってプレビュー表示の際に紐付ける
   let fileIndex = 1
@@ -42,20 +43,24 @@ $(function(){
       var blobUrl = window.URL.createObjectURL(file);
     
     //もし一度選択された画像ファイルを変更した時の処理.
-
+  
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      img.setAttribute('src', blobUrl);
+      img.setAttribute('img', blobUrl);
     } else {  
       $('#previews').append(buildImg(targetIndex, blobUrl));
     let limitFileField = $(".js-file_group:last").data("index");
-
+      // fileIndexの先頭の数字を使ってinputを作る
+      $('#image-box').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      // 末尾の数に1足した数を追加する
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+    }
     //この部分によって最大10枚以上の画像は投稿できないようにしています。ength番号10までは、画像入力フォームを生成するようにしてます。※インデックス番号を利用していないことに注意
     if($(".js-file_group").length >= 10 ){
       return false;
     } else {
       $('#image-box').append(buildFileField(fileIndex));
 
-    }
     }
   });
 
@@ -71,6 +76,5 @@ $(function(){
     //もし、（現在入力されてるフォームが最新のフォームで、かつ、入力フォームのlengthが９以上なら、新しく入力フォームを生成する。という条件分岐によって、入力フォーム自体が消滅することを防ぎつつ、「現在入力されてるフォームが最新のフォーム」以外の条件でフォーム自体を消してしまう不具合を解消しています。（要するに、最新の入力フォーム以外を削除すると入力フォーム自体が消滅してしまう）
     if ((targetIndex == limitFileField ) || ($(".js-file_group").length >= 9)) ($('#image-box').append(buildFileField(fileIndex)));
   });
-  
 });
-
+});

@@ -345,11 +345,6 @@
   font-size: 14px;
 }
 
-.product-btn-or{
-  text-align: center;
-  margin: 8px 0 0 0;
-}
-
 .product-buy-btn-sold {
   background: #888;
   cursor: not-allowed;
@@ -362,6 +357,29 @@
   line-height: 60px;
 }
 
+.product-edit-btn {
+  color: #5d9dc9;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.product-btn-or{
+  padding: 5px;
+  margin: 0 50px;
+}
+
+.product-stop-btn {
+  color: #5d9dc9;
+  font-size: 24px;
+  font-weight: 300;
+  }
+
+.product-delete-btn {
+  color: red;
+  font-size: 20px;
+  font-weight: 200;
+  margin-top: 20px;
+}
 .wrapper {
   height: 100%;
   width: 100%;
