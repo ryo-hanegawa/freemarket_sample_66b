@@ -10,8 +10,8 @@
       .item-image__comment1
         最大10枚までアップロードできます。
       
-      #image-box
-        #previews
+      #image-box_new
+        #previews_new
           - if @item.persisted?
             - @item.images.each_with_index do |image, i|
               = image_tag "#{image.image}", data: { index: i}, width: "100", height: '100'

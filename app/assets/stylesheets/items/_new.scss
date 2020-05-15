@@ -54,7 +54,15 @@
     }
     
     #image-box {
-    
+      width: 100%;
+      overflow: hidden;
+      background: #ddd;
+      border: 3px #666 dashed;
+      color: #999;
+      font-weight: bold;
+      text-align: center;   
+    }
+    #image-box_new {
       width: 100%;
       overflow: hidden;
       background: #ddd;
