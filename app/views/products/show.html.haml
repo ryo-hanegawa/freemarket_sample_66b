@@ -96,19 +96,19 @@
         %span.product-fee_payer
       -if user_signed_in?
         -if @item.user_id == current_user.id
-          =link_to edit_product_path(@item), data: {turbolinks: false} do
+          =link_to edit_product_path(@item), data: {turbolinks:"false"} do
             .product-edit-btn
               商品の編集
             .product-btn-or 
             or
             .product-stop-btn
               出品を停止する
-          =link_to product_path(@item), method: :delete, data: {turbolinks: false} do
+          =link_to product_path(@item), method: :delete, data: {turbolinks:"false"} do
             .product-delete-btn
               この商品を削除する
         -else 
           -if @item.buyer == 0
-            = link_to  purchase_path (@item), data: {turbolinks: false} do
+            = link_to  purchase_path (@item), data: {turbolinks:"false"} do
               .product-buy-btn
                 購入画面に進む
           -else

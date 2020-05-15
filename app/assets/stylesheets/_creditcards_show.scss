@@ -78,7 +78,10 @@ $color-000: #000;
             }
           }
         }
-        
+        .link {
+          margin: 10px auto 10px auto;
+          text-align: center;
+        }
         &__about {
           @include background-size(16px, 600px);
           margin: 40px auto 0 auto;
