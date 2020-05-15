@@ -42,20 +42,24 @@ $(function(){
       var blobUrl = window.URL.createObjectURL(file);
     
     //もし一度選択された画像ファイルを変更した時の処理.
-
+  
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      img.setAttribute('src', blobUrl);
+      img.setAttribute('img', blobUrl);
     } else {  
       $('#previews').append(buildImg(targetIndex, blobUrl));
     let limitFileField = $(".js-file_group:last").data("index");
-
+      // fileIndexの先頭の数字を使ってinputを作る
+      $('#image-box').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      // 末尾の数に1足した数を追加する
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+    }
     //この部分によって最大10枚以上の画像は投稿できないようにしています。ength番号10までは、画像入力フォームを生成するようにしてます。※インデックス番号を利用していないことに注意
     if($(".js-file_group").length >= 10 ){
       return false;
     } else {
       $('#image-box').append(buildFileField(fileIndex));
 
-    }
     }
   });
 

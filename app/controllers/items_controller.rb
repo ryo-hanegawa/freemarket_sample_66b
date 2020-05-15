@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
     if params[:item][:images_attributes] == nil && @item.update(item_update_params)
       redirect_to controller: :products, action: 'show'
     else
-      @item.images.destroy_all
+      @item.images.cache_key
       if @item.update(item_params)
         redirect_to controller: :products, action: 'show'
       else
@@ -59,6 +59,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item.destroy if @item.user_id == current_user.id
     redirect_to controller: :products, action: :index if @item.user_id == current_user.id && @item.destroy
   end
 

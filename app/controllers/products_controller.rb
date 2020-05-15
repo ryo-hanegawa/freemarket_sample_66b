@@ -16,6 +16,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
     @parents = Category.where(ancestry: nil)
     @child = @parent_category.children
     @grandchild = @child_category.children
+
   end
 
   def show
