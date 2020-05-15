@@ -13,17 +13,17 @@
       #image-box
         #previews
         - if @item.persisted?
-          - @item.images.each_with_index do |image, i|
+          - @item.images.each_with_index do |image, i| {data:{alreadysaved: i}}
             -if image.image
               = image_tag "#{image.image}", data: { index: i}, width: "100", height: '100'
         = f.fields_for :images do |image|
           .js-file_group{"data-index" => "#{image.index}"}
             = file_field_tag :image, class: 'js-file', height: '70', width: '100%', required: "required"
             %span.js-remove 削除
-          -# - if @item.persisted?
-          -#   = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+          - if @item.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @item.persisted?
-          .js-file_group{"data-index" => "#{@item.images.count}"}
+          .js-file_group{"data-index" => "#{@item.images.length}"}
             = file_field_tag :image,name:"item[image_attributes][#{@item.images.length}][image]", class: 'js-file'
             .js-remove 削除 
     .item-info

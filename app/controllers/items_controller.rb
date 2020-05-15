@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
       redirect_to controller: :products, action: 'show'
     else
       @item.images.cache_key
-      if @item.update(item_params)
+      if @item.update(item_update_params)
         redirect_to controller: :products, action: 'show'
       else
         redirect_to(edit_product_path, notice: '編集できませんでした')
@@ -94,7 +94,7 @@ class ItemsController < ApplicationController
   end
 
   def item_update_params
-    params.require(:item).permit(:name, :description, :size, :category_id, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :size, :category_id, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def create_items_instance
