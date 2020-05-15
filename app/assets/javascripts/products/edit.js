@@ -1,4 +1,4 @@
-(window.location.href.match(/\/products\/\d+\/edit/))( {
+// (window.location.href.match(/\/products\/\d+\/edit/))( {
 $(function(){
   //変数fileIndex = インデックス番号をつける。この番号を使ってプレビュー表示の際に紐付ける
   let fileIndex = 1
@@ -77,4 +77,4 @@ $(function(){
     if ((targetIndex == limitFileField ) || ($(".js-file_group").length >= 9)) ($('#image-box').append(buildFileField(fileIndex)));
   });
 });
-});
+// });
