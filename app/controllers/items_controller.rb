@@ -49,10 +49,11 @@ class ItemsController < ApplicationController
     if params[:item][:images_attributes] == nil && @item.update(item_update_params)
       redirect_to controller: :products, action: 'show'
     else
-      @item.images.cache_key
+      @item.images.destroy
       if @item.update(item_update_params)
         redirect_to controller: :products, action: 'show'
       else
+        @images == nil
         redirect_to(edit_product_path, notice: '編集できませんでした')
       end
     end
