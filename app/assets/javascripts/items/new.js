@@ -16,12 +16,14 @@
 //   const buildImg = (index, url)=> {
 //     const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
 //     return html;
+    
 //   }
 
   
 
 //   //#image-boxの子要素であるjs-fileに変更がある場合にイベントが発火。
 //   $('#image-box').on('change', '.js-file', function(e) {
+    
 
 //     //選択した要素の親要素のdata属性のインデックス番号を取得して、定数targetIndexに代入。
 //     const targetIndex = $(this).parent().data('index');
