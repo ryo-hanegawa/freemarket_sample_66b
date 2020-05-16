@@ -20,6 +20,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
   end
 
   def show
+    @card = Creditcard.where(user_id: current_user.id)
     @images = @item.images
     @image = @images.first
     
