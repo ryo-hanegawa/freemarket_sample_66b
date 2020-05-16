@@ -38,6 +38,7 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
     if @item.save
       redirect_to action: 'show'
       else
+        @items == nil
         redirect_to(edit_item_path, notice: '編集できませんでした')
         # @item.images.destroy_all
         # if @item.update(item_params)
