@@ -10,6 +10,7 @@ $(function(){
                     <span class="js-remove">削除</span>
                   </div>`;
                   return html;
+                  
   }
 
   //プレビュー表示用の定数。該当インデックス番号とそれに紐づくURLと画像サイズを変数buildingに代入。
@@ -20,6 +21,9 @@ $(function(){
     //新しい入力フォームが生成されるたびに、インデックス番号を１足していく
     let fileIndex = [1,2,3,4,5,6,7,8,9,10];
 
+    fileIndex.filter(function (x, i, self) {
+      return self.indexOf(x) === i;
+    });
     // 既に使われているindexを除外
     lastIndex = $('.js-file_group:last').data('index');
     fileIndex.splice(0, lastIndex);
@@ -35,6 +39,10 @@ $(function(){
     
     // fileIndexの先頭の数字を使ってinputを作る
     $('#image-box').append(buildFileField(fileIndex[0]));
+    
+    fileIndex.filter(function (x, i, self) {
+      return self.indexOf(x) === i;
+    });
 
     //「一度選択した画像ファイルを再度選択してキャンセルボタンを押すと、「選択されていません」と表示され、プレビュー表示に残骸のようなものが残る。それを解消するため、キャンセルした時に入力フォームに紐づくインデックス番号の削除ボタンを起動させるための記述です。
     //(!file)とは、定数fileに値がない時の条件分岐です。
@@ -56,16 +64,15 @@ $(function(){
     // let limitFileField = $(".js-file_group:last").data("index");
     fileIndex.shift();
     // 末尾の数に1足した数を追加する
-    fileIndex.push(fileIndex[fileIndex.count - 1] + 1)
+    fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
     }
     
-    // //この部分によって最大10枚以上の画像は投稿できないようにしています。ength番号10までは、画像入力フォームを生成するようにしてます。※インデックス番号を利用していないことに注意
-    // if($(".js-file_group").length >= 10 ){
+    // //この部分によって最大10枚以上の画像は投稿できないようにしています。length番号10までは、画像入力フォームを生成するようにしてます。※インデックス番号を利用していないことに注意
+      ($(".js-file_group").length >= 10 )
     //   return false;
     // } else {
     //   $('#image-box').append(buildFileField(fileIndex));
 
-    // }
   });
 
   $('#image-box').on('click', '.js-remove', function() {
