@@ -11,6 +11,7 @@ class User < ApplicationRecord
          kana = /\A([ァ-ン]|ー)+\z/
          year_month_day = /\A\d{4}-\d{2}-\d{2}\z/
          VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+         VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
 
   validates :nickname, presence: true, length: { maximum: 15 }, uniqueness: true
   validates :first_name, presence: true, length: { maximum: 15 }
@@ -18,7 +19,7 @@ class User < ApplicationRecord
   validates :first_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
   validates :last_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
   validates :birth_date, presence: true, format: { with: year_month_day }
-  validates :phone_number, presence: true, numericality: true
+  validates :phone_number, presence: true, numericality: true, format: { with: VALID_PHONE_REGEX }
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 
   
