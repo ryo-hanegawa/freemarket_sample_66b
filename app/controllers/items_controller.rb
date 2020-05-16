@@ -31,8 +31,11 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       redirect_to controller: :items, action: :index
-    else 
-      redirect_to new_item_path
+    else
+      # redirect_to new_item_path
+      @parents = Category.where(ancestry: nil)
+      @item.images.new  # 再度、itemにひもづくimageをオブジェクトを生成
+      render :new
     end
   end
 
