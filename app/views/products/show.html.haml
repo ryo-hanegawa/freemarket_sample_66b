@@ -46,15 +46,21 @@
                     = image_tag("")
                     = icon("far", "fa-frown", class: "fa-frown-o")
                     %span 0
+
+            %tr
+              %th 商品説明
+              %td
+                .product-detail
+                  = @item.description
+
             %tr
               %th カテゴリー
               %td
                 .product-detail-table-sub
-                .product-detail-table-sub
                   = @parent_category.name
-                .product-detail-table-sub__sub
+                .product-detail-table-sub
                   = @child_category.name
-                .product-detail-table-sub__sub__sub
+                .product-detail-table-sub
                   = @grandchild_category.name
             %tr
               %th ブランド
