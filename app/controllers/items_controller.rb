@@ -46,22 +46,34 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if params[:item][:images_attributes] == nil && @item.update(item_update_params)
-      redirect_to controller: :products, action: 'show'
+    binding.pry
+    if @item.images != nil
+      @item.update(item_update_params)
+      redirect_to controller: "products", action: 'show'
     else
-      @item.images.destroy
-      if @item.update(item_update_params)
-        redirect_to controller: :products, action: 'show'
-      else
-        @images == nil
-        redirect_to(edit_product_path, notice: '編集できませんでした')
-      end
+      redirect_to controller: "products", action: "edit" 
     end
   end
+    # if params[:item][:images_attributes] == nil && @item.update(item_update_params)
+    #   redirect_to controller: :products, action: 'show'
+    # else
+    #   @item.images.destroy
+    #   if @item.update(item_update_params)
+    #     redirect_to controller: :products, action: 'show'
+    #   else
+    #     @images == nil
+    #     redirect_to(edit_product_path, notice: '編集できませんでした')
+    #   end
+    # end
 
   def destroy
-    @item.destroy if @item.user_id == current_user.id
-    redirect_to controller: :products, action: :index if @item.user_id == current_user.id && @item.destroy
+    binding.pry
+    if @item.images == nil
+      redirect_to controller: "products", action: "edit"
+    else
+      @item.destroy if @item.user_id == current_user.id
+      redirect_to controller: :products, action: :index if @item.user_id == current_user.id && @item.destroy
+    end
   end
 
   def search

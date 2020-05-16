@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 before_action :authenticate_user!,       only:[:new,:create,:destroy,:edit,:update]
 before_action :set_user, only: [:edit, :show, :update, :destroy]
+before_action :item_update_params,             only:[:update]
 before_action :set_item, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -34,12 +35,13 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
 
 
   def update
-    @item.update(item_params)
-    if @item.save
+    binding.pry
+    if @item.images != nil
+      @item.update(item_update_params)
+    # if @item.save
       redirect_to action: 'show'
-      else
-        @items == nil
-        redirect_to(edit_item_path, notice: '編集できませんでした')
+    else
+      redirect_to action: "edit" 
         # @item.images.destroy_all
         # if @item.update(item_params)
         #   redirect_to action: 'show'
@@ -50,8 +52,8 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
   end
 
   def destroy
-    @item.destroy if @item.user_id == current_user.id
-    redirect_to controller: :products, action: :index if @item.user_id == current_user.id && @item.destroy
+    # @item.destroy if @item.user_id == current_user.id
+    # redirect_to controller: :products, action: :index if @item.user_id == current_user.id && @item.destroy
   end
 
   def search_edit

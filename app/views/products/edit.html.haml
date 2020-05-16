@@ -1,5 +1,5 @@
 = link_to image_tag("logo/logo.png", height: "30", width: "180", class: "header-logo"), root_path
-= form_with(model: @item, local:true) do |f|
+= form_with model: @item, local: true, url: { controller: "items", action: "update" } do |f|
   .items-wrapper
     .item-image
       .title
@@ -17,7 +17,7 @@
               = image_tag "#{image.image}", data: { index: i}, width: "100", height: '100'
         = f.fields_for :images do |image|
           .js-file_group{"data-index" => "#{image.index}"}
-            = image.file_field :image, class: 'js-file', height: '70', width: '100%', required: "required"
+            = image.file_field :image, class: 'js-file', height: '70', width: '100%'
             %span.js-remove 削除
           - if @item.persisted?
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
