@@ -181,6 +181,7 @@
     margin-right: auto;
     text-align: center;
   }
+
 }
 
 .footer {
@@ -214,5 +215,19 @@
   }
   p {
     font-size: 14px;
+  }
+}
+
+.notifications {
+  color: white;
+  text-align: center;  
+
+  .notice {
+    background-color: black;
+  }
+
+  .alert {
+    background-color: red;
+    font-size: 30px;
   }
 }

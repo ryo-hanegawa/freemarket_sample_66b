@@ -29,16 +29,18 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if @item.images.length > 10
+      flash[:alert] = "10枚以上投稿出来ません"
+      redirect_to(new_item_path)
+  elsif @item.save
       redirect_to controller: :items, action: :index
     else
       # redirect_to new_item_path
       @parents = Category.where(ancestry: nil)
       @item.images.new  # 再度、itemにひもづくimageをオブジェクトを生成
       render :new
-    end
   end
-
+end
   def edit
     @item.images.cache_key unless @item.images.blank?
 
