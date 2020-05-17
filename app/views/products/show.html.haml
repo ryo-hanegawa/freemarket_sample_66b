@@ -16,7 +16,7 @@
           .owl-dot
             - @item.images.each.with_index do |image, index|
               - if image.present?
-                .owl-dot__product.current
+                .owl-dot__product_current
                   .owl-dot__product__box
                     = image_tag image.image_url, class: "image-sub"
               - else
@@ -24,7 +24,7 @@
                   .owl-dot__product__box
                     = image_tag image.image, class: "image-sub"
             - if @item.images.length > 3
-              - for i in 1..(10 - @item.images.length)
+              - for i in 1..(3 - @item.images.length)
                 .owl-dot__dummy
         %table.product-detail-table
           %tbody
@@ -32,7 +32,10 @@
               %th 出品者
               %td
                 .user-name-string
-                  = @user.nickname
+                  -if user_signed_in?
+                    = current_user.nickname
+                  -else
+                    = @item.user_id
                 .product-user-ratings
                   .product-user-rating
                     = image_tag("")

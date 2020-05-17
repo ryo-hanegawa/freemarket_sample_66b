@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 before_action :authenticate_user!,       only:[:new,:create,:destroy,:edit,:update]
-before_action :set_user, only: [:edit, :show, :update, :destroy]
+before_action :set_user, only: [:edit,  :update, :destroy]
 before_action :set_item, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -20,7 +20,8 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
   end
 
   def show
-    @card = Creditcard.where(user_id: current_user.id)
+    @user = User.select(:nickname, :id)
+    # @card = Creditcard.where(user_id: current_user.id)
     @images = @item.images
     @image = @images.first
     

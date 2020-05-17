@@ -42,20 +42,31 @@
           line-height: 0;
           height: 100px;
           display: flex;
+          overflow: hidden;
           img{
             width:100px;
             height:100px;
+            animation: scrollAnime 20s linear infinite;
           }
+        }
+
+          @keyframes scrollAnime{
+            0% { transform: translateX(0)}
+          100% { transform: translateX(-400%)}
+          }
+          
           &-inner {
             width: auto;
             height: auto;
             padding: 0;
             opacity: .4;
             cursor: pointer;
+              
+            
           }
         }
       }
-    }
+    
     .product-detail-table{
       max-width: 300px;
       height: 375px;
