@@ -114,7 +114,7 @@
           =link_to product_path(@item), method: :delete, data: {"turbolinks"=>false} do
             .product-delete-btn
               この商品を削除する
-        -elsif @card.blank?
+        -elsif current_user.creditcard.blank?
           = link_to user_creditcards_path(current_user.id), data: { "turbolinks": false } do
             .product-buy-btn
               購入画面に進む
