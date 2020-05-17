@@ -1,172 +1,172 @@
-.wrapper
-  = render 'shared/header'
-  - breadcrumb :product
-  = render 'shared/breadcrumb'
-  .product-show-main-background
-    %section.product-show-product-box-container
-      %h1
-        .product-name
-          = @item.name
-      .product-main-content
-        .product-photo
-          //メイン画像
-          .image
-            = image_tag @image.image.to_s, size: "300x300"
-          //サムネイル画像
-          .owl-dot
-            - @item.images.each.with_index do |image, index|
-              - if image.present?
-                .owl-dot__product.current
-                  .owl-dot__product__box
-                    = image_tag image.image_url, class: "image-sub"
-              - else
-                .owl-dot__product
-                  .owl-dot__product__box
-                    = image_tag image.image, class: "image-sub"
-            - if @item.images.length > 3
-              - for i in 1..(10 - @item.images.length)
-                .owl-dot__dummy
-        %table.product-detail-table
-          %tbody
-            %tr
-              %th 出品者
-              %td
-                .user-name-string
-                  = @item.user.nickname
-                .product-user-ratings
-                  .product-user-rating
-                    = image_tag("")
-                    = icon('far', 'fa-smile', class: 'fa-smile-o')
-                    %span 1000
-                  .product-user-rating
-                    = image_tag("")
-                    = icon("far", "fa-meh", class: "fa-meh-o")
-                    %span 0
-                  .product-user-rating
-                    = image_tag("")
-                    = icon("far", "fa-frown", class: "fa-frown-o")
-                    %span 0
-            %tr
-              %th 商品説明
-              %td
-                .product-detail
-                  = @item.description
-            %tr
-              %th カテゴリー
-              %td
-                .product-detail-table-sub
-                  = @parent_category.name
-                .product-detail-table-sub
-                  = @child_category.name
-                .product-detail-table-sub
-                  = @grandchild_category.name
-            %tr
-              %th サイズ
-              %td
-                .product-detail
-                  = @item.size
-            %tr
-              %th ブランド
-              %td
-                = link_to "#" do
-                  .brand-name
-                    = @item.brand
-            %tr
-              %th 商品の状態
-              %td
-                .product-detail
-                  = @item.condition
-            %tr
-              %th 配送料の負担
-              %td
-                .product-detail
-                  = @item.postage
-            %tr
-              %th 配送の方法
-              %td
-                .product-detail らくらくフリマ便
-            %tr
-              %th 発送元地域
-              %td
-                .product-detail.prefecture-name
-                  北海道
-                  -# = @item.prefecture
+-# .wrapper
+-#   = render 'shared/header'
+-#   - breadcrumb :product
+-#   = render 'shared/breadcrumb'
+-#   .product-show-main-background
+-#     %section.product-show-product-box-container
+-#       %h1
+-#         .product-name
+-#           = @item.name
+-#       .product-main-content
+-#         .product-photo
+-#           //メイン画像
+-#           .image
+-#             = image_tag @image.image.to_s, size: "300x300"
+-#           //サムネイル画像
+-#           .owl-dot
+-#             - @item.images.each.with_index do |image, index|
+-#               - if image.present?
+-#                 .owl-dot__product.current
+-#                   .owl-dot__product__box
+-#                     = image_tag image.image_url, class: "image-sub"
+-#               - else
+-#                 .owl-dot__product
+-#                   .owl-dot__product__box
+-#                     = image_tag image.image, class: "image-sub"
+-#             - if @item.images.length > 3
+-#               - for i in 1..(10 - @item.images.length)
+-#                 .owl-dot__dummy
+-#         %table.product-detail-table
+-#           %tbody
+-#             %tr
+-#               %th 出品者
+-#               %td
+-#                 .user-name-string
+-#                   = @item.user.nickname
+-#                 .product-user-ratings
+-#                   .product-user-rating
+-#                     = image_tag("")
+-#                     = icon('far', 'fa-smile', class: 'fa-smile-o')
+-#                     %span 1000
+-#                   .product-user-rating
+-#                     = image_tag("")
+-#                     = icon("far", "fa-meh", class: "fa-meh-o")
+-#                     %span 0
+-#                   .product-user-rating
+-#                     = image_tag("")
+-#                     = icon("far", "fa-frown", class: "fa-frown-o")
+-#                     %span 0
+-#             %tr
+-#               %th 商品説明
+-#               %td
+-#                 .product-detail
+-#                   = @item.description
+-#             %tr
+-#               %th カテゴリー
+-#               %td
+-#                 .product-detail-table-sub
+-#                   = @parent_category.name
+-#                 .product-detail-table-sub
+-#                   = @child_category.name
+-#                 .product-detail-table-sub
+-#                   = @grandchild_category.name
+-#             %tr
+-#               %th サイズ
+-#               %td
+-#                 .product-detail
+-#                   = @item.size
+-#             %tr
+-#               %th ブランド
+-#               %td
+-#                 = link_to "#" do
+-#                   .brand-name
+-#                     = @item.brand
+-#             %tr
+-#               %th 商品の状態
+-#               %td
+-#                 .product-detail
+-#                   = @item.condition
+-#             %tr
+-#               %th 配送料の負担
+-#               %td
+-#                 .product-detail
+-#                   = @item.postage
+-#             %tr
+-#               %th 配送の方法
+-#               %td
+-#                 .product-detail らくらくフリマ便
+-#             %tr
+-#               %th 発送元地域
+-#               %td
+-#                 .product-detail.prefecture-name
+-#                   北海道
+-#                   -# = @item.prefecture
 
-            %tr
-              %th 配送日の目安
-              %td
-                .product-detail
-                  = @item.deliberydate
-      .product-price-box
-        %span.product-price 
-          ¥ #{@item.price}
-        %span.product-tax (税込)
-        %span.product-fee_payer
-      -if user_signed_in?
-        -if @item.user_id == current_user.id
-          =link_to edit_product_path(@item), data: {"turbolinks"=>false} do
-            .product-edit-btn
-              商品の編集
-            .product-btn-or 
-              or
-            .product-stop-btn
-              出品を停止する
-          =link_to product_path(@item), method: :delete, data: {"turbolinks"=>false} do
-            .product-delete-btn
-              この商品を削除する
-        -elsif current_user.creditcard.blank?
-          = link_to user_creditcards_path(current_user.id), data: { "turbolinks": false } do
-            .product-buy-btn
-              購入画面に進む
-        -else
-          -if @item.buyer == 0
-            = link_to  purchase_path (@item), data: {"turbolinks"=>false} do
-              .product-buy-btn
-                購入画面に進む
-          -else
-            .product-buy-btn-sold 売り切れました
-      -else
-        -if @item.buyer == 0
-          = link_to "/users/sign_in" do
-            .product-buy-btn ログインして買い物を続ける
-        -else
-          .product-buy-btn-sold 売り切れました
-      -unless user_signed_in? && @item.user_id == current_user.id
-        .product-description
-          %p.product-description__inner
-            =@item.description
-        .product-button-container.clearfix
-          .product-button-left
-            .product-button-like
-              %button{type: "button", name: "like!", class: "product-button"}
-                = icon("far", "fa-heart", class: "fa_icon-heart")
-                %span.fade-in-down いいね!
-                %span.fade-in-down 0
-          .product-button__report
-            = link_to "#", class: "product-button__report" do
-              = icon("far", "fa-flag", class: "fa-flag")
-              %span.fade-in-down 不適切な商品の報告            
-          .product-button-right
-            = link_to '#', target: "_blank", class: "safe-description" do
-              = icon("fas", "fa-lock", class: "fa-lock")
-              あんしん・あんぜんへの取り組み
-        .nav-product-link
-          .previous-product.items-link_to
-            = icon("fas", "fa-chevron-left", class: "fa-chevron-left")
-            = link_to "前の商品へ", "#"
-          .next-product.items-link_to
-            = icon("fas", "fa-chevron-right", class: "fa-chevron-right")
-            = link_to "次の商品へ", "#"
-            .product-social-media-box
-              .text-center
-              %ul.social-media-box
-                %li
-                  = link_to "#", target: "_blank", class: "share-btn" do
-                    = icon("fab", "fa-facebook-square", class: "fa-facebook-square")
-                %li
-                  = link_to "#", target: "_blank", class: "share-btn" do
-                    = icon("fab", "fa-twitter-square", class: "fa-twitter-square")
-                %li
-                  = link_to "#", target: "_blank", class: "share-btn" do
-                    = icon("fab", "fa-pinterest-square", class: "fa-pinterest-square")
-  = render "shared/footer"
+-#             %tr
+-#               %th 配送日の目安
+-#               %td
+-#                 .product-detail
+-#                   = @item.deliberydate
+-#       .product-price-box
+-#         %span.product-price 
+-#           ¥ #{@item.price}
+-#         %span.product-tax (税込)
+-#         %span.product-fee_payer
+-#       -if user_signed_in?
+-#         -if @item.user_id == current_user.id
+-#           =link_to edit_product_path(@item), data: {"turbolinks"=>false} do
+-#             .product-edit-btn
+-#               商品の編集
+-#             .product-btn-or 
+-#               or
+-#             .product-stop-btn
+-#               出品を停止する
+-#           =link_to product_path(@item), method: :delete, data: {"turbolinks"=>false} do
+-#             .product-delete-btn
+-#               この商品を削除する
+-#         -elsif current_user.creditcard.blank?
+-#           = link_to user_creditcards_path(current_user.id), data: { "turbolinks": false } do
+-#             .product-buy-btn
+-#               購入画面に進む
+-#         -else
+-#           -if @item.buyer == 0
+-#             = link_to  purchase_path (@item), data: {"turbolinks"=>false} do
+-#               .product-buy-btn
+-#                 購入画面に進む
+-#           -else
+-#             .product-buy-btn-sold 売り切れました
+-#       -else
+-#         -if @item.buyer == 0
+-#           = link_to "/users/sign_in" do
+-#             .product-buy-btn ログインして買い物を続ける
+-#         -else
+-#           .product-buy-btn-sold 売り切れました
+-#       -unless user_signed_in? && @item.user_id == current_user.id
+-#         .product-description
+-#           %p.product-description__inner
+-#             =@item.description
+-#         .product-button-container.clearfix
+-#           .product-button-left
+-#             .product-button-like
+-#               %button{type: "button", name: "like!", class: "product-button"}
+-#                 = icon("far", "fa-heart", class: "fa_icon-heart")
+-#                 %span.fade-in-down いいね!
+-#                 %span.fade-in-down 0
+-#           .product-button__report
+-#             = link_to "#", class: "product-button__report" do
+-#               = icon("far", "fa-flag", class: "fa-flag")
+-#               %span.fade-in-down 不適切な商品の報告            
+-#           .product-button-right
+-#             = link_to '#', target: "_blank", class: "safe-description" do
+-#               = icon("fas", "fa-lock", class: "fa-lock")
+-#               あんしん・あんぜんへの取り組み
+-#         .nav-product-link
+-#           .previous-product.items-link_to
+-#             = icon("fas", "fa-chevron-left", class: "fa-chevron-left")
+-#             = link_to "前の商品へ", "#"
+-#           .next-product.items-link_to
+-#             = icon("fas", "fa-chevron-right", class: "fa-chevron-right")
+-#             = link_to "次の商品へ", "#"
+-#             .product-social-media-box
+-#               .text-center
+-#               %ul.social-media-box
+-#                 %li
+-#                   = link_to "#", target: "_blank", class: "share-btn" do
+-#                     = icon("fab", "fa-facebook-square", class: "fa-facebook-square")
+-#                 %li
+-#                   = link_to "#", target: "_blank", class: "share-btn" do
+-#                     = icon("fab", "fa-twitter-square", class: "fa-twitter-square")
+-#                 %li
+-#                   = link_to "#", target: "_blank", class: "share-btn" do
+-#                     = icon("fab", "fa-pinterest-square", class: "fa-pinterest-square")
+-#   = render "shared/footer"
