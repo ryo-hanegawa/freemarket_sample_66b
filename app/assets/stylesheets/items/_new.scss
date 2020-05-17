@@ -35,6 +35,8 @@
       font-weight: bold;
       border-radius: 5px
     }
+    
+  
   }
 
   .input-form {
@@ -108,6 +110,38 @@
     padding: 20px;
     border-bottom: groove;
     
+    .title-pricedetails {
+      width: 300px;
+      display: flex;
+
+      &__black {
+        padding-top: 3px;
+        font-weight: bold;
+        margin-right: 5px;
+        border-bottom: solid 3px mediumturquoise;
+      }
+
+      &__hissu {
+        height: 20px;
+        width: 30px;
+        padding-top: 4px;
+        text-align: center;
+        background-color: red;
+        color: seashell;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      &__pricerange {
+        color: rgb(136, 136, 136);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+      }
+    }
+
     .price {
       width: 100%;
       margin-left: 60%;
