@@ -32,7 +32,7 @@
               %th 出品者
               %td
                 .user-name-string
-                  = @user.nickname
+                  = @item.user.nickname
                 .product-user-ratings
                   .product-user-rating
                     = image_tag("")
@@ -76,7 +76,6 @@
               %td
                 .product-detail
                   = @item.condition
-
             %tr
               %th 配送料の負担
               %td
@@ -92,7 +91,7 @@
                 .product-detail.prefecture-name
                   北海道
                   -# = @item.prefecture
-          
+
             %tr
               %th 配送日の目安
               %td
@@ -119,7 +118,7 @@
           = link_to user_creditcards_path(current_user.id), data: { "turbolinks": false } do
             .product-buy-btn
               購入画面に進む
-        -else 
+        -else
           -if @item.buyer == 0
             = link_to  purchase_path (@item), data: {"turbolinks"=>false} do
               .product-buy-btn
@@ -129,11 +128,10 @@
       -else
         -if @item.buyer == 0
           = link_to "/users/sign_in" do
-            .product-buy-btn 購入画面に進む
+            .product-buy-btn ログインして買い物を続ける
         -else
           .product-buy-btn-sold 売り切れました
       -unless user_signed_in? && @item.user_id == current_user.id
-
         .product-description
           %p.product-description__inner
             =@item.description

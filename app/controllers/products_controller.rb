@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
-before_action :authenticate_user!,       only:[:new,:create,:destroy,:edit,:update]
-before_action :set_user, only: [:edit, :show, :update, :destroy]
+before_action :authenticate_user!, only:[:edit, :show, :update, :destroy]
 before_action :set_item, only: [:edit, :show, :update, :destroy]
 
   def index
@@ -33,7 +32,6 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
     end
   end
 
-
   def update
     @item.update(item_params)
     if @item.save
@@ -41,12 +39,6 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
       else
         @items == nil
         redirect_to(edit_item_path, notice: '編集できませんでした')
-        # @item.images.destroy_all
-        # if @item.update(item_params)
-        #   redirect_to action: 'show'
-        # else
-        #   redirect_to(edit_item_path, notice: '編集できませんでした')
-        # end
     end
   end
 
@@ -75,20 +67,12 @@ before_action :set_item, only: [:edit, :show, :update, :destroy]
     end
   end
 
-private
-  def set_user
-    @user = User.find(current_user.id)
-  end
-
+  private
   def item_update_params
     params.require(:item).permit(:name, :description, :size, :category_id, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
-  def create_items_instance
-    @item = Item.new
-  end
-
   def set_item
     @item = Item.find(params[:id])
-end
+  end
 end

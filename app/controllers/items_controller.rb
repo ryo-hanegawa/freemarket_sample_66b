@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_items, except: [:index, :new, :create, :search, :grandchildren]
-  before_action :item_update_params,             only:[:update]
-  before_action :set_user, only: [:edit, :show, :update, :destroy]
+  before_action :set_items, only: [:show, :edit, :update, :destroy]
+  before_action :item_update_params, only: :update
+
   def index
     @items = Item.includes(:images)
   end
@@ -17,11 +17,9 @@ class ItemsController < ApplicationController
   def show
     @images = @item.images
     @image = @images.first
-    
     @grandchild_category = @item.category
     @child_category = @item.category.parent
     @parent_category = @item.category.root
-
     if @image == nil
       redirect_to action: 'index'
     end
@@ -32,7 +30,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to controller: :items, action: :index
     else
-      # redirect_to new_item_path
       @parents = Category.where(ancestry: nil)
       @item.images.new  # 再度、itemにひもづくimageをオブジェクトを生成
       render :new
@@ -41,7 +38,6 @@ class ItemsController < ApplicationController
 
   def edit
     @item.images.cache_key unless @item.images.blank?
-
     @parents = Category.where(ancestry: nil)
     @grandchild_category = @item.category
     @child_category = @item.category.parent
@@ -88,21 +84,12 @@ class ItemsController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = User.find(current_user.id)
-  end
-
   def item_params
     params.require(:item).permit(:name, :description, :size, :category_id, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def item_update_params
     params.require(:item).permit(:name, :description, :size, :category_id, :condition, :brand, :postage, :prefecture, :deliberydate, :price, :buyer, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
-  end
-
-  def create_items_instance
-    @item = Item.new
   end
 
   def set_items
