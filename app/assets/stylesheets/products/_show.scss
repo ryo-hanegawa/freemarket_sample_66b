@@ -49,7 +49,6 @@
             animation: scrollAnime 20s linear infinite;
           }
         }
-
           @keyframes scrollAnime{
             0% { transform: translateX(0)}
           100% { transform: translateX(-100%)}
