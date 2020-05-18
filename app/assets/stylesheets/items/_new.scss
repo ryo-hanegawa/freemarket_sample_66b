@@ -223,11 +223,14 @@
   text-align: center;  
 
   .notice {
-    background-color: black;
+    background-color: green;
+    font-size: 20px;
+    color: azure;
   }
 
   .alert {
     background-color: red;
+   color: azure;
     font-size: 30px;
   }
 }
