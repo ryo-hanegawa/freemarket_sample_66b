@@ -144,21 +144,21 @@
 
     .price {
       width: 100%;
-      margin-left: 60%;
+      
 
       .input-box {
         display:inline-flex;
 
         .yenMark {
           font-family: initial;
-          padding: 5px;
           font-size: 30px;
+          margin-top: auto;
         }
 
         .price__input-form {
-          font-size: large;
+          font-size: 25px;
           height: 40px;
-          width: 70%;
+          width: 350px;
         }
       }    
     }
