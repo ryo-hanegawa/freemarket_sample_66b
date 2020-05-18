@@ -1,5 +1,5 @@
 class ChangeDataPhoneNumberToUsers < ActiveRecord::Migration[5.2]
-  def up
+  def change
     change_column :users, :phone_number, :string
   end
 end
