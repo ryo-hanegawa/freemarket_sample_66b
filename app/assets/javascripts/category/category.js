@@ -37,7 +37,7 @@ $(document).ready(function() {
     var parentCategory = $('#parent-form').val();
     if(parentCategory != 0){
       $.ajax({
-        url: '/search',
+        url: '/items/search',
         type: 'GET',
         data: { parent_id: parentCategory },
         dataType: 'json',
@@ -65,7 +65,7 @@ $(document).ready(function() {
     var childId = $('#child-form').val();
     if (childId != 0) {
       $.ajax({
-        url: '/grandchildren',
+        url: '/items/grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json',

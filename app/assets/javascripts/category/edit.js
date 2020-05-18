@@ -34,7 +34,7 @@ $(function(){
   $('#parent-form-edit').on('change', function(){
     var parentCategory = $('#parent-form-edit').val();
     $.ajax({
-      url: '/search_edit',
+      url: '/items/search',
       type: 'GET',
       data: { parent_id: parentCategory },
       dataType: 'json',
@@ -54,7 +54,7 @@ $(function(){
   $('#pull_down_category_edit').on('change', '#child-form-edit', function(){
     var childId = $('#child-form-edit').val();
     $.ajax({
-      url: '/grandchildren_edit',
+      url: '/items/grandchildren',
       type: 'GET',
       data: { child_id: childId },
       dataType: 'json',
@@ -73,7 +73,7 @@ $(function(){
   $('#child-form-edit').on('change', function(){
     var childId = $('#child-form-edit').val();
     $.ajax({
-      url: '/grandchildren_edit',
+      url: '/items/grandchildren',
       type: 'GET',
       data: { child_id: childId },
       dataType: 'json',
