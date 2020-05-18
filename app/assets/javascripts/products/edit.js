@@ -1,7 +1,7 @@
 // if (window.location.href.match(/\/products\/\d+\/edit/))( {
 $(function(){
   //変数fileIndex = インデックス番号をつける。この番号を使ってプレビュー表示の際に紐付ける
-  // fileIndex = 1
+
   const buildFileField = (num)=> {
     const html = `<div class="js-file_group" data-index="${num}">
                     <input class="js-file" type="file"
@@ -9,8 +9,7 @@ $(function(){
                     id="item_images_attributes_${num}_image">
                     <span class="js-remove">削除</span>
                   </div>`;
-                  return html;
-                  
+                  return html;           
   }
 
   //プレビュー表示用の定数。該当インデックス番号とそれに紐づくURLと画像サイズを変数buildingに代入。
@@ -48,7 +47,7 @@ $(function(){
     //(!file)とは、定数fileに値がない時の条件分岐です。
     if(!file){
       $(`.js-file_group[data-index=${targetIndex}]`).find(".js-remove").trigger("click");
-      return false;
+      // return false;
     }
 
       //定数fileに値があれば以下の処理に移る。
@@ -68,8 +67,9 @@ $(function(){
     }
     
     // //この部分によって最大10枚以上の画像は投稿できないようにしています。length番号10までは、画像入力フォームを生成するようにしてます。※インデックス番号を利用していないことに注意
-      ($(".js-file_group").length >= 10 )
-    //   return false;
+    if ($(".js-file_group").length >= 10 ) {
+      return false;
+    }
     // } else {
     //   $('#image-box').append(buildFileField(fileIndex));
 
