@@ -49,7 +49,10 @@ end
 
   def update
     @item.update(item_params)
-    if @item.save
+    if @item.images.length > 10
+      flash[:alert] = "10枚以上投稿出来ません"
+      redirect_to(edit_item_path)
+    elsif @item.save
       redirect_to action: 'show'
       else
         @items == nil
