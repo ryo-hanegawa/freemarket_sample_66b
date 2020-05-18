@@ -102,3 +102,5 @@ gem 'whiny_validation', '~> 1.0'
 gem 'payjp'
 
 gem 'ancestry'
+
+gem 'antivirus', '~> 0.0.2'

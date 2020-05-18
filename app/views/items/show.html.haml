@@ -2,6 +2,9 @@
   = render 'shared/header'
   - breadcrumb :product
   = render 'shared/breadcrumb'
+  .notifications
+    - flash.each do |key, value|
+      = content_tag(:div, value, class: key)
   .product-show-main-background
     %section.product-show-product-box-container
       %h1

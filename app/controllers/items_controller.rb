@@ -26,15 +26,17 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if @item.images.length > 10
+      flash[:alert] = "10枚以上投稿出来ません"
+      redirect_to(new_item_path)
+    elsif @item.save
       redirect_to controller: :items, action: :index
     else
       @parents = Category.where(ancestry: nil)
       @item.images.new  # 再度、itemにひもづくimageをオブジェクトを生成
       render :new
-    end
   end
-
+end
   def edit
     @item.images.cache_key unless @item.images.blank?
     @parents = Category.where(ancestry: nil)
@@ -47,11 +49,15 @@ class ItemsController < ApplicationController
 
   def update
     @item.update(item_params)
-    if @item.save
+    if @item.images.length > 10
+      flash[:alert] = "10枚以上投稿出来ません"
+      redirect_to(edit_item_path)
+    elsif @item.save
+      flash[:notice] = "編集完了しました"
       redirect_to action: 'show'
-      else
-        @items == nil
-        redirect_to(edit_item_path, notice: '編集できませんでした')
+    else
+      @items == nil
+      redirect_to(edit_item_path, notice: '編集できませんでした')
     end
   end
 
