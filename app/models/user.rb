@@ -13,11 +13,11 @@ class User < ApplicationRecord
          VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
          VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
 
-  validates :nickname, presence: true, length: { maximum: 15 }, uniqueness: true
-  validates :first_name, presence: true, length: { maximum: 15 }
-  validates :last_name, presence: true, length: { maximum: 15 }
-  validates :first_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
-  validates :last_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }
+  validates :nickname, presence: true, length: { maximum: 15 }, uniqueness: true, profanity_filter: true
+  validates :first_name, presence: true, length: { maximum: 15 }, profanity_filter: true
+  validates :last_name, presence: true, length: { maximum: 15 }, profanity_filter: true
+  validates :first_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }, profanity_filter: true
+  validates :last_name_reading, presence: true, length: { maximum: 15 }, format: { with: kana }, profanity_filter: true
   validates :birth_date, presence: true, format: { with: year_month_day }
   validates :phone_number, presence: true, numericality: true, format: { with: VALID_PHONE_REGEX }
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }

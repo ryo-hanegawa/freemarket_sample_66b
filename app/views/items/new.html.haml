@@ -30,6 +30,7 @@
             .js-remove 削除 
 
     .item-info
+      = render 'layouts/error_messages', model: f.object
       .title
         .title__black
           商品名
@@ -37,7 +38,6 @@
           必須
       
       = f.text_field :name, placeholder: "40文字まで", class: "input-form", size:100, maxlength:40, required: "required"
-
       .title
         .title__black
           商品の説明
