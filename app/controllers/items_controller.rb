@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
     if @item.images.length > 10
       flash[:alert] = "10枚以上投稿出来ません"
       redirect_to(new_item_path)
-  elsif @item.save
+    elsif @item.save
       redirect_to controller: :items, action: :index
     else
       @parents = Category.where(ancestry: nil)
@@ -53,10 +53,11 @@ end
       flash[:alert] = "10枚以上投稿出来ません"
       redirect_to(edit_item_path)
     elsif @item.save
+      flash[:notice] = "編集完了しました"
       redirect_to action: 'show'
-      else
-        @items == nil
-        redirect_to(edit_item_path, notice: '編集できませんでした')
+    else
+      @items == nil
+      redirect_to(edit_item_path, notice: '編集できませんでした')
     end
   end
 
