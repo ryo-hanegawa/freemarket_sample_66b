@@ -144,15 +144,22 @@
 
     .price {
       width: 100%;
-      margin-left: 60%;
+      height: 100%;
+      position: relative;
+      
 
       .input-box {
+        width: 25%;
+        position: absolute;
+        margin: 5px 0 5px 76%;
         display:inline-flex;
+        position: relative;
 
         .yenMark {
           font-family: initial;
           padding: 5px;
           font-size: 30px;
+          
         }
 
         .price__input-form {
