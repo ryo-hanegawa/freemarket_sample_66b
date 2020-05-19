@@ -10,6 +10,7 @@
             .signin-main__conect__lists__mail__btn
               新規会員登録
     .signin-main__conect
+      ーーー本番環境ではSNS認証を導入しておりませんーーー
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         %ul.signin-main__conect__lists
           %li.signin-main__conect__lists__facebook
@@ -30,7 +31,7 @@
           %li.signin-main__conect__lists
             .signin-main__conect__lists__reCAPTCHA
               = image_tag("https://i.gyazo.com/ce5541bb0a64b4d3a55f24edb0f9b140.png")
-              クリックできないようにしてます！
+              ーークリックできないようにしてます！ーー
           .actions
             .actions__btn
               = f.submit 'ログイン', class: "submit_btn"
