@@ -13,7 +13,6 @@ class PurchasesController < ApplicationController
       @default_card_information = customer.cards.retrieve(@card.first.card_id)
       @exp_month = @default_card_information.exp_month.to_s
       @exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-      Prefecture.data[@address.prefecture_id][:name]
       @user_address = Prefecture.data[@address.prefecture_id - 1][:name] + @address.city + @address.street + @address.building
       @postal_code = "〒" + @address.postal_code.slice(0..2) + "-" + @address.postal_code.slice(3..6)
     end
