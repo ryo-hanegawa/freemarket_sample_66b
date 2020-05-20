@@ -37,7 +37,7 @@
                   .product-user-rating
                     = image_tag("")
                     = icon('far', 'fa-smile', class: 'fa-smile-o')
-                    %span 1000
+                    %span 0
                   .product-user-rating
                     = image_tag("")
                     = icon("far", "fa-meh", class: "fa-meh-o")
@@ -106,10 +106,6 @@
           =link_to edit_item_path(@item), data: {"turbolinks"=>false} do
             .product-edit-btn
               商品の編集
-            .product-btn-or 
-              or
-            .product-stop-btn
-              出品を停止する
           =link_to item_path(@item), method: :delete, data: {"turbolinks"=>false} do
             .product-delete-btn
               この商品を削除する

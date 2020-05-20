@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   def show
     @images = @item.images
     @image = @images.first
-    @prefecture = Prefecture.data[@item.prefecture][:name]
+    @prefecture = Prefecture.data[@item.prefecture - 1][:name]
     @grandchild_category = @item.category
     @child_category = @item.category.parent
     @parent_category = @item.category.root
